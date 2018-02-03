@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="355dp"
+        android:layout_height="46dp"
+        android:text="Cancel"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="362dp" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="352dp"
+        android:layout_height="354dp"
+        android:src="@drawable/qr"
+        tools:layout_editor_absoluteY="4dp"
+        tools:layout_editor_absoluteX="16dp" />
+</android.support.constraint.ConstraintLayout>
