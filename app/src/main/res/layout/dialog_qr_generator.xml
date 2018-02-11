@@ -11,8 +11,17 @@
         android:layout_width="355dp"
         android:layout_height="46dp"
         android:text="Cancel"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="362dp" />
+        tools:layout_editor_absoluteX="15dp"
+        tools:layout_editor_absoluteY="412dp" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Scan this code at checkout"
+        android:textColor="#000000"
+        tools:layout_editor_absoluteX="108dp"
+        tools:layout_editor_absoluteY="379dp" />
 
     <ImageView
         android:id="@+id/imageView3"

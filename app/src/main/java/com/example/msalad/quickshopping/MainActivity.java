@@ -97,10 +97,10 @@ public class MainActivity extends FragmentActivity {
                 tabLayout.getTabAt(2).setText("Featured");
 
             }
-            if(i == 3){
-                tabLayout.getTabAt(3).setIcon(R.drawable.account);
-                tabLayout.getTabAt(3).setText("Account");
-            }
+//            if(i == 3){
+//                tabLayout.getTabAt(3).setIcon(R.drawable.account);
+//                tabLayout.getTabAt(3).setText("Account");
+//            }
         }
         mViewPager.setCurrentItem(0);
     }
@@ -131,18 +131,18 @@ public class MainActivity extends FragmentActivity {
                 Bundle args = new Bundle();
                 fragment.setArguments(args);
             }
-            if(i == 3){
-                fragment = new FragmentAccount();
-                Bundle args = new Bundle();
-                fragment.setArguments(args);
-            }
+//            if(i == 3){
+//                fragment = new FragmentAccount();
+//                Bundle args = new Bundle();
+//                fragment.setArguments(args);
+//            }
             return fragment;
         }
 
 
         @Override
         public int getCount() {
-            return 4;
+            return 3;
         }
 
 

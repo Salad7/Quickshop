@@ -9,13 +9,13 @@
 
     <android.support.v7.widget.CardView
         android:layout_width="348dp"
-        android:layout_height="382dp"
+        android:layout_height="372dp"
         tools:layout_editor_absoluteX="12dp"
         tools:layout_editor_absoluteY="-3dp">
 
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="382dp">
+            android:layout_height="404dp">
 
             <TextView
                 android:id="@+id/textView6"
@@ -98,8 +98,9 @@
         android:id="@+id/button5"
         android:layout_width="174dp"
         android:layout_height="57dp"
-        android:text="Button"
         android:background="@color/colorAccent"
+        android:text="Button"
+        android:visibility="gone"
         tools:layout_editor_absoluteX="12dp"
         tools:layout_editor_absoluteY="323dp" />
 
@@ -107,10 +108,30 @@
         android:id="@+id/button6"
         android:layout_width="174dp"
         android:layout_height="57dp"
-        android:text="Button"
         android:background="@color/colorPrimary"
+        android:text="Button"
 
+        android:visibility="gone"
         tools:layout_editor_absoluteX="186dp"
         tools:layout_editor_absoluteY="323dp" />
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:elevation="10dp"
+        android:src="@drawable/search_add"
+        tools:layout_editor_absoluteX="202dp"
+        tools:layout_editor_absoluteY="339dp" />
+
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:elevation="10dp"
+        android:src="@drawable/search_cancel"
+        tools:layout_editor_absoluteX="106dp"
+        tools:layout_editor_absoluteY="339dp" />
+
 
 </android.support.constraint.ConstraintLayout>

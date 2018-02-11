@@ -10,11 +10,11 @@
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="140dp"
+        android:layout_height="120dp"
+        android:layout_alignParentEnd="true"
         android:background="#ffffff"
         android:minHeight="?attr/actionBarSize"
-        android:theme="?attr/actionBarTheme"
-        android:layout_alignParentEnd="true" />
+        android:theme="?attr/actionBarTheme" />
 
     <android.support.design.widget.TabLayout
         android:layout_width="match_parent"
@@ -22,8 +22,7 @@
         android:background="#ffffff"
         android:id="@+id/tablayout"
         app:tabTextAppearance="@style/MineCustomTabText"
-        android:layout_below="@+id/toolbar"
-        android:layout_alignParentStart="true">
+        android:layout_alignParentBottom="true">
 
         <android.support.design.widget.TabItem
             android:layout_width="wrap_content"
@@ -45,17 +44,18 @@
             android:icon="@drawable/feature"
             android:text="Featured" />
 
-        <android.support.design.widget.TabItem
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:icon="@drawable/account"
-            android:text="Account" />
+        <!--<android.support.design.widget.TabItem-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:icon="@drawable/account"-->
+            <!--android:text="Account" />-->
     </android.support.design.widget.TabLayout>
     <View
         android:layout_width="match_parent"
         android:layout_height="4dp"
-        android:layout_below="@+id/tablayout"
-        android:background="@drawable/toolbar_dropshadow" />
+        android:layout_below="@+id/toolbar"
+        android:background="@drawable/toolbar_dropshadow"
+        android:id="@+id/view" />
 
     <ImageView
         android:id="@+id/cart"
@@ -81,26 +81,28 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="76dp"
         android:text="Quick Checkout"
         android:textColor="#000000"
-        android:layout_marginStart="16dp"
-        android:textSize="24dp" />
+        android:textSize="20dp"
+        android:layout_above="@+id/view"
+        android:layout_alignStart="@+id/imageView4"
+        android:layout_marginBottom="21dp" />
 
     <RelativeLayout
         android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/tablayout"
         android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true">
+        android:layout_below="@+id/toolbar"
+        android:visibility="visible"
+        android:layout_above="@+id/tablayout">
 
         <android.support.v4.view.ViewPager
             android:id="@+id/viewpager"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentStart="true">
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true">
 
         </android.support.v4.view.ViewPager>
     </RelativeLayout>
@@ -116,6 +118,16 @@
         tools:layout_editor_absoluteY="16dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#000000"
+        android:textSize="24dp"
+        android:layout_alignBottom="@+id/imageView4"
+        android:layout_centerHorizontal="true"
+        android:text="Shopply" />
 
 
 </RelativeLayout>

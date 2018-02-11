@@ -75,7 +75,7 @@ public class FragmentHistory extends Fragment {
             //this code gets references to objects in the listview_row.xml file
             TextView name = view.findViewById(R.id.item_title);
             TextView price =  view.findViewById(R.id.item_price);
-            TextView remove = view.findViewById(R.id.item_remove);
+//            TextView remove = view.findViewById(R.id.item_remove);
             ImageView more =  view.findViewById(R.id.item_more_info);
             ImageView img =  view.findViewById(R.id.item_img);
 
