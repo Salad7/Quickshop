@@ -10,7 +10,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="800dp">
+        android:layout_height="528dp">
 
         <com.arlib.floatingsearchview.FloatingSearchView
             android:id="@+id/floating_search_view"
@@ -37,9 +37,7 @@
         <GridView
             android:id="@+id/grid_items"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="4dp"
-            android:layout_marginEnd="4dp"
+            android:layout_height="528dp"
             android:background="?attr/colorPrimary"
             android:gravity="center"
             android:horizontalSpacing="6dp"
@@ -54,7 +52,8 @@
             tools:layout_constraintLeft_creator="1"
             tools:layout_constraintRight_creator="1"
             android:layout_below="@+id/floating_search_view"
-            android:layout_alignEnd="@+id/floating_search_view">
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentStart="true">
 
         </GridView>
 
