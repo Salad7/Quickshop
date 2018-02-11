@@ -11,7 +11,7 @@
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar2"
         android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_height="56dp"
         android:background="#ffffff"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
@@ -40,46 +40,49 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:layout_constraintLeft_creator="1"
         tools:layout_constraintRight_creator="1"
-        tools:layout_constraintTop_creator="1" />
+        tools:layout_constraintTop_creator="1"
+        app:layout_constraintHorizontal_bias="0.502" />
 
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="30dp"
-        android:layout_height="0dp"
-        app:srcCompat="@drawable/left"
-        tools:layout_constraintTop_creator="1"
-        tools:layout_constraintBottom_creator="1"
-        android:layout_marginStart="16dp"
-        app:layout_constraintBottom_toBottomOf="@+id/textView4"
-        tools:layout_constraintLeft_creator="1"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textView4" />
+        android:layout_height="30dp"
+        android:src="@drawable/left"
+        tools:layout_editor_absoluteY="16dp"
+        tools:layout_editor_absoluteX="7dp" />
+    <View
+        android:layout_width="0dp"
+        android:layout_height="4dp"
+        android:layout_below="@+id/toolbar2"
+        android:background="@drawable/toolbar_dropshadow"
+        android:id="@+id/view"
+        tools:layout_editor_absoluteY="56dp"
+        tools:layout_editor_absoluteX="0dp" />
 
     <ListView
-        android:layout_width="0dp"
         android:id="@+id/cart_items"
-        android:layout_height="0dp"
-        android:dividerHeight="2dp"
-        android:divider="@null"
+        android:layout_width="370dp"
+        android:layout_height="300dp"
         android:layout_margin="8dp"
-        tools:layout_constraintTop_creator="1"
-        tools:layout_constraintRight_creator="1"
-        tools:layout_constraintBottom_creator="1"
+        android:layout_marginBottom="31dp"
+        android:layout_marginTop="24dp"
+        android:divider="@null"
+        android:dividerHeight="2dp"
+        app:layout_constraintBottom_toBottomOf="@+id/tax"
+        app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView4"
+        app:layout_constraintVertical_bias="0.333"
+        tools:layout_constraintBottom_creator="1"
         tools:layout_constraintLeft_creator="1"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintHorizontal_bias="0.526"
-        app:layout_constraintVertical_bias="0.781"
-        app:layout_constraintBottom_toBottomOf="@+id/tax"
-        android:layout_marginTop="24dp"
-        android:layout_marginBottom="31dp" />
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintTop_creator="1" />
 
     <TextView
         android:id="@+id/noteTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="243dp"
+        android:layout_marginBottom="283dp"
         android:layout_marginLeft="10dp"
         android:text="Note"
         android:textColor="#007AFF"
@@ -92,19 +95,19 @@
         android:layout_marginStart="10dp" />
 
     <TextView
-        android:text="Order"
+        android:id="@+id/textView17"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="Order"
         android:textColor="#2c2d3c"
         android:textSize="24dp"
-        android:id="@+id/textView17"
-        tools:layout_constraintRight_creator="1"
-        tools:layout_constraintBottom_creator="1"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
+        tools:layout_constraintBottom_creator="1"
         tools:layout_constraintLeft_creator="1"
-        android:layout_marginBottom="16dp"
-        app:layout_constraintLeft_toLeftOf="parent" />
+        tools:layout_constraintRight_creator="1" />
 
     <TextView
         android:text="$0.00"
@@ -163,35 +166,62 @@
         android:layout_marginEnd="31dp"
         app:layout_constraintTop_toTopOf="@+id/total_tv" />
 
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:background="#ffffff"
-        android:text="Pay at cashier"
-        android:textAllCaps="false"
-        android:textSize="22dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        tools:layout_constraintBottom_creator="1"
-        tools:layout_constraintLeft_creator="1"
-        tools:layout_constraintRight_creator="1" />
-
-    <Button
+    <android.support.v7.widget.CardView
         android:id="@+id/button3"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="56dp"
+        android:layout_marginBottom="67dp"
         android:background="#ffffff"
-        android:text="Mobile Payment"
-        android:textAllCaps="false"
-        android:textSize="22dp"
+        android:elevation="8dp"
+        android:layout_height="48dp"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         tools:layout_constraintBottom_creator="1"
         tools:layout_constraintLeft_creator="1"
-        tools:layout_constraintRight_creator="1" />
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        tools:layout_constraintRight_creator="1">
+
+        <TextView
+            android:id="@+id/textView12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mobile Payment"
+            android:textColor="#000000"
+            android:layout_gravity="center"
+            android:textAllCaps="false"
+            android:textSize="22dp" />
+    </android.support.v7.widget.CardView>
+
+    <CheckBox
+        android:id="@+id/checkBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Save your cart items"
+        android:textSize="20dp"
+        tools:layout_editor_absoluteX="154dp"
+        tools:layout_editor_absoluteY="437dp" />
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/button2"
+        android:layout_width="368dp"
+        android:layout_height="48dp"
+        android:background="#ffffff"
+        android:textAllCaps="false"
+        android:visibility="visible"
+        tools:layout_editor_absoluteY="537dp"
+        tools:layout_editor_absoluteX="8dp">
+
+        <TextView
+            android:id="@+id/textView13"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Quick pay at cashier"
+            android:textAllCaps="false"
+            android:textColor="#000000"
+            android:textSize="22dp" />
+
+    </android.support.v7.widget.CardView>
 </android.support.constraint.ConstraintLayout>
