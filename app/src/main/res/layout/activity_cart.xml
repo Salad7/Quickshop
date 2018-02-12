@@ -1,245 +1,210 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
-    android:background="?attr/colorPrimary"
-
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar2"
-        android:layout_width="0dp"
-        android:layout_height="56dp"
-        android:background="#ffffff"
-        android:minHeight="?attr/actionBarSize"
-        android:theme="?attr/actionBarTheme"
-        app:layout_constraintBottom_toTopOf="@+id/cart_items"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        tools:layout_constraintBottom_creator="1"
-        tools:layout_constraintLeft_creator="1"
-        tools:layout_constraintRight_creator="1"
-        tools:layout_constraintTop_creator="1"
-        android:layout_marginBottom="10dp" />
-
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="30dp"
-        android:layout_marginTop="16dp"
-        android:text="Shopping Cart"
-        android:textColor="#000000"
-        android:textSize="24dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_constraintLeft_creator="1"
-        tools:layout_constraintRight_creator="1"
-        tools:layout_constraintTop_creator="1"
-        app:layout_constraintHorizontal_bias="0.502" />
-
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="30dp"
+    <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:src="@drawable/left"
-        tools:layout_constraintTop_creator="1"
-        tools:layout_constraintBottom_creator="1"
-        android:layout_marginStart="7dp"
-        app:layout_constraintBottom_toBottomOf="@+id/textView4"
-        tools:layout_constraintLeft_creator="1"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textView4" />
-    <View
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_below="@+id/toolbar2"
-        android:background="@drawable/toolbar_dropshadow"
-        android:id="@+id/view"
-        tools:layout_constraintTop_creator="1"
-        tools:layout_constraintRight_creator="1"
-        tools:layout_constraintBottom_creator="1"
-        app:layout_constraintBottom_toTopOf="@+id/cart_items"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar2"
-        tools:layout_constraintLeft_creator="1"
-        android:layout_marginBottom="5dp"
-        app:layout_constraintLeft_toLeftOf="parent" />
+        android:background="?attr/colorPrimary"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp">
 
-    <ListView
-        android:id="@+id/cart_items"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_margin="8dp"
-        android:layout_marginBottom="28dp"
-        android:layout_marginTop="19dp"
-        android:divider="@null"
-        android:dividerHeight="2dp"
-        app:layout_constraintBottom_toBottomOf="@+id/tax"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4"
-        app:layout_constraintVertical_bias="0.333"
-        tools:layout_constraintBottom_creator="1"
-        tools:layout_constraintLeft_creator="1"
-        tools:layout_constraintRight_creator="1"
-        tools:layout_constraintTop_creator="1"
-        android:layout_marginStart="6dp"
-        android:layout_marginEnd="6dp" />
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar2"
+            android:layout_width="0dp"
+            android:layout_height="56dp"
+            android:background="#ffffff"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme"
+            tools:layout_constraintTop_creator="1"
+            tools:layout_constraintRight_creator="1"
+            app:layout_constraintRight_toRightOf="parent"
+            tools:layout_constraintLeft_creator="1"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/noteTV"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="283dp"
-        android:layout_marginLeft="10dp"
-        android:text="Note"
-        android:textColor="#007AFF"
-        android:textSize="22sp"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="@+id/tax"
-        tools:layout_constraintBottom_creator="1"
-        tools:layout_constraintLeft_creator="1"
-        android:layout_marginStart="10dp" />
-
-    <TextView
-        android:id="@+id/textView17"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Order"
-        android:textColor="#2c2d3c"
-        android:textSize="24dp"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        tools:layout_constraintBottom_creator="1"
-        tools:layout_constraintLeft_creator="1"
-        tools:layout_constraintRight_creator="1" />
-
-    <TextView
-        android:text="$0.00"
-        android:textSize="20dp"
-        android:textColor="#2c2d3c"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/tax"
-        android:textAlignment="textEnd"
-        android:layout_marginEnd="22dp"
-        tools:layout_constraintTop_creator="1"
-        tools:layout_constraintRight_creator="1"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginTop="60dp"
-        app:layout_constraintTop_toBottomOf="@+id/noteTV"
-        android:layout_marginRight="22dp" />
-
-
-    <TextView
-        android:text="Tax"
-        android:textSize="20dp"
-        android:textColor="#2c2d3c"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView1801"
-        tools:layout_constraintRight_creator="1"
-        tools:layout_constraintBottom_creator="1"
-        app:layout_constraintBottom_toTopOf="@+id/textView18"
-        app:layout_constraintRight_toRightOf="@+id/textView18"
-        android:layout_marginBottom="8dp" />
-
-    <TextView
-        android:text="$0.00"
-        android:textSize="24dp"
-        android:textColor="#2c2d3c"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/total_tv"
-        android:textAlignment="textEnd"
-        tools:layout_constraintTop_creator="1"
-        tools:layout_constraintRight_creator="1"
-        app:layout_constraintRight_toRightOf="@+id/tax"
-        android:layout_marginTop="8dp"
-        app:layout_constraintTop_toBottomOf="@+id/tax" />
-
-    <TextView
-        android:text="Order Total"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="#2c2d3c"
-        android:textSize="24dp"
-        android:id="@+id/textView18"
-        app:layout_constraintRight_toLeftOf="@+id/total_tv"
-        tools:layout_constraintTop_creator="1"
-        tools:layout_constraintRight_creator="1"
-        android:layout_marginEnd="31dp"
-        app:layout_constraintTop_toTopOf="@+id/total_tv" />
-
-    <android.support.v7.widget.CardView
-        android:id="@+id/button3"
-        android:layout_width="0dp"
-        android:layout_marginBottom="67dp"
-        android:background="#ffffff"
-        android:elevation="8dp"
-        android:layout_height="48dp"
-        android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        tools:layout_constraintBottom_creator="1"
-        tools:layout_constraintLeft_creator="1"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        tools:layout_constraintRight_creator="1">
 
         <TextView
-            android:id="@+id/textView12"
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:text="Shopping Cart"
+            android:textColor="#000000"
+            android:textSize="24dp"
+            tools:layout_constraintTop_creator="1"
+            tools:layout_constraintRight_creator="1"
+            tools:layout_constraintBottom_creator="1"
+            app:layout_constraintBottom_toBottomOf="@+id/toolbar2"
+            app:layout_constraintRight_toRightOf="parent"
+            tools:layout_constraintLeft_creator="1"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/toolbar2" />
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="30dp"
+            android:layout_height="0dp"
+            android:src="@drawable/left"
+            tools:layout_constraintTop_creator="1"
+            tools:layout_constraintBottom_creator="1"
+            android:layout_marginStart="16dp"
+            app:layout_constraintBottom_toBottomOf="@+id/textView4"
+            tools:layout_constraintLeft_creator="1"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/textView4" />
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_below="@+id/toolbar2"
+            android:background="@drawable/toolbar_dropshadow"
+            app:layout_constraintRight_toLeftOf="parent"
+            tools:layout_constraintTop_creator="1"
+            tools:layout_constraintRight_creator="1"
+            tools:layout_constraintBottom_creator="1"
+            app:layout_constraintBottom_toBottomOf="@+id/toolbar2"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar2"
+            tools:layout_constraintLeft_creator="1"
+            app:layout_constraintLeft_toLeftOf="parent" />
+
+        <TextView
+            android:id="@+id/textView17"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Scan and Go"
-            android:textColor="#000000"
-            android:layout_gravity="center"
+            android:text="Order"
+            android:textColor="#2c2d3c"
+            android:textSize="24dp"
+            android:visibility="gone"
+            tools:layout_constraintRight_creator="1"
+            tools:layout_constraintBottom_creator="1"
+            app:layout_constraintBottom_toTopOf="@+id/button2"
+            app:layout_constraintRight_toRightOf="parent"
+            tools:layout_constraintLeft_creator="1"
+            app:layout_constraintLeft_toLeftOf="parent" />
+
+        <TextView
+            android:id="@+id/tax"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="$0.00"
+            android:textAlignment="textEnd"
+            android:textColor="#2c2d3c"
+            android:textSize="20dp"
+            tools:layout_constraintBottom_creator="1"
+            app:layout_constraintBottom_toTopOf="@+id/total_tv"
+            tools:layout_constraintLeft_creator="1"
+            android:layout_marginBottom="9dp"
+            app:layout_constraintLeft_toLeftOf="@+id/total_tv" />
+
+
+        <TextView
+            android:id="@+id/textView1801"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tax"
+            android:textColor="#2c2d3c"
+            android:textSize="20dp"
+            app:layout_constraintRight_toLeftOf="@+id/tax"
+            tools:layout_constraintRight_creator="1"
+            tools:layout_constraintBottom_creator="1"
+            app:layout_constraintBottom_toTopOf="@+id/textView18"
+            android:layout_marginEnd="31dp"
+            android:layout_marginBottom="9dp" />
+
+        <TextView
+            android:id="@+id/total_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="$0.00"
+            android:textAlignment="textEnd"
+            android:textColor="#2c2d3c"
+            android:textSize="24dp"
+            tools:layout_constraintRight_creator="1"
+            tools:layout_constraintBottom_creator="1"
+            app:layout_constraintBottom_toTopOf="@+id/checkBox"
+            android:layout_marginEnd="1dp"
+            app:layout_constraintRight_toRightOf="@+id/checkBox"
+            android:layout_marginBottom="14dp" />
+
+        <TextView
+            android:id="@+id/textView18"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Order Total"
+            android:textColor="#2c2d3c"
+            android:textSize="24dp"
+            tools:layout_constraintRight_creator="1"
+            tools:layout_constraintBottom_creator="1"
+            app:layout_constraintBottom_toTopOf="@+id/checkBox"
+            android:layout_marginEnd="1dp"
+            app:layout_constraintRight_toRightOf="@+id/textView1801"
+            android:layout_marginBottom="14dp" />
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/button3"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="#ffffff"
+            android:elevation="8dp"
+            android:visibility="visible"
+            tools:layout_constraintTop_creator="1"
+            tools:layout_constraintRight_creator="1"
+            tools:layout_constraintBottom_creator="1"
+            android:layout_marginStart="117dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginEnd="117dp"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginTop="10dp"
+            app:layout_constraintTop_toBottomOf="@+id/button2"
+            tools:layout_constraintLeft_creator="1"
+            app:layout_constraintLeft_toLeftOf="parent">
+
+            <TextView
+                android:id="@+id/textView12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Scan and Go"
+                android:textAllCaps="false"
+                android:textColor="#000000"
+                android:textSize="22dp" />
+        </android.support.v7.widget.CardView>
+
+        <CheckBox
+            android:id="@+id/checkBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Save your cart items"
+            android:textSize="20dp"
+            tools:layout_constraintTop_creator="1"
+            tools:layout_constraintRight_creator="1"
+            android:layout_marginEnd="43dp"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginTop="502dp"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginRight="52dp" />
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/button2"
+            android:layout_width="199dp"
+            android:layout_height="0dp"
+            android:background="#ffffff"
             android:textAllCaps="false"
-            android:textSize="22dp" />
-    </android.support.v7.widget.CardView>
-
-    <CheckBox
-        android:id="@+id/checkBox"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Save your cart items"
-        android:textSize="20dp"
-        tools:layout_constraintTop_creator="1"
-        android:layout_marginStart="3dp"
-        android:layout_marginTop="7dp"
-        app:layout_constraintTop_toBottomOf="@+id/total_tv"
-        tools:layout_constraintLeft_creator="1"
-        app:layout_constraintLeft_toLeftOf="@+id/textView18" />
-
-    <android.support.v7.widget.CardView
-        android:id="@+id/button2"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:background="#ffffff"
-        android:textAllCaps="false"
-        android:visibility="visible"
-        tools:layout_constraintTop_creator="1"
-        tools:layout_constraintRight_creator="1"
-        tools:layout_constraintBottom_creator="1"
-        android:layout_marginStart="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginEnd="8dp"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginTop="12dp"
-        app:layout_constraintTop_toBottomOf="@+id/button3"
-        tools:layout_constraintLeft_creator="1"
-        android:layout_marginBottom="7dp"
-        app:layout_constraintLeft_toLeftOf="parent">
+            android:visibility="visible"
+            tools:layout_constraintRight_creator="1"
+            tools:layout_constraintBottom_creator="1"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            tools:layout_constraintLeft_creator="1"
+            android:layout_marginBottom="58dp"
+            app:layout_constraintLeft_toLeftOf="parent">
 
 
             <TextView
@@ -254,5 +219,20 @@
                 tools:layout_editor_absoluteX="170dp"
                 tools:layout_editor_absoluteY="11dp" />
 
-    </android.support.v7.widget.CardView>
-</android.support.constraint.ConstraintLayout>
+        </android.support.v7.widget.CardView>
+
+        <ListView
+            android:id="@+id/cart_items"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:divider="@null"
+            android:dividerHeight="2dp"
+            tools:layout_constraintTop_creator="1"
+            tools:layout_constraintRight_creator="1"
+            app:layout_constraintRight_toRightOf="@+id/toolbar2"
+            android:layout_marginTop="38dp"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar2"
+            tools:layout_constraintLeft_creator="1"
+            app:layout_constraintLeft_toLeftOf="@+id/toolbar2" />
+    </android.support.constraint.ConstraintLayout>
+</ScrollView>
