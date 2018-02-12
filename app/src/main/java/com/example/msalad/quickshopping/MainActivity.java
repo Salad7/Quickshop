@@ -2,26 +2,42 @@ package com.example.msalad.quickshopping;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
+import android.support.design.widget.NavigationView;
+import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
+import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.ListView;
+import android.widget.Toast;
 
-public class MainActivity extends FragmentActivity {
+public class MainActivity extends FragmentActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     FragmentManager fragmentManager;
     public ViewPager mViewPager;
     public TabLayout tabLayout;
     public PagerAdapter pagerAdapter;
     public ImageView cart_iv;
+    Toolbar toolbar;
     Fragment fragment;
+    private DrawerLayout mDrawerLayout;
+    private NavigationView mNavView;
+    ActionBarDrawerToggle toggle;
+
 
 
     @Override
@@ -32,6 +48,7 @@ public class MainActivity extends FragmentActivity {
         tabLayout = (TabLayout) findViewById(R.id.tablayout);
         pagerAdapter = new PagerAdapter(fragmentManager);
         mViewPager = (ViewPager) findViewById(R.id.viewpager);
+        toolbar = findViewById(R.id.toolbar);
         cart_iv = findViewById(R.id.cart);
         cart_iv.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -41,8 +58,20 @@ public class MainActivity extends FragmentActivity {
             }
         });
         setUpTablayout();
+        setupNavigationDrawer();
 
 
+    }
+
+    public void setupNavigationDrawer(){
+        mViewPager = (ViewPager) findViewById(R.id.viewpager);
+        mNavView = (NavigationView) findViewById(R.id.navigation);
+        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        mNavView.setNavigationItemSelectedListener(MainActivity.this);
+        toggle = new ActionBarDrawerToggle(
+                this, mDrawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        mDrawerLayout.setDrawerListener(toggle);
+        toggle.syncState();
     }
 
 
@@ -97,21 +126,32 @@ public class MainActivity extends FragmentActivity {
                 tabLayout.getTabAt(2).setText("Featured");
 
             }
-//            if(i == 3){
-//                tabLayout.getTabAt(3).setIcon(R.drawable.account);
-//                tabLayout.getTabAt(3).setText("Account");
-//            }
         }
         mViewPager.setCurrentItem(0);
     }
+    @SuppressWarnings("StatementWithEmptyBody")
+    @Override
+    public boolean onNavigationItemSelected(MenuItem item) {
+        // Handle navigation view item clicks here.
+        int id = item.getItemId();
 
-    public class PagerAdapter extends FragmentStatePagerAdapter {
+        if (id == R.id.change_stores) {
+            Toast.makeText(this,"Changing stores",Toast.LENGTH_SHORT).show();
+        } else if (id == R.id.lookup) {
+            Toast.makeText(this,"Lookup Item",Toast.LENGTH_SHORT).show();
+        }
+        //DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        mDrawerLayout.closeDrawer(GravityCompat.START);
+        return true;
+    }
 
 
+
+
+        public class PagerAdapter extends FragmentStatePagerAdapter {
         PagerAdapter(FragmentManager fm) {
             super(fm);
         }
-
         @Override
         public Fragment getItem(int i) {
             if(i == 0){
@@ -144,7 +184,5 @@ public class MainActivity extends FragmentActivity {
         public int getCount() {
             return 3;
         }
-
-
     }
 }

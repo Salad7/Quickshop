@@ -1,33 +1,15 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    tools:context="org.jmonkeyengine.jme3androidexamples.MainActivity">
+    xmlns:tools="http://schemas.android.com/tools">
 
     <item
-        android:id="@+id/optionMouseEvents"
+        android:id="@+id/change_stores"
         android:orderInCategory="100"
-        android:title="Sample"
+        android:title="Change Stores"
         app:showAsAction="never" />
     <item
-        android:id="@+id/optionJoystickEvents"
+        android:id="@+id/lookup"
         android:orderInCategory="200"
-        android:title="Sample"
+        android:title="Lookup Item"
         app:showAsAction="never" />
-    <item
-        android:id="@+id/optionKeyEvents"
-        android:orderInCategory="300"
-        android:title="Sample"
-        app:showAsAction="never" />
-
-    <item
-        android:id="@+id/optionVerboseLogging"
-        android:orderInCategory="300"
-        android:title="Sample"
-        app:showAsAction="never" />
-
-    <!--
-                android:icon="@mipmap/redmonkey"
-                android:icon="@mipmap/greenmonkey"
-                android:icon="@mipmap/bluemonkey"
-        -->
 </menu>
