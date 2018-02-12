@@ -1,5 +1,6 @@
 package com.example.msalad.quickshopping;
 
+import android.app.ActionBar;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
@@ -17,16 +18,21 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.Transformation;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
+
+import com.arlib.floatingsearchview.FloatingSearchView;
 
 public class MainActivity extends FragmentActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -189,4 +195,6 @@ public class MainActivity extends FragmentActivity implements NavigationView.OnN
             return 3;
         }
     }
+
+
 }

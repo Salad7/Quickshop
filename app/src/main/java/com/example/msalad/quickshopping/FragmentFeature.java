@@ -4,15 +4,22 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.Transformation;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.arlib.floatingsearchview.FloatingSearchView;
+
+import net.cachapa.expandablelayout.ExpandableLayout;
 
 import java.util.ArrayList;
 
@@ -26,11 +33,21 @@ public class FragmentFeature extends Fragment {
     GridAdapter gridAdapter;
     GridView grid;
     Item item;
+    FloatingSearchView floatingSearchView;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_feature,container,false);
         grid = v.findViewById(R.id.grid_items);
+        floatingSearchView = v.findViewById(R.id.floating_search_view);
+        floatingSearchView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+
+            }
+        });
+
         loadGridItems();
 
 
@@ -59,6 +76,7 @@ public class FragmentFeature extends Fragment {
 
 
     }
+
 
     public class GridAdapter extends BaseAdapter {
         ArrayList<Item> itemArrayAdapter;
@@ -100,4 +118,6 @@ public class FragmentFeature extends Fragment {
             return convertView;
         }
     }
+
+
 }
