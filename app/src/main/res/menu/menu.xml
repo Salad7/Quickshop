@@ -6,10 +6,24 @@
         android:id="@+id/change_stores"
         android:orderInCategory="100"
         android:title="Change Stores"
+        android:icon="@drawable/store_change"
         app:showAsAction="never" />
     <item
         android:id="@+id/lookup"
         android:orderInCategory="200"
         android:title="Lookup Item"
+        android:icon="@drawable/lookup"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/feedback"
+        android:orderInCategory="200"
+        android:title="Help us with feeback"
+        android:icon="@drawable/lookup"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/share"
+        android:orderInCategory="200"
+        android:title="Share app"
+        android:icon="@drawable/lookup"
         app:showAsAction="never" />
 </menu>

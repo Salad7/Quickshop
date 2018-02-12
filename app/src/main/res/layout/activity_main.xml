@@ -138,7 +138,7 @@ android:layout_height="match_parent">
 <!-- The navigation drawer -->
 <android.support.design.widget.NavigationView
     android:id="@+id/navigation"
-    android:layout_width="wrap_content"
+    android:layout_width="260dp"
     android:layout_height="match_parent"
     android:layout_gravity="start"
     app:headerLayout="@layout/navigation_header"
