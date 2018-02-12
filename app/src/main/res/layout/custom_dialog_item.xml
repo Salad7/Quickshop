@@ -1,167 +1,148 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_marginStart="4dp"
-    android:layout_marginEnd="4dp"
-    android:layout_marginTop="4dp"
-    android:layout_marginBottom="4dp"
-    android:layout_height="124dp"
-    android:orientation="vertical">
+    android:layout_height="wrap_content">
+
 
     <android.support.v7.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="120dp"
+        android:layout_width="0dp"
+        android:layout_height="96dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
         android:elevation="4dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         tools:layout_constraintBottom_creator="1"
         tools:layout_constraintLeft_creator="1"
-        tools:layout_constraintRight_creator="1"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true">
+        tools:layout_constraintRight_creator="1">
 
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:layout_editor_absoluteY="0dp"
-            tools:layout_editor_absoluteX="0dp">
-
-            <ImageView
-                android:id="@+id/item_img"
-                android:layout_width="96dp"
-                android:layout_height="96dp"
-                android:padding="8dp"
-                android:src="@drawable/cart_img"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                tools:layout_constraintBottom_creator="1"
-                tools:layout_constraintLeft_creator="1"
-                tools:layout_constraintRight_creator="1"
-                android:layout_centerVertical="true"
-                android:layout_centerHorizontal="true"
-                app:layout_constraintHorizontal_bias="0.128"
-                android:layout_marginBottom="12dp" />
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="0dp">
 
             <TextView
                 android:id="@+id/item_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="48dp"
                 android:text="Expensive Jacket"
                 android:textColor="#000000"
                 android:textSize="20dp"
                 app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintHorizontal_bias="0.502"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 tools:layout_constraintBottom_creator="1"
                 tools:layout_constraintLeft_creator="1"
-                tools:layout_constraintRight_creator="1"
-                app:layout_constraintHorizontal_bias="0.654"
-                android:layout_marginBottom="80dp" />
+                tools:layout_constraintRight_creator="1" />
 
             <TextView
                 android:id="@+id/item_price"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="20dp"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:layout_marginBottom="16dp"
                 android:text="$5,319.00"
                 android:textColor="#2c2d3c"
+                android:textSize="20dp"
                 app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintHorizontal_bias="0.617"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 tools:layout_constraintBottom_creator="1"
                 tools:layout_constraintLeft_creator="1"
-                tools:layout_constraintRight_creator="1"
-                android:layout_centerVertical="true"
-                android:layout_centerHorizontal="true"
-                android:layout_marginBottom="33dp"
-                app:layout_constraintHorizontal_bias="0.582" />
+                tools:layout_constraintRight_creator="1" />
 
             <!--<TextView-->
-                <!--android:id="@+id/item_remove"-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:text="More Info"-->
-                <!--android:textColor="#2c2d3c"-->
-                <!--tools:layout_editor_absoluteY="76dp"-->
-                <!--tools:layout_editor_absoluteX="199dp" />-->
+            <!--android:id="@+id/item_remove"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="More Info"-->
+            <!--android:textColor="#2c2d3c"-->
+            <!--tools:layout_editor_absoluteY="76dp"-->
+            <!--tools:layout_editor_absoluteX="199dp" />-->
 
             <ImageView
                 android:id="@+id/item_more_info"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
+                android:layout_marginBottom="48dp"
+                android:layout_marginLeft="8dp"
                 android:src="@android:drawable/ic_menu_delete"
                 android:tint="@color/colorPrimary"
                 app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintHorizontal_bias="0.044"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 tools:layout_constraintBottom_creator="1"
                 tools:layout_constraintLeft_creator="1"
-                tools:layout_constraintRight_creator="1"
-                app:layout_constraintHorizontal_bias="0.036"
-                android:layout_marginBottom="84dp" />
+                tools:layout_constraintRight_creator="1" />
 
             <EditText
                 android:id="@+id/editText"
                 android:layout_width="54dp"
                 android:layout_height="40dp"
+                android:layout_marginBottom="28dp"
                 android:ems="10"
+                android:enabled="false"
                 android:gravity="center"
                 android:inputType="number"
                 android:text="1"
-                android:enabled="false"
-                android:textColor="#000000"
 
+                android:textColor="#000000"
                 app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintHorizontal_bias="0.951"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 tools:layout_constraintBottom_creator="1"
                 tools:layout_constraintLeft_creator="1"
-                tools:layout_constraintRight_creator="1"
-                app:layout_constraintHorizontal_bias="0.951"
-                android:layout_marginBottom="33dp" />
+                tools:layout_constraintRight_creator="1" />
 
             <ImageView
                 android:id="@+id/imageButton"
                 android:layout_width="21dp"
                 android:layout_height="20dp"
-                android:scaleY="3.5"
-                android:scaleX="4.0"
-                android:src="@drawable/up2"
-                android:padding="0dp"
+                android:layout_marginBottom="72dp"
                 android:adjustViewBounds="true"
+                android:padding="0dp"
+                android:scaleX="4.0"
+                android:scaleY="3.5"
+                android:src="@drawable/up2"
                 app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintHorizontal_bias="0.914"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 tools:layout_constraintBottom_creator="1"
                 tools:layout_constraintLeft_creator="1"
-                tools:layout_constraintRight_creator="1"
-                app:layout_constraintHorizontal_bias="0.914"
-                android:layout_marginBottom="73dp" />
+                tools:layout_constraintRight_creator="1" />
 
             <ImageView
                 android:id="@+id/imageButton2"
                 android:layout_width="21dp"
                 android:layout_height="20dp"
-                android:scaleY="3.5"
-                android:scaleX="4.0"
-                android:rotation="180"
-                android:src="@drawable/up2"
-                android:padding="0dp"
+                android:layout_marginBottom="5dp"
                 android:adjustViewBounds="true"
+                android:padding="0dp"
+                android:rotation="180"
+                android:scaleX="4.0"
+                android:scaleY="3.5"
+                android:src="@drawable/up2"
                 app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintHorizontal_bias="0.914"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 tools:layout_constraintBottom_creator="1"
                 tools:layout_constraintLeft_creator="1"
-                tools:layout_constraintRight_creator="1"
-                app:layout_constraintHorizontal_bias="0.914"
-                android:layout_marginBottom="12dp" />
+                tools:layout_constraintRight_creator="1" />
 
         </android.support.constraint.ConstraintLayout>
     </android.support.v7.widget.CardView>
 
-</RelativeLayout>
+</android.support.constraint.ConstraintLayout>

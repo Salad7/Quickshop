@@ -14,7 +14,7 @@ android:layout_height="match_parent">
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="120dp"
+        android:layout_height="64dp"
         android:layout_alignParentEnd="true"
         android:background="#ffffff"
         android:minHeight="?attr/actionBarSize"
@@ -36,17 +36,17 @@ android:layout_height="match_parent">
 
 
         <android.support.design.widget.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:icon="@drawable/feature"
+            android:text="Featured" />
+
+        <android.support.design.widget.TabItem
             android:id="@+id/tabItem"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:icon="@drawable/list"
             android:text="History" />
-
-        <android.support.design.widget.TabItem
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:icon="@drawable/feature"
-            android:text="Featured" />
 
     </android.support.design.widget.TabLayout>
     <View
@@ -93,12 +93,13 @@ android:layout_height="match_parent">
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_above="@+id/view"
+        android:layout_alignStart="@+id/imageView4"
+        android:layout_marginBottom="21dp"
         android:text="Quick Checkout"
         android:textColor="#000000"
         android:textSize="20dp"
-        android:layout_above="@+id/view"
-        android:layout_alignStart="@+id/imageView4"
-        android:layout_marginBottom="21dp" />
+        android:visibility="gone" />
 
     <RelativeLayout
         android:id="@+id/container"
