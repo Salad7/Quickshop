@@ -3,26 +3,32 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="600dp">
+    android:layout_height="match_parent"
+    android:fillViewport="true">
 
-    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="600dp"
+        android:layout_height="match_parent"
         android:background="@color/colorBKG">
 
         <android.support.v7.widget.CardView
-            android:id="@+id/button3"
-            android:layout_width="304dp"
+            android:id="@+id/scanandgo"
+            android:layout_width="0dp"
             android:layout_height="42dp"
-            android:layout_marginBottom="8dp"
+            android:layout_marginBottom="7dp"
             android:background="#ffffff"
             android:elevation="8dp"
             android:visibility="visible"
             app:cardElevation="4dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            tools:layout_editor_absoluteX="8dp">
+            tools:layout_constraintRight_creator="1"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintRight_toRightOf="parent"
+            tools:layout_constraintLeft_creator="1"
+            app:layout_constraintLeft_toLeftOf="parent">
 
             <TextView
                 android:id="@+id/textView12"
@@ -38,7 +44,7 @@
 
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar2"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="56dp"
             android:background="#ffffff"
             android:minHeight="?attr/actionBarSize"
@@ -54,13 +60,19 @@
             android:id="@+id/textView4"
             android:layout_width="wrap_content"
             android:layout_height="28dp"
-            android:layout_below="@+id/button3"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="14dp"
             android:gravity="center"
             android:text="Shopping Cart"
             android:textColor="#000000"
-            android:textSize="24dp" />
+            android:textSize="24dp"
+            tools:layout_constraintTop_creator="1"
+            tools:layout_constraintRight_creator="1"
+            tools:layout_constraintBottom_creator="1"
+            app:layout_constraintBottom_toBottomOf="@+id/toolbar2"
+            app:layout_constraintRight_toRightOf="parent"
+            tools:layout_constraintLeft_creator="1"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/toolbar2" />
 
         <ImageView
             android:id="@+id/imageView2"
@@ -68,7 +80,6 @@
             android:layout_height="30dp"
             android:layout_alignTop="@+id/textView4"
             android:layout_marginStart="21dp"
-            android:layout_toEndOf="@+id/dasdas"
             android:src="@drawable/left"
             app:layout_constraintBottom_toBottomOf="@+id/textView4"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -79,39 +90,23 @@
 
 
         <android.support.v7.widget.CardView
-            android:id="@+id/button2"
-            android:layout_width="304dp"
-            android:layout_height="42dp"
-            android:layout_marginStart="4dp"
-            android:background="#ffffff"
-            android:elevation="4dp"
-            android:textAllCaps="false"
-            android:visibility="gone"
-            tools:layout_editor_absoluteX="9dp"
-            tools:layout_editor_absoluteY="426dp">
-
-
-            <TextView
-                android:id="@+id/textView13"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="Quick pay at cashier"
-                android:textAllCaps="false"
-                android:textColor="#000000"
-                android:textSize="22dp">
-
-            </TextView>
-        </android.support.v7.widget.CardView>
-
-        <android.support.v7.widget.CardView
             android:id="@+id/cardView4"
-            android:layout_width="304dp"
-            android:layout_height="148dp"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
             android:elevation="4dp"
-            android:visibility="gone"
-            tools:layout_editor_absoluteX="8dp"
-            tools:layout_editor_absoluteY="139dp">
+            android:visibility="visible"
+            tools:layout_constraintRight_creator="1"
+            tools:layout_constraintBottom_creator="1"
+            app:layout_constraintBottom_toTopOf="@+id/extraoptions"
+            app:layout_constraintRight_toRightOf="@+id/extraoptions"
+            tools:layout_constraintLeft_creator="1"
+            android:layout_marginBottom="13dp"
+            app:layout_constraintLeft_toLeftOf="@+id/extraoptions"
+            android:layout_marginTop="14dp"
+            app:layout_constraintTop_toBottomOf="@+id/cart_items"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintVertical_bias="0.545"
+            tools:layout_constraintTop_creator="1">
 
             <android.support.constraint.ConstraintLayout
                 android:layout_width="match_parent"
@@ -126,8 +121,14 @@
                     android:textColor="#2c2d3c"
                     android:textSize="20dp"
                     android:visibility="visible"
-                    tools:layout_editor_absoluteX="227dp"
-                    tools:layout_editor_absoluteY="16dp" />
+                    tools:layout_constraintRight_creator="1"
+                    android:layout_marginStart="6dp"
+                    android:layout_marginEnd="6dp"
+                    app:layout_constraintRight_toRightOf="parent"
+                    tools:layout_constraintLeft_creator="1"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_editor_absoluteY="16dp"
+                    app:layout_constraintHorizontal_bias="0.934" />
 
                 <TextView
                     android:id="@+id/textView22"
@@ -137,8 +138,14 @@
                     android:textAlignment="textEnd"
                     android:textColor="#2c2d3c"
                     android:textSize="20dp"
-                    tools:layout_editor_absoluteX="238dp"
-                    tools:layout_editor_absoluteY="58dp" />
+                    tools:layout_constraintRight_creator="1"
+                    android:layout_marginStart="6dp"
+                    android:layout_marginEnd="6dp"
+                    app:layout_constraintRight_toRightOf="parent"
+                    tools:layout_constraintLeft_creator="1"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_editor_absoluteY="52dp"
+                    app:layout_constraintHorizontal_bias="0.937" />
 
                 <TextView
                     android:id="@+id/total_tv"
@@ -148,8 +155,14 @@
                     android:textAlignment="textEnd"
                     android:textColor="#2c2d3c"
                     android:textSize="24dp"
-                    tools:layout_editor_absoluteX="215dp"
-                    tools:layout_editor_absoluteY="104dp" />
+                    tools:layout_constraintRight_creator="1"
+                    android:layout_marginStart="6dp"
+                    android:layout_marginEnd="6dp"
+                    app:layout_constraintRight_toRightOf="parent"
+                    tools:layout_constraintLeft_creator="1"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintHorizontal_bias="0.93"
+                    app:layout_editor_absoluteY="91dp" />
 
                 <TextView
                     android:id="@+id/textView1801"
@@ -158,8 +171,14 @@
                     android:text="Subtotal"
                     android:textColor="#2c2d3c"
                     android:textSize="20dp"
-                    tools:layout_editor_absoluteX="126dp"
-                    tools:layout_editor_absoluteY="16dp" />
+                    tools:layout_constraintRight_creator="1"
+                    android:layout_marginStart="6dp"
+                    android:layout_marginEnd="6dp"
+                    app:layout_constraintRight_toRightOf="parent"
+                    tools:layout_constraintLeft_creator="1"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_editor_absoluteY="16dp"
+                    app:layout_constraintHorizontal_bias="0.502" />
 
                 <TextView
                     android:id="@+id/textView21"
@@ -168,29 +187,58 @@
                     android:text="Tax"
                     android:textColor="#2c2d3c"
                     android:textSize="20dp"
-                    tools:layout_editor_absoluteX="170dp"
-                    tools:layout_editor_absoluteY="58dp" />
+                    tools:layout_constraintRight_creator="1"
+                    android:layout_marginStart="6dp"
+                    android:layout_marginEnd="6dp"
+                    app:layout_constraintRight_toRightOf="parent"
+                    tools:layout_constraintLeft_creator="1"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_editor_absoluteY="52dp"
+                    app:layout_constraintHorizontal_bias="0.583" />
 
                 <TextView
                     android:id="@+id/textView18"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Order Total"
+                    android:text="Total Due"
                     android:textColor="#2c2d3c"
                     android:textSize="24dp"
-                    tools:layout_editor_absoluteX="82dp"
-                    tools:layout_editor_absoluteY="104dp" />
+                    tools:layout_constraintRight_creator="1"
+                    app:layout_constraintRight_toRightOf="parent"
+                    tools:layout_constraintLeft_creator="1"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintHorizontal_bias="0.437"
+                    app:layout_editor_absoluteY="91dp" />
+
+                <ImageView
+                    android:id="@+id/imageView9"
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    android:src="@drawable/target"
+                    tools:layout_constraintRight_creator="1"
+                    android:layout_marginStart="6dp"
+                    android:layout_marginEnd="6dp"
+                    app:layout_constraintRight_toRightOf="parent"
+                    tools:layout_constraintLeft_creator="1"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintHorizontal_bias="0.064"
+                    app:layout_editor_absoluteY="36dp" />
             </android.support.constraint.ConstraintLayout>
         </android.support.v7.widget.CardView>
 
         <android.support.v7.widget.CardView
-            android:layout_width="304dp"
-            android:layout_height="124dp"
-            android:layout_marginTop="8dp"
+            android:id="@+id/extraoptions"
+            android:layout_width="0dp"
+            android:layout_height="128dp"
             android:elevation="2dp"
-            android:visibility="gone"
-            app:layout_constraintTop_toBottomOf="@+id/cardView4"
-            tools:layout_editor_absoluteX="8dp">
+            android:visibility="visible"
+            tools:layout_constraintRight_creator="1"
+            tools:layout_constraintBottom_creator="1"
+            app:layout_constraintBottom_toTopOf="@+id/quickpay"
+            app:layout_constraintRight_toRightOf="@+id/quickpay"
+            tools:layout_constraintLeft_creator="1"
+            android:layout_marginBottom="12dp"
+            app:layout_constraintLeft_toLeftOf="@+id/quickpay">
 
             <android.support.constraint.ConstraintLayout
                 android:layout_width="match_parent"
@@ -199,52 +247,107 @@
                 <Button
                     android:id="@+id/button8"
                     android:layout_width="116dp"
-                    android:layout_height="42dp"
+                    android:layout_height="48dp"
                     android:background="#00B2FF"
                     android:text="Rate App"
                     android:textAllCaps="false"
                     android:textColor="#ffffff"
                     android:textSize="18dp"
-                    tools:layout_editor_absoluteX="25dp"
-                    tools:layout_editor_absoluteY="66dp" />
+                    app:layout_editor_absoluteY="64dp"
+                    tools:layout_constraintRight_creator="1"
+                    android:layout_marginStart="6dp"
+                    android:layout_marginEnd="6dp"
+                    app:layout_constraintRight_toRightOf="parent"
+                    tools:layout_constraintLeft_creator="1"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintHorizontal_bias="0.914" />
 
                 <Button
                     android:id="@+id/button11"
                     android:layout_width="116dp"
-                    android:layout_height="42dp"
+                    android:layout_height="48dp"
                     android:background="#00B2FF"
                     android:text="Share App"
                     android:textAllCaps="false"
                     android:textColor="#ffffff"
                     android:textSize="18dp"
-                    tools:layout_editor_absoluteX="164dp"
-                    tools:layout_editor_absoluteY="66dp" />
+                    tools:layout_constraintRight_creator="1"
+                    android:layout_marginStart="6dp"
+                    android:layout_marginEnd="6dp"
+                    app:layout_constraintRight_toRightOf="parent"
+                    tools:layout_constraintLeft_creator="1"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintHorizontal_bias="0.085"
+                    app:layout_editor_absoluteY="64dp" />
+
 
                 <Switch
                     android:id="@+id/switch3"
-                    android:layout_width="255dp"
-                    android:layout_height="32dp"
-                    android:layout_marginEnd="43dp"
+                    android:layout_width="264dp"
+                    android:layout_height="27dp"
                     android:text="Save your cart items"
                     android:textSize="20dp"
-                    tools:layout_editor_absoluteX="25dp"
-                    tools:layout_editor_absoluteY="16dp" />
+                    app:layout_editor_absoluteY="24dp"
+                    tools:layout_constraintRight_creator="1"
+                    android:layout_marginStart="6dp"
+                    android:layout_marginEnd="6dp"
+                    app:layout_constraintRight_toRightOf="parent"
+                    tools:layout_constraintLeft_creator="1"
+                    app:layout_constraintLeft_toLeftOf="parent" />
             </android.support.constraint.ConstraintLayout>
         </android.support.v7.widget.CardView>
 
 
         <ListView
             android:id="@+id/cart_items"
-            android:layout_width="308dp"
-            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
             android:layout_below="@+id/toolbar2"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="14dp"
             android:divider="@null"
             android:dividerHeight="2dp"
             android:visibility="visible"
-            tools:layout_editor_absoluteX="6dp"
-            tools:layout_editor_absoluteY="64dp" />
+            tools:layout_constraintTop_creator="1"
+            tools:layout_constraintRight_creator="1"
+            android:layout_marginStart="6dp"
+            android:layout_marginEnd="6dp"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginTop="15dp"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar2"
+            tools:layout_constraintLeft_creator="1"
+            app:layout_constraintLeft_toLeftOf="parent" />
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/quickpay"
+            android:layout_width="0dp"
+            android:layout_height="42dp"
+            android:background="#ffffff"
+            android:elevation="8dp"
+            android:textAllCaps="false"
+            android:visibility="visible"
+            tools:layout_constraintRight_creator="1"
+            tools:layout_constraintBottom_creator="1"
+            android:layout_marginStart="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintRight_toRightOf="parent"
+            tools:layout_constraintLeft_creator="1"
+            android:layout_marginBottom="57dp"
+            app:layout_constraintLeft_toLeftOf="parent">
+            <TextView
+                android:id="@+id/textView13"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Quick pay at cashier"
+                android:textAlignment="center"
+                android:textAllCaps="false"
+                android:textColor="#000000"
+                android:textSize="22dp">
+            </TextView>
+        </android.support.v7.widget.CardView>
+
+
 
     </android.support.constraint.ConstraintLayout>
 </ScrollView>
