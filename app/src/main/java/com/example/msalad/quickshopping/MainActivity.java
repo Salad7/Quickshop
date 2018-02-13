@@ -80,6 +80,7 @@ public class MainActivity extends FragmentActivity implements NavigationView.OnN
 
     }
 
+
     public void loadDB(){
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         ////////////// Code that builds stores with their items lists and builds carts /////////////////////////////////////////////////////////////
@@ -101,8 +102,6 @@ public class MainActivity extends FragmentActivity implements NavigationView.OnN
         CartListOfItems cart = new CartListOfItems();
         cart.addToCart(notebook);
         cart.addToCart(toyCar);
-
-        //System.out.print(cart);
     }
 
     public void setupNavigationDrawer(){
