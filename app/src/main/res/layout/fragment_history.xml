@@ -10,10 +10,8 @@
     <ListView
         android:id="@+id/history_list"
 
-        android:dividerHeight="10dp"
+        android:dividerHeight="4dp"
         android:divider="@null"
-        android:layout_margin="8dp"
-
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 </RelativeLayout>
