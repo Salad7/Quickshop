@@ -32,7 +32,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:textSize="20dp"
-                android:text="Could not find scanned item(s)"
+                android:text="Could not find scanned cartItem(s)"
                 tools:layout_editor_absoluteY="32dp"
                 tools:layout_editor_absoluteX="8dp" />
         </android.support.constraint.ConstraintLayout>

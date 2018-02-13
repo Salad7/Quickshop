@@ -3,18 +3,18 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <cartItem name="colorPrimary">@color/colorPrimary</cartItem>
+        <cartItem name="colorPrimaryDark">@color/colorPrimaryDark</cartItem>
+        <cartItem name="colorAccent">@color/colorAccent</cartItem>
     </style>
     <style name="Theme.AppCompat.Light.NoActionBar.FullScreen" parent="@style/Theme.AppCompat.Light">
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
-        <item name="android:windowFullscreen">true</item>
-        <item name="android:windowContentOverlay">@null</item>
+        <cartItem name="windowActionBar">false</cartItem>
+        <cartItem name="windowNoTitle">true</cartItem>
+        <cartItem name="android:windowFullscreen">true</cartItem>
+        <cartItem name="android:windowContentOverlay">@null</cartItem>
     </style>
     <style name="MineCustomTabText" parent="TextAppearance.Design.Tab">
-        <item name="android:textSize">10dp</item>
+        <cartItem name="android:textSize">10dp</cartItem>
 
     </style>
 

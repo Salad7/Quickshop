@@ -33,6 +33,11 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.arlib.floatingsearchview.FloatingSearchView;
+import com.example.msalad.quickshopping.Database.CartItem;
+import com.example.msalad.quickshopping.Database.CartListOfItems;
+import com.example.msalad.quickshopping.Database.InventoryItem;
+
+import java.util.HashMap;
 
 public class MainActivity extends FragmentActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -46,6 +51,8 @@ public class MainActivity extends FragmentActivity implements NavigationView.OnN
     private DrawerLayout mDrawerLayout;
     private NavigationView mNavView;
     ActionBarDrawerToggle toggle;
+    private HashMap<String, InventoryItem> sampleData; //Our hashmap with sample data on items
+    private HashMap<String, InventoryItem> storeB_Data; //Our hashmap with items in store B
 
 
 
@@ -68,8 +75,34 @@ public class MainActivity extends FragmentActivity implements NavigationView.OnN
         });
         setUpTablayout();
         setupNavigationDrawer();
+        loadDB();
 
 
+    }
+
+    public void loadDB(){
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        ////////////// Code that builds stores with their items lists and builds carts /////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        sampleData = new HashMap<>(); //Make 1 hashmap per store (each has that store's items)
+        storeB_Data = new HashMap<>(); //Hashmap that has items of store B
+
+        //Add new item to HashMap of items
+        sampleData.put("026229212703", new InventoryItem(1.99, "Notebook", "http://www.ryman.co.uk/media/catalog/product/0/3/0399030007.jpg", "Others","026229212703"));
+        sampleData.put("026229345613", new InventoryItem(2.99, "Toy Car", "http://www.ryman.co.uk/media/catalog/product/0/3/0399030007.jpg", "Others","026229345613"));
+
+
+        //This data will be populated into instance objects on each scan and "add to cart" /////////////////////////////
+        //LAST INPUT (in this case, 1) IS THE QUANTITY. SHOULD BE SET TO WHATEVER IS ASSIGNED FROM THE DIALOGUE BOX
+        CartItem notebook = new CartItem(sampleData.get("026229212703").getPrice(), sampleData.get("026229212703").getName(), sampleData.get("026229212703").getImage(), sampleData.get("026229212703").getSalesTaxGroup(), sampleData.get("026229212703").getItemKey(), 1);
+        CartItem toyCar = new CartItem(sampleData.get("026229345613").getPrice(), sampleData.get("026229345613").getName(), sampleData.get("026229345613").getImage(), sampleData.get("026229345613").getSalesTaxGroup(), sampleData.get("026229345613").getItemKey(), 1);
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+        CartListOfItems cart = new CartListOfItems();
+        cart.addToCart(notebook);
+        cart.addToCart(toyCar);
+
+        //System.out.print(cart);
     }
 
     public void setupNavigationDrawer(){
@@ -147,7 +180,7 @@ public class MainActivity extends FragmentActivity implements NavigationView.OnN
         if (id == R.id.change_stores) {
             Toast.makeText(this,"Changing stores",Toast.LENGTH_SHORT).show();
         } else if (id == R.id.lookup) {
-            Toast.makeText(this,"Lookup Item",Toast.LENGTH_SHORT).show();
+            Toast.makeText(this,"Lookup CartItem",Toast.LENGTH_SHORT).show();
         }
         //DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         mDrawerLayout.closeDrawer(GravityCompat.START);
