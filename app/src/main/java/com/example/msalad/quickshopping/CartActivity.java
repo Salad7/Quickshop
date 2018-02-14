@@ -44,7 +44,7 @@ public class CartActivity extends AppCompatActivity {
         items.add(item);
         customCartItemAdapter = new CustomCartItemAdapter(this,R.layout.custom_shopping_item,items);
         listView.setAdapter(customCartItemAdapter);
-        setListViewHeightBasedOnChildren(listView);
+        //setListViewHeightBasedOnChildren(listView);
     }
 
     public class CustomCartItemAdapter extends ArrayAdapter<Item> {
