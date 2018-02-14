@@ -9,12 +9,6 @@
         android:icon="@drawable/store_change"
         app:showAsAction="never" />
     <cartItem
-        android:id="@+id/lookup"
-        android:orderInCategory="200"
-        android:title="Lookup Item"
-        android:icon="@drawable/lookup"
-        app:showAsAction="never" />
-    <cartItem
         android:id="@+id/feedback"
         android:orderInCategory="200"
         android:title="Help us with feeback"

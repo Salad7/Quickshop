@@ -180,8 +180,6 @@ public class MainActivity extends FragmentActivity implements NavigationView.OnN
             Toast.makeText(this,"Changing stores",Toast.LENGTH_SHORT).show();
             Intent i = new Intent(MainActivity.this,SelectStoreActivity.class);
             startActivity(i);
-        } else if (id == R.id.lookup) {
-            Toast.makeText(this,"Lookup CartItem",Toast.LENGTH_SHORT).show();
         }
         //DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         mDrawerLayout.closeDrawer(GravityCompat.START);

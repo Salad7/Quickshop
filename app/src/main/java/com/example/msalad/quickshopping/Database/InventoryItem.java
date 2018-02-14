@@ -22,7 +22,7 @@ public class InventoryItem {
         taxGroups.put("Electronics", 0.07);
         taxGroups.put("Cosmetics & Toiletries", 0.05);
         taxGroups.put("Others", 0.06);
-        this.price = price + (price * taxGroups.get(salesTaxGroup));
+        this.price = price; //+ (price * taxGroups.get(salesTaxGroup));
         this.name = name;
         this.image = image;
         itemKey = key;
