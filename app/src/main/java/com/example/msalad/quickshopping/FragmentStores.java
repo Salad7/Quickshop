@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,8 +35,8 @@ public class FragmentStores extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_stores,container,false);
         gridView = v.findViewById(R.id.grid_stores);
+        stores = new ArrayList<>();
         loadStores();
-        loadGrid();
         return v;
     }
 
@@ -55,6 +56,11 @@ public class FragmentStores extends Fragment {
         Store walmart = new Store("Walmart","https://lh3.googleusercontent.com/aUxQggeuIel4IZsWbdHaEuys8FNids7l3ZMtrQHX0DJyoTGHxo7xfTfi3CpRhd0mpsI=w300-rw");
         stores.add(target);
         stores.add(walmart);
+        for(int i = 0; i < 50; i++){
+            stores.add(walmart);
+        }
+        loadGrid();
+        Log.d("FragmentStores",gridAdapter.getCount()+"");
     }
 
     public class StoreAdapter extends BaseAdapter {

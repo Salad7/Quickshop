@@ -103,7 +103,6 @@ public class MainActivity extends FragmentActivity implements NavigationView.OnN
         cart.addToCart(notebook);
         cart.addToCart(toyCar);
     }
-
     public void setupNavigationDrawer(){
         mViewPager = (ViewPager) findViewById(R.id.viewpager);
         mNavView = (NavigationView) findViewById(R.id.navigation);
@@ -114,8 +113,6 @@ public class MainActivity extends FragmentActivity implements NavigationView.OnN
         mDrawerLayout.setDrawerListener(toggle);
         toggle.syncState();
     }
-
-
     public void setUpTablayout(){
         mViewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
@@ -185,12 +182,7 @@ public class MainActivity extends FragmentActivity implements NavigationView.OnN
         mDrawerLayout.closeDrawer(GravityCompat.START);
         return true;
     }
-
-
-
-
-
-        public class PagerAdapter extends FragmentStatePagerAdapter {
+    public class PagerAdapter extends FragmentStatePagerAdapter {
         PagerAdapter(FragmentManager fm) {
             super(fm);
         }
@@ -213,11 +205,6 @@ public class MainActivity extends FragmentActivity implements NavigationView.OnN
                 Bundle args = new Bundle();
                 fragment.setArguments(args);
             }
-//            if(i == 3){
-//                fragment = new FragmentAccount();
-//                Bundle args = new Bundle();
-//                fragment.setArguments(args);
-//            }
             return fragment;
         }
 

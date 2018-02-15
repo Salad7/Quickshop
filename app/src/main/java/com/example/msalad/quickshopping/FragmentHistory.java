@@ -80,8 +80,8 @@ public class FragmentHistory extends Fragment {
             ImageView img =  view.findViewById(R.id.item_img);
 
             //this code sets the values of the objects to values from the arrays
-            price.setText(items.get(position).getPrice()+".00$");
-            name.setText(items.get(position).getTitle());
+           // price.setText(items.get(position).getPrice()+".00$");
+//            name.setText(items.get(position).getTitle());
 
 
             return view;
