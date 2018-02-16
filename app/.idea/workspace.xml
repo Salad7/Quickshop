@@ -15,20 +15,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="80590ade-ee64-454f-bed5-520f041aa771" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/src/main/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/example/msalad/quickshopping/FragmentHistory.java" afterPath="$PROJECT_DIR$/src/main/java/com/example/msalad/quickshopping/FragmentHistory.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/example/msalad/quickshopping/FragmentStores.java" afterPath="$PROJECT_DIR$/src/main/java/com/example/msalad/quickshopping/FragmentStores.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/example/msalad/quickshopping/MainActivity.java" afterPath="$PROJECT_DIR$/src/main/java/com/example/msalad/quickshopping/MainActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/example/msalad/quickshopping/SelectStoreActivity.java" afterPath="$PROJECT_DIR$/src/main/java/com/example/msalad/quickshopping/SelectStoreActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/res/layout/activity_cart.xml" afterPath="$PROJECT_DIR$/src/main/res/layout/activity_cart.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/res/layout/activity_choose_store.xml" afterPath="$PROJECT_DIR$/src/main/res/layout/activity_choose_store.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/res/layout/custom_shopping_item.xml" afterPath="$PROJECT_DIR$/src/main/res/layout/custom_shopping_item.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/res/layout/custom_store_item.xml" afterPath="$PROJECT_DIR$/src/main/res/layout/custom_store_item.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/res/layout/fragment_history.xml" afterPath="$PROJECT_DIR$/src/main/res/layout/fragment_history.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/res/layout/fragment_stores.xml" afterPath="$PROJECT_DIR$/src/main/res/layout/fragment_stores.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/res/menu/menu.xml" afterPath="$PROJECT_DIR$/src/main/res/menu/menu.xml" />
     </list>
     <ignored path="app.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -86,11 +73,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="activity_cart.xml" pinned="false" current-in-tab="false">
+      <file leaf-file-name="activity_cart.xml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/res/layout/activity_cart.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1035">
-              <caret line="69" column="37" selection-start-line="69" selection-start-column="37" selection-end-line="69" selection-end-column="37" />
+            <state relative-caret-position="478">
+              <caret line="227" column="12" selection-start-line="227" selection-start-column="12" selection-end-line="269" selection-end-column="29" />
               <folding />
             </state>
           </provider>
@@ -152,10 +139,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="activity_choose_store.xml" pinned="false" current-in-tab="true">
+      <file leaf-file-name="activity_choose_store.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/res/layout/activity_choose_store.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="490">
+            <state relative-caret-position="1515">
               <caret line="101" column="36" selection-start-line="101" selection-start-column="36" selection-end-line="101" selection-end-column="36" />
               <folding />
             </state>
@@ -2206,12 +2193,12 @@
         <option value="$PROJECT_DIR$/src/main/res/menu/menu.xml" />
         <option value="$PROJECT_DIR$/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/msalad/quickshopping/MainActivity.java" />
-        <option value="$PROJECT_DIR$/src/main/res/layout/activity_cart.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/msalad/quickshopping/SelectStoreActivity.java" />
         <option value="$PROJECT_DIR$/src/main/res/layout/fragment_stores.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/msalad/quickshopping/FragmentStores.java" />
         <option value="$PROJECT_DIR$/src/main/res/layout/custom_store_item.xml" />
         <option value="$PROJECT_DIR$/src/main/res/layout/activity_choose_store.xml" />
+        <option value="$PROJECT_DIR$/src/main/res/layout/activity_cart.xml" />
       </list>
     </option>
   </component>
@@ -3200,17 +3187,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/res/layout/activity_cart.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1035">
-          <caret line="69" column="37" selection-start-line="69" selection-start-column="37" selection-end-line="69" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/res/layout/custom_store_item.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="349">
@@ -3224,8 +3200,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/res/layout/activity_choose_store.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="490">
+        <state relative-caret-position="1515">
           <caret line="101" column="36" selection-start-line="101" selection-start-column="36" selection-end-line="101" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/res/layout/activity_cart.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="478">
+          <caret line="227" column="12" selection-start-line="227" selection-start-column="12" selection-end-line="269" selection-end-column="29" />
           <folding />
         </state>
       </provider>
