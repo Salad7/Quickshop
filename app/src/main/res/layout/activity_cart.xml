@@ -10,7 +10,7 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="2000dp"
         android:background="@color/colorBKG">
 
         <!--<Button-->
@@ -234,7 +234,7 @@
                     android:layout_width="116dp"
                     android:layout_height="48dp"
                     android:background="#00B2FF"
-                    android:text="Rate App"
+                    android:text="Comment"
                     android:textAllCaps="false"
                     android:textColor="#ffffff"
                     android:textSize="18dp"
@@ -247,7 +247,7 @@
                     android:layout_width="116dp"
                     android:layout_height="48dp"
                     android:background="#00B2FF"
-                    android:text="Share App"
+                    android:text="Save cart"
                     android:textAllCaps="false"
                     android:textColor="#ffffff"
                     android:textSize="18dp"
