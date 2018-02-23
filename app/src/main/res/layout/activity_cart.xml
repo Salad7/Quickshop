@@ -236,7 +236,7 @@
             android:layout_alignBottom="@+id/button11"
             android:layout_alignEnd="@+id/switch3"
             android:background="#00B2FF"
-            android:text="Comment"
+            android:text="Leave Note"
             android:textAllCaps="false"
             android:textColor="#ffffff"
             android:textSize="18dp" />

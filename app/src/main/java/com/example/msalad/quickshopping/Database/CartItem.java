@@ -1,12 +1,13 @@
 package com.example.msalad.quickshopping.Database;
 
+import java.io.Serializable;
 import java.util.HashMap;
 
 /**
  * Created by Mohammadhia on 9/11/2017.
  */
 
-public class CartItem extends InventoryItem {
+public class CartItem extends InventoryItem implements Serializable{
     int quantity;
 
 

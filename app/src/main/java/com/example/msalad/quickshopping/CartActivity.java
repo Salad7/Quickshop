@@ -39,7 +39,7 @@ public class CartActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cart);
         listView = (ListView) findViewById(R.id.cart_items);
-        if(getIntent().getSerializableExtra("cart") != null){
+        if(getIntent().hasExtra("cart")){
             try {
                 cartListOfItems = (CartListOfItems) getIntent().getSerializableExtra("cart");
             }
@@ -96,7 +96,7 @@ public class CartActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View view) {
                     Toast.makeText(getContext(),"Item deleted!",Toast.LENGTH_SHORT).show();
-                    items.remove(position)
+                    items.remove(position);
                     notifyDataSetChanged();
                 }
             });
