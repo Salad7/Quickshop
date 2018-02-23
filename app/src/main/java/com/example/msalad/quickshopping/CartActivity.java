@@ -15,6 +15,11 @@ import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.example.msalad.quickshopping.Database.CartItem;
+import com.example.msalad.quickshopping.Database.CartListOfItems;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,31 +32,37 @@ public class CartActivity extends AppCompatActivity {
 
     ListView listView;
     CustomCartItemAdapter customCartItemAdapter;
-    ArrayList<Item> items;
+    CartListOfItems cartListOfItems;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cart);
         listView = (ListView) findViewById(R.id.cart_items);
-        items = new ArrayList<>();
-        Item item = new Item();
-        item.setPrice(344);
-        item.setTitle("Expensive Jacket");
+        if(getIntent().getSerializableExtra("cart") != null){
+            try {
+                cartListOfItems = (CartListOfItems) getIntent().getSerializableExtra("cart");
+            }
+            catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+        else{
+            cartListOfItems = new CartListOfItems();
+        }
 
-        items.add(item);
-        items.add(item);
-        items.add(item);
-        customCartItemAdapter = new CustomCartItemAdapter(this,R.layout.custom_shopping_item,items);
-        listView.setAdapter(customCartItemAdapter);
-        //setListViewHeightBasedOnChildren(listView);
     }
 
-    public class CustomCartItemAdapter extends ArrayAdapter<Item> {
-        List<Item> items;
+    public void loadCart(){
+        customCartItemAdapter = new CustomCartItemAdapter(this,R.layout.custom_shopping_item,cartListOfItems.getCart());
+        listView.setAdapter(customCartItemAdapter);
+    }
+
+    public class CustomCartItemAdapter extends ArrayAdapter<CartItem> {
+        List<CartItem> items;
         Activity ctx;
         int res;
-        public CustomCartItemAdapter(@NonNull Context context, @LayoutRes int resource, @NonNull List<Item> objects) {
+        public CustomCartItemAdapter(@NonNull Context context, @LayoutRes int resource, @NonNull List<CartItem> objects) {
             super(context, resource, objects);
             items = objects;
             ctx = (Activity) context;
@@ -65,7 +76,7 @@ public class CartActivity extends AppCompatActivity {
 
         @NonNull
         @Override
-        public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+        public View getView(final int position, @Nullable View convertView, @NonNull ViewGroup parent) {
             LayoutInflater inflater=ctx.getLayoutInflater();
             View view = inflater.inflate(res, parent, false);
 
@@ -74,12 +85,21 @@ public class CartActivity extends AppCompatActivity {
             TextView name = view.findViewById(R.id.item_title);
             TextView price =  view.findViewById(R.id.item_price);
 //            TextView remove = view.findViewById(R.id.item_remove);
-            ImageView more =  view.findViewById(R.id.item_more_info);
+            ImageView delete =  view.findViewById(R.id.item_delete);
             ImageView img =  view.findViewById(R.id.item_img);
 
             //this code sets the values of the objects to values from the arrays
-            price.setText(items.get(position).getPrice()+".00$");
-            name.setText(items.get(position).getTitle());
+            price.setText(items.get(position)+".00$");
+            name.setText(items.get(position).getName());
+            Picasso.with(ctx).load(items.get(position).getImage()).into(img);
+            delete.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Toast.makeText(getContext(),"Item deleted!",Toast.LENGTH_SHORT).show();
+                    items.remove(position)
+                    notifyDataSetChanged();
+                }
+            });
 
 
             return view;

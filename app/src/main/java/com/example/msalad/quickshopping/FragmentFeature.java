@@ -110,7 +110,7 @@ public class FragmentFeature extends Fragment {
         }
 
         @Override
-        public View getView(int i, View convertView, ViewGroup viewGroup) {
+        public View getView(final int pos, View convertView, ViewGroup viewGroup) {
 
             LayoutInflater layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = layoutInflater.inflate(R.layout.custom_feature_item,viewGroup,false);
@@ -122,13 +122,14 @@ public class FragmentFeature extends Fragment {
             addcart.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    double itemPrice = Double.parseDouble(price.getText().toString().replace("$",""));
-                    CartItem item = new CartItem(itemPrice,name.getText().toString(),"","","",1);
-                    mainActivity.addItemToCart(item);
+                    Item item = itemArrayAdapter.get(pos);
+                    double  itemPrice =(double) itemArrayAdapter.get(pos).getPrice();
+                    CartItem cartItem = new CartItem(itemPrice,item.getTitle(),item.img_src,"","key",1);
+                    mainActivity.addItemToCart(cartItem);
                 }
             });
-            price.setText(itemArrayAdapter.get(i).getPrice()+".00$");
-            name.setText(itemArrayAdapter.get(i).getTitle());
+            price.setText(itemArrayAdapter.get(pos).getPrice()+".00$");
+            name.setText(itemArrayAdapter.get(pos).getTitle());
 
             return convertView;
         }

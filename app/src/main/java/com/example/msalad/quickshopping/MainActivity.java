@@ -74,6 +74,7 @@ public class MainActivity extends FragmentActivity implements NavigationView.OnN
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(MainActivity.this,CartActivity.class);
+                i.putExtra("cart",cartListOfItems);
                 startActivity(i);
             }
         });
@@ -226,6 +227,10 @@ public class MainActivity extends FragmentActivity implements NavigationView.OnN
         int cartCount = Integer.parseInt(cart_count.getText().toString());
         cartCount+=1;
         cart_count.setText(cartCount+"");
+    }
+
+    public CartListOfItems getCart(){
+        return cartListOfItems;
     }
 
 

@@ -1,14 +1,24 @@
 package com.example.msalad.quickshopping.Database;
 
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  * Created by Mohammadhia on 9/26/2017.
  */
 
-public class CartListOfItems {
+public class CartListOfItems implements Serializable {
     ArrayList<CartItem> cart = new ArrayList();
+
+    public ArrayList<CartItem> getCart() {
+        return cart;
+    }
+
+    public void setCart(ArrayList<CartItem> cart) {
+        this.cart = cart;
+    }
+
     public void addToCart(CartItem cartItem){ //Add parameter that lets you pick quantity of cartItem to be added
 
         for(int i = 0; i < cart.size(); i++){

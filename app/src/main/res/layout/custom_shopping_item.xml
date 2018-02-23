@@ -91,20 +91,19 @@
     <!--tools:layout_editor_absoluteY="76dp"-->
     <!--tools:layout_editor_absoluteX="199dp" />-->
 
-    <ImageView
-    android:id="@+id/item_more_info"
-    android:layout_width="24dp"
-    android:layout_height="24dp"
-    android:src="@android:drawable/ic_menu_delete"
-    android:tint="@color/colorPrimary"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintLeft_toLeftOf="parent"
-    app:layout_constraintRight_toRightOf="parent"
-    tools:layout_constraintBottom_creator="1"
-    tools:layout_constraintLeft_creator="1"
-    tools:layout_constraintRight_creator="1"
-    app:layout_constraintHorizontal_bias="0.036"
-    android:layout_marginBottom="84dp" />
+        <ImageView
+            android:id="@+id/item_delete"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginBottom="84dp"
+            android:src="@android:drawable/ic_menu_delete"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.036"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            tools:layout_constraintBottom_creator="1"
+            tools:layout_constraintLeft_creator="1"
+            tools:layout_constraintRight_creator="1" />
 
     <EditText
     android:id="@+id/editText"
