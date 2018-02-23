@@ -30,6 +30,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.arlib.floatingsearchview.FloatingSearchView;
@@ -37,6 +38,7 @@ import com.example.msalad.quickshopping.Database.CartItem;
 import com.example.msalad.quickshopping.Database.CartListOfItems;
 import com.example.msalad.quickshopping.Database.InventoryItem;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class MainActivity extends FragmentActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -53,13 +55,15 @@ public class MainActivity extends FragmentActivity implements NavigationView.OnN
     ActionBarDrawerToggle toggle;
     private HashMap<String, InventoryItem> sampleData; //Our hashmap with sample data on items
     private HashMap<String, InventoryItem> storeB_Data; //Our hashmap with items in store B
-
+    private CartListOfItems cartListOfItems;
+    private TextView cart_count;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        cartListOfItems = new CartListOfItems();
         fragmentManager = getSupportFragmentManager();
         tabLayout = (TabLayout) findViewById(R.id.tablayout);
         pagerAdapter = new PagerAdapter(fragmentManager);
@@ -73,6 +77,8 @@ public class MainActivity extends FragmentActivity implements NavigationView.OnN
                 startActivity(i);
             }
         });
+         cart_count = findViewById(R.id.cart_count);
+         cart_count.setText("0");
         setUpTablayout();
         setupNavigationDrawer();
         loadDB();
@@ -213,6 +219,13 @@ public class MainActivity extends FragmentActivity implements NavigationView.OnN
         public int getCount() {
             return 3;
         }
+    }
+
+    public void addItemToCart(CartItem cartItem){
+        cartListOfItems.addToCart(cartItem);
+        int cartCount = Integer.parseInt(cart_count.getText().toString());
+        cartCount+=1;
+        cart_count.setText(cartCount+"");
     }
 
 

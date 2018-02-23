@@ -9,7 +9,6 @@ import java.util.ArrayList;
 
 public class CartListOfItems {
     ArrayList<CartItem> cart = new ArrayList();
-
     public void addToCart(CartItem cartItem){ //Add parameter that lets you pick quantity of cartItem to be added
 
         for(int i = 0; i < cart.size(); i++){

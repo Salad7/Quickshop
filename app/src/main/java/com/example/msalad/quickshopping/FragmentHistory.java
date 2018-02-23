@@ -17,6 +17,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.msalad.quickshopping.Database.HistoryItem;
 
@@ -45,7 +46,6 @@ public class FragmentHistory extends Fragment {
         Item item = new Item();
         item.setPrice(344);
         item.setTitle("Expensive Jacket");
-
         items.add(item);
         items.add(item);
         items.add(item);
@@ -53,6 +53,7 @@ public class FragmentHistory extends Fragment {
         listView.setAdapter(customItemAdapter);
         return v;
     }
+
 
     public class CustomItemAdapter extends ArrayAdapter<Item>{
         List<Item> items;
@@ -74,17 +75,30 @@ public class FragmentHistory extends Fragment {
 
         @NonNull
         @Override
-        public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+        public View getView(final int position, @Nullable View convertView, @NonNull ViewGroup parent) {
             LayoutInflater inflater=ctx.getLayoutInflater();
             View view = inflater.inflate(res, parent, false);
             //this code gets references to objects in the listview_row.xml file
             TextView price = view.findViewById(R.id.history_price);
             TextView date = view.findViewById(R.id.history_date);
-            HorizontalScrollView items = view.findViewById(R.id.history_items);
+            final HorizontalScrollView horizontalScrollView = view.findViewById(R.id.history_items);
+
             ImageView delete = view.findViewById(R.id.history_delete);
+            //Delete cart from history
+            delete.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                   items.remove(position);
+                   customItemAdapter.notifyDataSetChanged();
+                    Toast.makeText(getContext(),"Removed Cart Item!",Toast.LENGTH_SHORT).show();
+                }
+            });
+
             Button share =  view.findViewById(R.id.history_share);
+            //Share Cart with friends
+
             Button viewCart =  view.findViewById(R.id.history_cart);
-            //linearLayout=(LinearLayout) view.findViewById(R.id.history_container);
+            //View Cart in dialog
             LinearLayout linearLayout = new LinearLayout(ctx);
             linearLayout.setOrientation(LinearLayout.HORIZONTAL);
 
@@ -98,33 +112,10 @@ public class FragmentHistory extends Fragment {
                 image.setBackgroundResource(R.drawable.bargainmart);
                 linearLayout.addView(image);
             }
-            items.addView(linearLayout);
-            //setupHorizontalScrollView(parent);
+            horizontalScrollView.addView(linearLayout);
             return view;
         }
 
-        public void setupHorizontalScrollView(ViewGroup parent){
-
-            //for (int i=0;i<8; i++) {
-                View view = layoutInflater.inflate(R.layout.custom_store_item, parent, false);
-                ImageView imageView = (ImageView) view.findViewById(R.id.grid_img);
-
-//                if (i==(name.length)-1)
-//                {
-//                    scroll_item_layout.setBackgroundResource(android.R.color.transparent);
-//                }
-                linearLayout.addView(view);
-
-
-           // }
-        }
         }
 
-//    public class HistoryItemAdapter extends ArrayAdapter<HistoryItem>{
-//
-//
-//
-//
-//
-//    }
 }

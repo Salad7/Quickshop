@@ -18,6 +18,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.arlib.floatingsearchview.FloatingSearchView;
+import com.example.msalad.quickshopping.Database.CartItem;
 
 import net.cachapa.expandablelayout.ExpandableLayout;
 
@@ -34,6 +35,7 @@ public class FragmentFeature extends Fragment {
     GridView grid;
     Item item;
     FloatingSearchView floatingSearchView;
+    MainActivity mainActivity;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -77,6 +79,12 @@ public class FragmentFeature extends Fragment {
 
     }
 
+    @Override
+    public void onStart() {
+        super.onStart();
+    }
+
+
 
     public class GridAdapter extends BaseAdapter {
         ArrayList<Item> itemArrayAdapter;
@@ -106,11 +114,19 @@ public class FragmentFeature extends Fragment {
 
             LayoutInflater layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = layoutInflater.inflate(R.layout.custom_feature_item,viewGroup,false);
-            TextView name = convertView.findViewById(R.id.grid_title);
-            TextView price =  convertView.findViewById(R.id.item_price);
+            final TextView name = convertView.findViewById(R.id.grid_title);
+            final TextView price =  convertView.findViewById(R.id.item_price);
             //TextView cate = convertView.findViewById(R.id.grid_category);
             ImageView img =  convertView.findViewById(R.id.grid_img);
             Button addcart = convertView.findViewById(R.id.grid_add_cart);
+            addcart.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    double itemPrice = Double.parseDouble(price.getText().toString().replace("$",""));
+                    CartItem item = new CartItem(itemPrice,name.getText().toString(),"","","",1);
+                    mainActivity.addItemToCart(item);
+                }
+            });
             price.setText(itemArrayAdapter.get(i).getPrice()+".00$");
             name.setText(itemArrayAdapter.get(i).getTitle());
 
@@ -118,5 +134,9 @@ public class FragmentFeature extends Fragment {
         }
     }
 
-
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        mainActivity = (MainActivity) context;
+    }
 }
