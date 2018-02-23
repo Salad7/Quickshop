@@ -11,9 +11,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import com.example.msalad.quickshopping.Database.HistoryItem;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -44,7 +49,7 @@ public class FragmentHistory extends Fragment {
         items.add(item);
         items.add(item);
         items.add(item);
-        customItemAdapter = new CustomItemAdapter(getContext(),R.layout.custom_shopping_item,items);
+        customItemAdapter = new CustomItemAdapter(getContext(),R.layout.custom_history_item,items);
         listView.setAdapter(customItemAdapter);
         return v;
     }
@@ -53,6 +58,8 @@ public class FragmentHistory extends Fragment {
         List<Item> items;
         Activity ctx;
         int res;
+        LayoutInflater layoutInflater;
+        LinearLayout linearLayout;
         public CustomItemAdapter(@NonNull Context context, @LayoutRes int resource, @NonNull List<Item> objects) {
             super(context, resource, objects);
             items = objects;
@@ -70,21 +77,54 @@ public class FragmentHistory extends Fragment {
         public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
             LayoutInflater inflater=ctx.getLayoutInflater();
             View view = inflater.inflate(res, parent, false);
-
-
             //this code gets references to objects in the listview_row.xml file
-            TextView name = view.findViewById(R.id.item_title);
-            TextView price =  view.findViewById(R.id.item_price);
-//            TextView remove = view.findViewById(R.id.item_remove);
-            ImageView more =  view.findViewById(R.id.item_more_info);
-            ImageView img =  view.findViewById(R.id.item_img);
+            TextView price = view.findViewById(R.id.history_price);
+            TextView date = view.findViewById(R.id.history_date);
+            HorizontalScrollView items = view.findViewById(R.id.history_items);
+            ImageView delete = view.findViewById(R.id.history_delete);
+            Button share =  view.findViewById(R.id.history_share);
+            Button viewCart =  view.findViewById(R.id.history_cart);
+            //linearLayout=(LinearLayout) view.findViewById(R.id.history_container);
+            LinearLayout linearLayout = new LinearLayout(ctx);
+            linearLayout.setOrientation(LinearLayout.HORIZONTAL);
 
-            //this code sets the values of the objects to values from the arrays
-           // price.setText(items.get(position).getPrice()+".00$");
-//            name.setText(items.get(position).getTitle());
 
-
+            for(int i = 0; i < 6; i++){
+                ImageView image = new ImageView(ctx);
+                LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(324, 324);
+                layoutParams.setMarginStart(48);
+                layoutParams.setMarginEnd(48);
+                image.setLayoutParams(layoutParams);
+                image.setBackgroundResource(R.drawable.bargainmart);
+                linearLayout.addView(image);
+            }
+            items.addView(linearLayout);
+            //setupHorizontalScrollView(parent);
             return view;
         }
-    }
+
+        public void setupHorizontalScrollView(ViewGroup parent){
+
+            //for (int i=0;i<8; i++) {
+                View view = layoutInflater.inflate(R.layout.custom_store_item, parent, false);
+                ImageView imageView = (ImageView) view.findViewById(R.id.grid_img);
+
+//                if (i==(name.length)-1)
+//                {
+//                    scroll_item_layout.setBackgroundResource(android.R.color.transparent);
+//                }
+                linearLayout.addView(view);
+
+
+           // }
+        }
+        }
+
+//    public class HistoryItemAdapter extends ArrayAdapter<HistoryItem>{
+//
+//
+//
+//
+//
+//    }
 }

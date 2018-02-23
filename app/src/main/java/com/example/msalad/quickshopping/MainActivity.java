@@ -155,13 +155,13 @@ public class MainActivity extends FragmentActivity implements NavigationView.OnN
                 tabLayout.getTabAt(0).setText("Scan");
             }
             if(i == 1){
-                tabLayout.getTabAt(1).setIcon(R.drawable.list);
-                tabLayout.getTabAt(1).setText("History");
+                tabLayout.getTabAt(2).setIcon(R.drawable.list);
+                tabLayout.getTabAt(2).setText("History");
 
             }
             if(i == 2){
-                tabLayout.getTabAt(2).setIcon(R.drawable.feature);
-                tabLayout.getTabAt(2).setText("Featured");
+                tabLayout.getTabAt(1).setIcon(R.drawable.feature);
+                tabLayout.getTabAt(1).setText("Featured");
 
             }
         }
@@ -194,12 +194,12 @@ public class MainActivity extends FragmentActivity implements NavigationView.OnN
                 fragment.setArguments(args);
 
             }
-            if(i == 1){
+            if(i == 2){
                 fragment = new FragmentHistory();
                 Bundle args = new Bundle();
                 fragment.setArguments(args);
             }
-            if(i == 2){
+            if(i == 1){
 
                 fragment = new FragmentFeature();
                 Bundle args = new Bundle();

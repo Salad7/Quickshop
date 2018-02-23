@@ -6,49 +6,49 @@
     android:layout_height="match_parent"
     android:fillViewport="true">
 
-    <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="2000dp"
+        android:layout_height="wrap_content"
         android:background="@color/colorBKG">
 
         <!--<Button-->
-            <!--android:id="@+id/button2"-->
-            <!--android:layout_width="352dp"-->
-            <!--android:layout_height="52dp"-->
-            <!--android:text="Save cart for later"-->
-            <!--tools:layout_editor_absoluteX="16dp"-->
-            <!--tools:layout_editor_absoluteY="508dp" />-->
+        <!--android:id="@+id/button2"-->
+        <!--android:layout_width="352dp"-->
+        <!--android:layout_height="52dp"-->
+        <!--android:text="Save cart for later"-->
+        <!--tools:layout_editor_absoluteX="16dp"-->
+        <!--tools:layout_editor_absoluteY="508dp" />-->
 
-        <!--<android.support.v7.widget.CardView-->
-            <!--android:id="@+id/scanandgo"-->
-            <!--android:layout_width="0dp"-->
-            <!--android:layout_height="42dp"-->
-            <!--android:layout_marginBottom="29dp"-->
-            <!--android:background="#ffffff"-->
-            <!--android:elevation="8dp"-->
-            <!--android:visibility="visible"-->
-            <!--app:cardElevation="4dp"-->
-            <!--app:layout_constraintBottom_toBottomOf="parent"-->
-            <!--tools:layout_constraintRight_creator="1"-->
-            <!--android:layout_marginStart="8dp"-->
-            <!--android:layout_marginEnd="8dp"-->
-            <!--app:layout_constraintRight_toRightOf="parent"-->
-            <!--tools:layout_constraintLeft_creator="1"-->
-            <!--app:layout_constraintLeft_toLeftOf="parent">-->
+        <android.support.v7.widget.CardView
+            android:id="@+id/scanandgo"
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:layout_marginTop="8dp"
+            android:background="#ffffff"
+            android:elevation="8dp"
+            android:visibility="visible"
+            android:layout_marginBottom="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            app:cardElevation="4dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/quickpay"
+            tools:layout_constraintLeft_creator="1"
+            tools:layout_constraintRight_creator="1">
 
-            <!--<TextView-->
-                <!--android:id="@+id/textView12"-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:layout_gravity="center"-->
-                <!--android:text="Scan and Go"-->
-                <!--android:textAlignment="center"-->
-                <!--android:textAllCaps="false"-->
-                <!--android:textColor="#000000"-->
-                <!--android:textSize="22dp" />-->
-        <!--</android.support.v7.widget.CardView>-->
+            <TextView
+            android:id="@+id/textView12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Scan and Go"
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            android:textColor="#000000"
+            android:textSize="22dp" />
+        </android.support.v7.widget.CardView>
 
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar2"
@@ -73,21 +73,20 @@
             android:text="Shopping Cart"
             android:textColor="#000000"
             android:textSize="24dp"
-            tools:layout_constraintTop_creator="1"
-            tools:layout_constraintRight_creator="1"
-            tools:layout_constraintBottom_creator="1"
             app:layout_constraintBottom_toBottomOf="@+id/toolbar2"
-            app:layout_constraintRight_toRightOf="parent"
-            tools:layout_constraintLeft_creator="1"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/toolbar2" />
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/toolbar2"
+            tools:layout_constraintBottom_creator="1"
+            tools:layout_constraintLeft_creator="1"
+            tools:layout_constraintRight_creator="1"
+            tools:layout_constraintTop_creator="1" />
 
         <ImageView
             android:id="@+id/imageView2"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_alignTop="@+id/textView4"
-            android:layout_marginStart="21dp"
             android:src="@drawable/left"
             app:layout_constraintBottom_toBottomOf="@+id/textView4"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -101,11 +100,11 @@
             android:id="@+id/cardView4"
             android:layout_width="0dp"
             android:layout_height="138dp"
-            android:layout_marginEnd="12dp"
-            android:layout_marginStart="12dp"
             android:layout_marginTop="144dp"
             android:elevation="4dp"
             android:visibility="visible"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/cart_items"
@@ -114,95 +113,95 @@
             tools:layout_constraintTop_creator="1">
 
             <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-                <TextView
-                    android:id="@+id/tax"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="$13.00"
-                    android:textAlignment="textEnd"
-                    android:textColor="#2c2d3c"
-                    android:textSize="20dp"
-                    android:visibility="visible"
-                    android:layout_alignBaseline="@+id/textView1801"
-                    android:layout_alignBottom="@+id/textView1801"
-                    android:layout_alignEnd="@+id/textView22" />
+            <TextView
+            android:id="@+id/tax"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/textView1801"
+            android:layout_alignBottom="@+id/textView1801"
+            android:layout_alignEnd="@+id/textView22"
+            android:text="$13.00"
+            android:textAlignment="textEnd"
+            android:textColor="#2c2d3c"
+            android:textSize="20dp"
+            android:visibility="visible" />
 
-                <TextView
-                    android:id="@+id/textView22"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="$1.00"
-                    android:textAlignment="textEnd"
-                    android:textColor="#2c2d3c"
-                    android:textSize="20dp"
-                    tools:layout_constraintRight_creator="1"
-                    app:layout_constraintRight_toRightOf="parent"
-                    tools:layout_constraintLeft_creator="1"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_editor_absoluteY="52dp"
-                    app:layout_constraintHorizontal_bias="0.937"
-                    android:layout_alignBaseline="@+id/textView21"
-                    android:layout_alignBottom="@+id/textView21"
-                    android:layout_alignEnd="@+id/total_tv" />
+            <TextView
+            android:id="@+id/textView22"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/textView21"
+            android:layout_alignBottom="@+id/textView21"
+            android:layout_alignEnd="@+id/total_tv"
+            android:text="$1.00"
+            android:textAlignment="textEnd"
+            android:textColor="#2c2d3c"
+            android:textSize="20dp"
+            app:layout_constraintHorizontal_bias="0.937"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_editor_absoluteY="52dp"
+            tools:layout_constraintLeft_creator="1"
+            tools:layout_constraintRight_creator="1" />
 
-                <TextView
-                    android:id="@+id/total_tv"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="$14.00"
-                    android:textAlignment="textEnd"
-                    android:textColor="#2c2d3c"
-                    android:textSize="24dp"
-                    android:layout_alignBaseline="@+id/textView18"
-                    android:layout_alignBottom="@+id/textView18"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginEnd="9dp" />
+            <TextView
+            android:id="@+id/total_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/textView18"
+            android:layout_alignBottom="@+id/textView18"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="9dp"
+            android:text="$14.00"
+            android:textAlignment="textEnd"
+            android:textColor="#2c2d3c"
+            android:textSize="24dp" />
 
-                <TextView
-                    android:id="@+id/textView1801"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Subtotal"
-                    android:textColor="#2c2d3c"
-                    android:textSize="20dp"
-                    tools:layout_constraintRight_creator="1"
-                    android:layout_above="@+id/textView21"
-                    android:layout_alignEnd="@+id/textView21"
-                    android:layout_marginBottom="13dp" />
+            <TextView
+            android:id="@+id/textView1801"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/textView21"
+            android:layout_alignEnd="@+id/textView21"
+            android:layout_marginBottom="13dp"
+            android:text="Subtotal"
+            android:textColor="#2c2d3c"
+            android:textSize="20dp"
+            tools:layout_constraintRight_creator="1" />
 
-                <TextView
-                    android:id="@+id/textView21"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Tax"
-                    android:textColor="#2c2d3c"
-                    android:textSize="20dp"
-                    android:layout_centerVertical="true"
-                    android:layout_alignEnd="@+id/textView18" />
+            <TextView
+            android:id="@+id/textView21"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/textView18"
+            android:layout_centerVertical="true"
+            android:text="Tax"
+            android:textColor="#2c2d3c"
+            android:textSize="20dp" />
 
-                <TextView
-                    android:id="@+id/textView18"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Total Due"
-                    android:textColor="#2c2d3c"
-                    android:textSize="24dp"
-                    android:layout_alignParentBottom="true"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginEnd="107dp"
-                    android:layout_marginBottom="23dp" />
+            <TextView
+            android:id="@+id/textView18"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginBottom="23dp"
+            android:layout_marginEnd="107dp"
+            android:text="Total Due"
+            android:textColor="#2c2d3c"
+            android:textSize="24dp" />
 
-                <ImageView
-                    android:id="@+id/imageView9"
-                    android:layout_width="56dp"
-                    android:layout_height="56dp"
-                    android:src="@drawable/target"
-                    android:layout_marginEnd="34dp"
-                    android:layout_centerVertical="true"
-                    android:layout_toStartOf="@+id/textView18" />
+            <ImageView
+            android:id="@+id/imageView9"
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="64dp"
+            android:src="@drawable/target" />
             </RelativeLayout>
         </android.support.v7.widget.CardView>
 
@@ -210,62 +209,62 @@
             android:id="@+id/extraoptions"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:elevation="2dp"
-            android:visibility="visible"
-            tools:layout_constraintTop_creator="1"
-            tools:layout_constraintRight_creator="1"
-            tools:layout_constraintBottom_creator="1"
-            app:layout_constraintBottom_toTopOf="@+id/cardView4"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
-            app:layout_constraintRight_toRightOf="parent"
-            android:layout_marginTop="7dp"
-            app:layout_constraintTop_toBottomOf="@+id/cart_items"
-            tools:layout_constraintLeft_creator="1"
             android:layout_marginBottom="9dp"
-            app:layout_constraintLeft_toLeftOf="parent">
+            android:layout_marginTop="7dp"
+            android:elevation="2dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:visibility="visible"
+            app:layout_constraintBottom_toTopOf="@+id/cardView4"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cart_items"
+            tools:layout_constraintBottom_creator="1"
+            tools:layout_constraintLeft_creator="1"
+            tools:layout_constraintRight_creator="1"
+            tools:layout_constraintTop_creator="1">
 
             <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-                <Button
-                    android:id="@+id/button8"
-                    android:layout_width="116dp"
-                    android:layout_height="48dp"
-                    android:background="#00B2FF"
-                    android:text="Comment"
-                    android:textAllCaps="false"
-                    android:textColor="#ffffff"
-                    android:textSize="18dp"
-                    android:layout_alignBaseline="@+id/button11"
-                    android:layout_alignBottom="@+id/button11"
-                    android:layout_alignEnd="@+id/switch3" />
+            <Button
+            android:id="@+id/button8"
+            android:layout_width="116dp"
+            android:layout_height="48dp"
+            android:layout_alignBaseline="@+id/button11"
+            android:layout_alignBottom="@+id/button11"
+            android:layout_alignEnd="@+id/switch3"
+            android:background="#00B2FF"
+            android:text="Comment"
+            android:textAllCaps="false"
+            android:textColor="#ffffff"
+            android:textSize="18dp" />
 
-                <Button
-                    android:id="@+id/button11"
-                    android:layout_width="116dp"
-                    android:layout_height="48dp"
-                    android:background="#00B2FF"
-                    android:text="Save cart"
-                    android:textAllCaps="false"
-                    android:textColor="#ffffff"
-                    android:textSize="18dp"
-                    android:layout_below="@+id/switch3"
-                    android:layout_alignStart="@+id/switch3"
-                    android:layout_marginTop="15dp" />
+            <Button
+            android:id="@+id/button11"
+            android:layout_width="116dp"
+            android:layout_height="48dp"
+            android:layout_alignStart="@+id/switch3"
+            android:layout_below="@+id/switch3"
+            android:layout_marginTop="15dp"
+            android:background="#00B2FF"
+            android:text="Save cart"
+            android:textAllCaps="false"
+            android:textColor="#ffffff"
+            android:textSize="18dp" />
 
 
-                <Switch
-                    android:id="@+id/switch3"
-                    android:layout_width="264dp"
-                    android:layout_height="27dp"
-                    android:text="Save your cart items"
-                    android:textSize="20dp"
-                    android:thumbTint="#00B2FF"
-                    android:layout_marginTop="20dp"
-                    android:layout_alignParentTop="true"
-                    android:layout_centerHorizontal="true" />
+            <Switch
+            android:id="@+id/switch3"
+            android:layout_width="264dp"
+            android:layout_height="27dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:text="Save your cart items"
+            android:textSize="20dp"
+            android:thumbTint="#00B2FF" />
 
             </RelativeLayout>
         </android.support.v7.widget.CardView>
@@ -277,48 +276,43 @@
             android:layout_height="300dp"
             android:layout_below="@+id/toolbar2"
             android:layout_centerHorizontal="true"
+            android:layout_marginTop="15dp"
             android:divider="@null"
             android:dividerHeight="2dp"
             android:visibility="visible"
-            tools:layout_constraintTop_creator="1"
-            tools:layout_constraintRight_creator="1"
-            android:layout_marginStart="6dp"
-            android:layout_marginEnd="6dp"
+            app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            android:layout_marginTop="15dp"
             app:layout_constraintTop_toBottomOf="@+id/toolbar2"
             tools:layout_constraintLeft_creator="1"
-            app:layout_constraintLeft_toLeftOf="parent" />
+            tools:layout_constraintRight_creator="1"
+            tools:layout_constraintTop_creator="1" />
 
-        <!--<android.support.v7.widget.CardView-->
-            <!--android:id="@+id/quickpay"-->
-            <!--android:layout_width="0dp"-->
-            <!--android:layout_height="42dp"-->
-            <!--android:layout_marginBottom="-64dp"-->
-            <!--android:layout_marginEnd="8dp"-->
-            <!--android:layout_marginStart="8dp"-->
-            <!--android:background="#ffffff"-->
-            <!--android:elevation="8dp"-->
-            <!--android:textAllCaps="false"-->
-            <!--android:visibility="visible"-->
-            <!--app:layout_constraintBottom_toBottomOf="parent"-->
-            <!--app:layout_constraintLeft_toLeftOf="parent"-->
-            <!--app:layout_constraintRight_toRightOf="parent"-->
-            <!--tools:layout_constraintBottom_creator="1"-->
-            <!--tools:layout_constraintLeft_creator="1"-->
-            <!--tools:layout_constraintRight_creator="1">-->
+        <android.support.v7.widget.CardView
+            android:id="@+id/quickpay"
+            android:layout_width="0dp"
+            android:layout_height="68dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="8dp"
+            android:background="#ffffff"
+            android:elevation="8dp"
+            android:textAllCaps="false"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cardView4">
 
-            <!--<TextView-->
-                <!--android:id="@+id/textView13"-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:layout_gravity="center"-->
-                <!--android:text="Quick pay at cashier"-->
-                <!--android:textAlignment="center"-->
-                <!--android:textAllCaps="false"-->
-                <!--android:textColor="#000000"-->
-                <!--android:textSize="22dp"></TextView>-->
-        <!--</android.support.v7.widget.CardView>-->
+            <TextView
+            android:id="@+id/textView13"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Quick pay at cashier"
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            android:textColor="#000000"
+            android:textSize="22dp"></TextView>
+        </android.support.v7.widget.CardView>
 
 
     </android.support.constraint.ConstraintLayout>
