@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.google.zxing.Result;
 
@@ -37,8 +38,8 @@ public class FragmentScan extends Fragment  implements ZXingScannerView.ResultHa
     public void handleResult(Result rawResult) {
         // Do something with the result here
         Log.v(TAG, rawResult.getText()); // Prints scan results
+        Toast.makeText(getContext(),rawResult.getText(),Toast.LENGTH_SHORT).show();
         Log.v(TAG, rawResult.getBarcodeFormat().toString()); // Prints the scan format (qrcode, pdf417 etc.)
-
         // If you would like to resume scanning, call this method below:
         mScannerView.resumeCameraPreview(this);
     }

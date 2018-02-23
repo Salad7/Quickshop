@@ -108,10 +108,9 @@ public class FragmentFeature extends Fragment {
             convertView = layoutInflater.inflate(R.layout.custom_feature_item,viewGroup,false);
             TextView name = convertView.findViewById(R.id.grid_title);
             TextView price =  convertView.findViewById(R.id.item_price);
-            TextView cate = convertView.findViewById(R.id.grid_category);
+            //TextView cate = convertView.findViewById(R.id.grid_category);
             ImageView img =  convertView.findViewById(R.id.grid_img);
             Button addcart = convertView.findViewById(R.id.grid_add_cart);
-
             price.setText(itemArrayAdapter.get(i).getPrice()+".00$");
             name.setText(itemArrayAdapter.get(i).getTitle());
 

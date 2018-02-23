@@ -9,6 +9,5 @@
         android:id="@+id/scanner"
         android:layout_width="match_parent"
         android:layout_height="600dp">
-
     </me.dm7.barcodescanner.zxing.ZXingScannerView>
 </RelativeLayout>

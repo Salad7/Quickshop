@@ -43,24 +43,23 @@
             <TextView
                 android:id="@+id/item_price"
                 android:layout_width="wrap_content"
-                android:textColor="#2c2d3c"
                 android:layout_height="wrap_content"
-                android:text="5,193.00$"
-                android:layout_marginTop="16dp"
-                android:layout_below="@+id/grid_title"
-                android:layout_alignParentStart="true"
-                android:layout_marginStart="24dp" />
-
-            <TextView
-                android:id="@+id/grid_category"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignBaseline="@+id/item_price"
-                android:layout_alignBottom="@+id/item_price"
-                android:layout_marginStart="8dp"
-                android:layout_toEndOf="@+id/item_price"
-                android:text="Men's wear"
+                android:layout_above="@+id/grid_add_cart"
+                android:layout_alignStart="@+id/grid_add_cart"
+                android:layout_marginBottom="15dp"
+                android:text="5,193.00$ Men's wear"
                 android:textColor="#2c2d3c" />
+
+            <!--<TextView-->
+                <!--android:id="@+id/grid_category"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_alignBaseline="@+id/item_price"-->
+                <!--android:layout_alignBottom="@+id/item_price"-->
+                <!--android:layout_marginStart="8dp"-->
+                <!--android:layout_toEndOf="@+id/item_price"-->
+                <!--android:text="Men's wear"-->
+                <!--android:textColor="#2c2d3c" />-->
 
             <Button
                 android:id="@+id/grid_add_cart"
