@@ -98,7 +98,7 @@ public class SelectStoreActivity extends AppCompatActivity {
 
             }
             if(i == 1){
-                fragment = new FragmentHistory();
+                fragment = new FragmentResturant();
                 Bundle args = new Bundle();
                 fragment.setArguments(args);
             }

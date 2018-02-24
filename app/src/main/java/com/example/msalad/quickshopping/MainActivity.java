@@ -2,19 +2,25 @@ package com.example.msalad.quickshopping;
 
 import android.app.ActionBar;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.net.Uri;
+import android.os.Build;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -28,6 +34,8 @@ import android.view.animation.Animation;
 import android.view.animation.Transformation;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -41,6 +49,10 @@ import com.example.msalad.quickshopping.Database.InventoryItem;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import me.dm7.barcodescanner.zxing.ZXingScannerView;
+
+import static android.Manifest.permission.CAMERA;
+
 public class MainActivity extends FragmentActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     FragmentManager fragmentManager;
@@ -53,10 +65,13 @@ public class MainActivity extends FragmentActivity implements NavigationView.OnN
     private DrawerLayout mDrawerLayout;
     private NavigationView mNavView;
     ActionBarDrawerToggle toggle;
+    //private HashMap<String, InventoryItem> sampleData; //Our hashmap with sample data on items
+    //private HashMap<String, InventoryItem> storeB_Data; //Our hashmap with items in store B
     private HashMap<String, InventoryItem> sampleData; //Our hashmap with sample data on items
-    private HashMap<String, InventoryItem> storeB_Data; //Our hashmap with items in store B
     private CartListOfItems cartListOfItems;
     private TextView cart_count;
+    private static final int REQUEST_CAMERA = 1;
+
 
 
     @Override
@@ -83,32 +98,145 @@ public class MainActivity extends FragmentActivity implements NavigationView.OnN
         setUpTablayout();
         setupNavigationDrawer();
         loadDB();
+        loadStore();
 
+        int currentapiVersion = android.os.Build.VERSION.SDK_INT;
 
+        //requestPermission();
+        if (currentapiVersion >= Build.VERSION_CODES.JELLY_BEAN) {
+            if (checkPermission()) {
+                Toast.makeText(getApplicationContext(), "Permission already granted", Toast.LENGTH_LONG).show();
+            } else {
+                requestPermission();
+            }
+        }
     }
 
+
+    private boolean checkPermission() {
+        return ( ContextCompat.checkSelfPermission(getApplicationContext(), CAMERA ) == PackageManager.PERMISSION_GRANTED);
+    }
+
+    private void requestPermission() {
+        ActivityCompat.requestPermissions(this, new String[]{CAMERA}, REQUEST_CAMERA);
+    }
+
+    public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
+        switch (requestCode) {
+            case REQUEST_CAMERA:
+                if (grantResults.length > 0) {
+
+                    boolean cameraAccepted = grantResults[0] == PackageManager.PERMISSION_GRANTED;
+                    if (cameraAccepted){
+                        Toast.makeText(getApplicationContext(), "Permission Granted, Now you can access camera", Toast.LENGTH_LONG).show();
+                    }
+                }
+                break;
+        }
+    }
+
+    public void loadStore(){
+        View header = mNavView.getHeaderView(0);
+        TextView tv =  header.findViewById(R.id.nav_store);
+        Log.d("MainActivity","Hit load store");
+        if(getIntent().hasExtra("store")){
+           tv.setText(getIntent().getStringExtra("store"));
+        }
+        else if(getIntent().hasExtra("restaurant")){
+            tv.setText(getIntent().getStringExtra("restaurant"));
+        }
+    }
+
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+    }
 
     public void loadDB(){
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         ////////////// Code that builds stores with their items lists and builds carts /////////////////////////////////////////////////////////////
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         sampleData = new HashMap<>(); //Make 1 hashmap per store (each has that store's items)
-        storeB_Data = new HashMap<>(); //Hashmap that has items of store B
+        //storeB_Data = new HashMap<>(); //Hashmap that has items of store B
 
         //Add new item to HashMap of items
         sampleData.put("026229212703", new InventoryItem(1.99, "Notebook", "http://www.ryman.co.uk/media/catalog/product/0/3/0399030007.jpg", "Others","026229212703"));
-        sampleData.put("026229345613", new InventoryItem(2.99, "Toy Car", "http://www.ryman.co.uk/media/catalog/product/0/3/0399030007.jpg", "Others","026229345613"));
+        sampleData.put("096619756803", new InventoryItem(2.99, "Water Bottle", "http://www.ryman.co.uk/media/catalog/product/0/3/0399030007.jpg", "Others","096619756803"));
+        sampleData.put("030242940017", new InventoryItem(4.99, "Mints", "http://www.ryman.co.uk/media/catalog/product/0/3/0399030007.jpg", "Others","030242940017"));
 
 
         //This data will be populated into instance objects on each scan and "add to cart" /////////////////////////////
         //LAST INPUT (in this case, 1) IS THE QUANTITY. SHOULD BE SET TO WHATEVER IS ASSIGNED FROM THE DIALOGUE BOX
-        CartItem notebook = new CartItem(sampleData.get("026229212703").getPrice(), sampleData.get("026229212703").getName(), sampleData.get("026229212703").getImage(), sampleData.get("026229212703").getSalesTaxGroup(), sampleData.get("026229212703").getItemKey(), 1);
-        CartItem toyCar = new CartItem(sampleData.get("026229345613").getPrice(), sampleData.get("026229345613").getName(), sampleData.get("026229345613").getImage(), sampleData.get("026229345613").getSalesTaxGroup(), sampleData.get("026229345613").getItemKey(), 1);
+        //CartItem notebook = new CartItem(sampleData.get("026229212703").getPrice(), sampleData.get("026229212703").getName(), sampleData.get("026229212703").getImage(), sampleData.get("026229212703").getSalesTaxGroup(), sampleData.get("026229212703").getItemKey(), 1);
+        //CartItem water = new CartItem(sampleData.get("096619756803").getPrice(), sampleData.get("096619756803").getName(), sampleData.get("096619756803").getImage(), sampleData.get("096619756803").getSalesTaxGroup(), sampleData.get("096619756803").getItemKey(), 1);
+        //CartItem mints = new CartItem(sampleData.get("030242940017").getPrice(), sampleData.get("030242940017").getName(), sampleData.get("030242940017").getImage(), sampleData.get("030242940017").getSalesTaxGroup(), sampleData.get("030242940017").getItemKey(), 1);
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-        CartListOfItems cart = new CartListOfItems();
-        cart.addToCart(notebook);
-        cart.addToCart(toyCar);
+        //CartListOfItems cart = new CartListOfItems();
+        //cart.addToCart(notebook);
+        //cart.addToCart(toyCar);
+    }
+
+    public void findItem(String key, final ZXingScannerView scannerView, final ZXingScannerView.ResultHandler resultHandler){
+        if(sampleData.containsKey(key)) {
+            final InventoryItem item = sampleData.get(key);
+            final AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
+            LayoutInflater inflater = this.getLayoutInflater();
+            final View dialogView = inflater.inflate(R.layout.dialog_item_single, null);
+            dialogBuilder.setView(dialogView);
+
+            final TextView name = (TextView) dialogView.findViewById(R.id.dialog_name);
+            final TextView price = (TextView) dialogView.findViewById(R.id.dialog_price);
+            final ImageView addBtn = dialogView.findViewById(R.id.dialog_add);
+            final EditText quantity = dialogView.findViewById(R.id.dialog_quantity);
+            final ImageView cancelBtn = dialogView.findViewById(R.id.dialog_cancel);
+            name.setText(item.getName());
+            price.setText("$"+item.getPrice()+"");
+
+
+            dialogBuilder.setTitle("Custom dialog");
+            dialogBuilder.setMessage("Enter text below");
+            final AlertDialog b = dialogBuilder.create();
+            cancelBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    b.dismiss();
+                    scannerView.resumeCameraPreview(resultHandler);
+                }
+            });
+            addBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    CartItem cartItem =
+                            new CartItem(item.getPrice(),
+                                    item.getName(),
+                                    item.getImage(),
+                                    item.getSalesTaxGroup(),
+                                    item.getItemKey(),
+                                    Integer.parseInt(quantity.getText().toString()));
+                    addItemToCart(cartItem);
+                    scannerView.resumeCameraPreview(resultHandler);
+                    b.dismiss();
+                }
+            });
+            b.show();
+        }
+        else {
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setTitle("Scan Result");
+            builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    scannerView.resumeCameraPreview(resultHandler);
+                }
+            });
+            builder.setMessage("Could not find item");
+            AlertDialog alert1 = builder.create();
+            alert1.show();
+        }
+
     }
     public void setupNavigationDrawer(){
         mViewPager = (ViewPager) findViewById(R.id.viewpager);

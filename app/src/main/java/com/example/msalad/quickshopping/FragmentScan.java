@@ -1,5 +1,6 @@
 package com.example.msalad.quickshopping;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -22,6 +23,7 @@ import static android.content.ContentValues.TAG;
 public class FragmentScan extends Fragment  implements ZXingScannerView.ResultHandler  {
 
     private ZXingScannerView mScannerView;
+    private MainActivity mainActivity;
 
 
     @Nullable
@@ -41,6 +43,14 @@ public class FragmentScan extends Fragment  implements ZXingScannerView.ResultHa
         Toast.makeText(getContext(),rawResult.getText(),Toast.LENGTH_SHORT).show();
         Log.v(TAG, rawResult.getBarcodeFormat().toString()); // Prints the scan format (qrcode, pdf417 etc.)
         // If you would like to resume scanning, call this method below:
-        mScannerView.resumeCameraPreview(this);
+       // mScannerView.resumeCameraPreview(this);
+        mainActivity.findItem(rawResult.getText(), mScannerView,this);
+
+    }
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        mainActivity = (MainActivity) context;
     }
 }

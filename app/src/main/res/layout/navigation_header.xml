@@ -51,19 +51,18 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView15"
+        android:id="@+id/nav_store"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
         android:text="1011 South Cloverfield"
         android:textColor="#ffffff"
         android:textSize="18dp"
         android:visibility="invisible"
-        tools:layout_constraintRight_creator="1"
-        tools:layout_constraintBottom_creator="1"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginEnd="76dp"
         app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginBottom="16dp" />
+        tools:layout_constraintBottom_creator="1"
+        tools:layout_constraintRight_creator="1" />
 
 
 </android.support.constraint.ConstraintLayout>

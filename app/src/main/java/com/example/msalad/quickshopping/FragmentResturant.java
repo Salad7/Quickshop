@@ -11,10 +11,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
-import android.widget.Button;
 import android.widget.GridView;
 import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.msalad.quickshopping.Database.Store;
@@ -23,10 +21,10 @@ import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
 
 /**
- * Created by cci-loaner on 2/12/18.
+ * Created by cci-loaner on 2/24/18.
  */
 
-public class FragmentStores extends Fragment {
+public class FragmentResturant extends Fragment {
     ArrayList<Store> stores;
     GridView gridView;
     StoreAdapter gridAdapter;
@@ -34,37 +32,37 @@ public class FragmentStores extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.fragment_stores,container,false);
-        gridView = v.findViewById(R.id.grid_stores);
+        View v = inflater.inflate(R.layout.fragment_resturant,container,false);
+        gridView = v.findViewById(R.id.grid_rest);
         stores = new ArrayList<>();
         loadStores();
         return v;
     }
 
     public void loadGrid(){
-        gridAdapter = new StoreAdapter(stores,getContext());
+        gridAdapter = new StoreAdapter(stores,getActivity());
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Toast.makeText(getContext(),"Hit "+stores.get(i).getName(),Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(),"Hit "+stores.get(i).getName(),Toast.LENGTH_SHORT).show();
             }
         });
         gridView.setAdapter(gridAdapter);
     }
 
     public void loadStores(){
-        Store greatbuy = new Store(R.drawable.greatbuy);//new Store("Walmart","https://lh3.googleusercontent.com/aUxQggeuIel4IZsWbdHaEuys8FNids7l3ZMtrQHX0DJyoTGHxo7xfTfi3CpRhd0mpsI=w300-rw");
-        greatbuy.setName("Great Buy");
-        Store abode = new Store(R.drawable.abodedepot);//new Store("Walmart","https://lh3.googleusercontent.com/aUxQggeuIel4IZsWbdHaEuys8FNids7l3ZMtrQHX0DJyoTGHxo7xfTfi3CpRhd0mpsI=w300-rw");
-        abode.setName("Abode Depot");
-        stores.add(greatbuy);
-        stores.add(abode);
+        //Store target = new Store("Target","http://adele.wikia.com/wiki/File:TARGET.png");
+        Store bargain = new Store(R.drawable.bargainmart);//new Store("Walmart","https://lh3.googleusercontent.com/aUxQggeuIel4IZsWbdHaEuys8FNids7l3ZMtrQHX0DJyoTGHxo7xfTfi3CpRhd0mpsI=w300-rw");
+        bargain.setName("Bargain Mart");
+        stores.add(bargain);
+
+
         loadGrid();
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent i = new Intent(getActivity(), MainActivity.class);
-                i.putExtra("store",((Store)gridAdapter.getItem(position)).getName());
+                i.putExtra("restaurant",((Store)gridAdapter.getItem(position)).getName());
                 startActivity(i);
             }
         });
@@ -109,7 +107,6 @@ public class FragmentStores extends Fragment {
 //                    .into(img);
             //price.setText(itemArrayAdapter.get(i).getPrice()+".00$");
             //name.setText(itemArrayAdapter.get(i).getTitle());
-           // img.setBackgroundResource(R.drawable.greatbuy);
 
             return convertView;
         }

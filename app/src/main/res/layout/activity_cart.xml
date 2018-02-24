@@ -275,7 +275,7 @@
         <ListView
             android:id="@+id/cart_items"
             android:layout_width="0dp"
-            android:layout_height="1dp"
+            android:layout_height="300dp"
             android:layout_below="@+id/toolbar2"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="15dp"

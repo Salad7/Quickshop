@@ -8,6 +8,7 @@ public class Store {
 
     String name;
     String url;
+    int drawableID;
 
     public Store(){
 
@@ -15,6 +16,14 @@ public class Store {
     public Store(String name, String url){
         this.name = name;
         this.url = url;
+    }
+
+    public int getDrawableID() {
+        return drawableID;
+    }
+
+    public Store(int drawableID){
+        this.drawableID = drawableID;
     }
 
     public String getName() {
