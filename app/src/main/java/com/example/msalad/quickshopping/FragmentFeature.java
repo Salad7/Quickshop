@@ -124,7 +124,7 @@ public class FragmentFeature extends Fragment {
                 public void onClick(View v) {
                     Item item = itemArrayAdapter.get(pos);
                     double  itemPrice =(double) itemArrayAdapter.get(pos).getPrice();
-                    CartItem cartItem = new CartItem(itemPrice,item.getTitle(),item.img_src,"","key",1);
+                    CartItem cartItem = new CartItem(itemPrice,item.getTitle(),"https://bloximages.chicago2.vip.townnews.com/qctimes.com/content/tncms/assets/v3/editorial/3/92/3920339a-9dba-11de-983a-001cc4c002e0/3920339a-9dba-11de-983a-001cc4c002e0.image.jpg","","key",1);
                     mainActivity.addItemToCart(cartItem);
                 }
             });

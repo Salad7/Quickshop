@@ -32,9 +32,11 @@
             android:visibility="visible"
             app:cardElevation="4dp"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/quickpay"
+            app:layout_constraintVertical_bias="0.025"
             tools:layout_constraintLeft_creator="1"
             tools:layout_constraintRight_creator="1">
 
@@ -273,7 +275,7 @@
         <ListView
             android:id="@+id/cart_items"
             android:layout_width="0dp"
-            android:layout_height="300dp"
+            android:layout_height="1dp"
             android:layout_below="@+id/toolbar2"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="15dp"

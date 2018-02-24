@@ -7,6 +7,7 @@ import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -42,6 +43,7 @@ public class CartActivity extends AppCompatActivity {
         if(getIntent().hasExtra("cart")){
             try {
                 cartListOfItems = (CartListOfItems) getIntent().getSerializableExtra("cart");
+                loadCart();
             }
             catch (Exception e){
                 e.printStackTrace();
@@ -54,6 +56,7 @@ public class CartActivity extends AppCompatActivity {
     }
 
     public void loadCart(){
+        Log.d("CartActivity","Loading cart");
         customCartItemAdapter = new CustomCartItemAdapter(this,R.layout.custom_shopping_item,cartListOfItems.getCart());
         listView.setAdapter(customCartItemAdapter);
     }
@@ -87,10 +90,11 @@ public class CartActivity extends AppCompatActivity {
 //            TextView remove = view.findViewById(R.id.item_remove);
             ImageView delete =  view.findViewById(R.id.item_delete);
             ImageView img =  view.findViewById(R.id.item_img);
-
+            TextView quantity = view.findViewById(R.id.item_quantity);
             //this code sets the values of the objects to values from the arrays
-            price.setText(items.get(position)+".00$");
+            price.setText(items.get(position).getPrice()+"");
             name.setText(items.get(position).getName());
+            quantity.setText(items.get(position).getQuantity()+"");
             Picasso.with(ctx).load(items.get(position).getImage()).into(img);
             delete.setOnClickListener(new View.OnClickListener() {
                 @Override

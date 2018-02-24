@@ -1,12 +1,13 @@
 package com.example.msalad.quickshopping.Database;
 
+import java.io.Serializable;
 import java.util.HashMap;
 
 /**
  * Created by cci-loaner on 2/13/18.
  */
 
-public class InventoryItem {
+public class InventoryItem implements Serializable {
 
     double price;
     String name;
