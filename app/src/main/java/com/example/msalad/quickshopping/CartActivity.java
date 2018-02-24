@@ -34,6 +34,7 @@ public class CartActivity extends AppCompatActivity {
     ListView listView;
     CustomCartItemAdapter customCartItemAdapter;
     CartListOfItems cartListOfItems;
+    ImageView backBtn;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -52,6 +53,13 @@ public class CartActivity extends AppCompatActivity {
         else{
             cartListOfItems = new CartListOfItems();
         }
+        backBtn = findViewById(R.id.item_back);
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
     }
 

@@ -85,12 +85,12 @@
             tools:layout_constraintTop_creator="1" />
 
         <ImageView
-            android:id="@+id/imageView2"
+            android:id="@+id/item_back"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_alignTop="@+id/textView4"
-            android:src="@drawable/left"
             android:layout_marginLeft="8dp"
+            android:src="@drawable/left"
             app:layout_constraintBottom_toBottomOf="@+id/textView4"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="@+id/textView4"
