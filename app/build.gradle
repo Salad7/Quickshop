@@ -33,6 +33,8 @@ dependencies {
     compile 'net.cachapa.expandablelayout:expandablelayout:2.9.2'
     compile 'com.squareup.picasso:picasso:2.5.2'
     compile 'com.braintreepayments.api:drop-in:3.+'
+    compile 'com.github.renaudcerrato:FloatingSearchView:1.0.1'
+
 
 
 }

@@ -70,6 +70,7 @@ public class MainActivity extends FragmentActivity implements NavigationView.OnN
     private HashMap<String, InventoryItem> sampleData; //Our hashmap with sample data on items
     private CartListOfItems cartListOfItems;
     private TextView cart_count;
+    private TextView mTitle;
     private static final int REQUEST_CAMERA = 1;
 
 
@@ -85,6 +86,7 @@ public class MainActivity extends FragmentActivity implements NavigationView.OnN
         mViewPager = (ViewPager) findViewById(R.id.viewpager);
         toolbar = findViewById(R.id.toolbar);
         cart_iv = findViewById(R.id.cart);
+        mTitle = findViewById(R.id.main_title);
         cart_iv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -139,11 +141,15 @@ public class MainActivity extends FragmentActivity implements NavigationView.OnN
         View header = mNavView.getHeaderView(0);
         TextView tv =  header.findViewById(R.id.nav_store);
         Log.d("MainActivity","Hit load store");
+        tv.setText("Change");
         if(getIntent().hasExtra("store")){
            tv.setText(getIntent().getStringExtra("store"));
+           mTitle.setText(getIntent().getStringExtra("store"));
         }
         else if(getIntent().hasExtra("restaurant")){
             tv.setText(getIntent().getStringExtra("restaurant"));
+            mTitle.setText(getIntent().getStringExtra("restaurant"));
+
         }
     }
 

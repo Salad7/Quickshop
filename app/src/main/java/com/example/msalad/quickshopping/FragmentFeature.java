@@ -41,14 +41,14 @@ public class FragmentFeature extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_feature,container,false);
         grid = v.findViewById(R.id.grid_items);
-        floatingSearchView = v.findViewById(R.id.floating_search_view);
-        floatingSearchView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-
-            }
-        });
+//        floatingSearchView = v.findViewById(R.id.floating_search_view);
+//        floatingSearchView.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//
+//
+//            }
+//        });
 
         loadGridItems();
 
