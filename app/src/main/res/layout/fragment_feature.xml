@@ -20,6 +20,7 @@
                 android:layout_marginTop="4dp"
                 android:paddingRight="8dp"
                 android:paddingLeft="8dp"
+                app:floatingSearch_backgroundColor="#ffffff"
                 android:background="#ffffff"
                 android:hint="Hint"
                 app:logo="@drawable/down"
@@ -87,10 +88,6 @@
             tools:layout_constraintRight_creator="1">
 
         </GridView>
-
-
-
-
     </RelativeLayout>
 
 
