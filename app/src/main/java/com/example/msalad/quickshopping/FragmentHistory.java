@@ -94,7 +94,7 @@ public class FragmentHistory extends Fragment {
                 }
             });
 
-            Button share =  view.findViewById(R.id.history_share);
+            //Button share =  view.findViewById(R.id.history_share);
             //Share Cart with friends
 
             Button viewCart =  view.findViewById(R.id.history_cart);
@@ -108,6 +108,7 @@ public class FragmentHistory extends Fragment {
                 LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(324, 324);
                 layoutParams.setMarginStart(48);
                 layoutParams.setMarginEnd(48);
+                image.setPadding(24,24,24,24);
                 image.setLayoutParams(layoutParams);
                 image.setBackgroundResource(R.drawable.bargainmart);
                 linearLayout.addView(image);

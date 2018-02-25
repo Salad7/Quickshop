@@ -37,12 +37,12 @@
 
             <Button
                 android:id="@+id/history_cart"
-                android:layout_width="160dp"
-                android:layout_height="wrap_content"
+                android:layout_width="336dp"
+                android:layout_height="45dp"
                 android:layout_marginBottom="16dp"
                 android:layout_marginStart="16dp"
                 android:background="#3c59ff"
-                android:text="View Cart"
+                android:text="View Full Cart"
                 android:textColor="#ffffff"
                 android:textSize="18dp"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -53,8 +53,9 @@
                 android:id="@+id/history_items"
                 android:layout_width="match_parent"
                 android:layout_height="134dp"
-                android:layout_marginEnd="15dp"
-                android:layout_marginStart="15dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -69,20 +70,20 @@
                     <!--android:orientation="horizontal" />-->
             </HorizontalScrollView>
 
-            <Button
-                android:id="@+id/history_share"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginStart="16dp"
-                android:background="#3c59ff"
-                android:text="Share Cart"
-                android:textColor="#ffffff"
-                android:textSize="18dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/history_cart" />
+            <!--<Button-->
+                <!--android:id="@+id/history_share"-->
+                <!--android:layout_width="0dp"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginBottom="16dp"-->
+                <!--android:layout_marginEnd="16dp"-->
+                <!--android:layout_marginStart="16dp"-->
+                <!--android:background="#3c59ff"-->
+                <!--android:text="Share Cart"-->
+                <!--android:textColor="#ffffff"-->
+                <!--android:textSize="18dp"-->
+                <!--app:layout_constraintBottom_toBottomOf="parent"-->
+                <!--app:layout_constraintEnd_toEndOf="parent"-->
+                <!--app:layout_constraintStart_toEndOf="@+id/history_cart" />-->
 
             <TextView
                 android:id="@+id/history_price"
@@ -100,7 +101,7 @@
                 android:id="@+id/history_delete"
                 android:layout_width="36dp"
                 android:layout_height="36dp"
-                android:layout_marginEnd="15dp"
+                android:layout_marginEnd="16dp"
                 android:layout_marginTop="16dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
