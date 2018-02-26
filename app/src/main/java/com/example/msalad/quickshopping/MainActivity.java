@@ -72,7 +72,7 @@ public class MainActivity extends FragmentActivity implements NavigationView.OnN
     private TextView cart_count;
     private TextView mTitle;
     private static final int REQUEST_CAMERA = 1;
-    private com.mypopsy.widget.FloatingSearchView floatingSearchView;
+    private FloatingSearchView floatingSearchView;
 
 
 
@@ -118,19 +118,22 @@ public class MainActivity extends FragmentActivity implements NavigationView.OnN
     }
 
     private void setupSearchView(){
-        floatingSearchView.setOnSearchFocusChangedListener(new com.mypopsy.widget.FloatingSearchView.OnSearchFocusChangedListener() {
+        floatingSearchView.setOnFocusChangeListener(new FloatingSearchView.OnFocusChangeListener() {
             @Override
-            public void onFocusChanged(boolean focus) {
+            public void onFocus() {
                 AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(MainActivity.this);
                 LayoutInflater inflater = getLayoutInflater();
                 final View dialogView = inflater.inflate(R.layout.custom_search_view, null);
                 dialogBuilder.setView(dialogView);
                 Log.d("MainActivity","Hit setupSearchView");
 
-                //final EditText edt = (EditText) dialogView.findViewById(R.id.edit1);
+                final FloatingSearchView floatingSearchView = (FloatingSearchView) dialogView.findViewById(R.id.floating_search_view_2);
+                floatingSearchView.setOnQueryChangeListener(new FloatingSearchView.OnQueryChangeListener() {
+                    @Override
+                    public void onSearchTextChanged(String oldQuery, String newQuery) {
 
-                dialogBuilder.setTitle("Custom dialog");
-                dialogBuilder.setMessage("Enter text below");
+                    }
+                });
                 dialogBuilder.setPositiveButton("Done", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int whichButton) {
                         //do something with edt.getText().toString();
@@ -144,10 +147,9 @@ public class MainActivity extends FragmentActivity implements NavigationView.OnN
                 AlertDialog b = dialogBuilder.create();
                 b.show();
             }
-        });
-        floatingSearchView.setOnClickListener(new View.OnClickListener() {
+
             @Override
-            public void onClick(View v) {
+            public void onFocusCleared() {
 
             }
         });
