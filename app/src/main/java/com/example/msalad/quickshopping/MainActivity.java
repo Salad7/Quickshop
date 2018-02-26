@@ -72,6 +72,7 @@ public class MainActivity extends FragmentActivity implements NavigationView.OnN
     private TextView cart_count;
     private TextView mTitle;
     private static final int REQUEST_CAMERA = 1;
+    private com.mypopsy.widget.FloatingSearchView floatingSearchView;
 
 
 
@@ -87,6 +88,7 @@ public class MainActivity extends FragmentActivity implements NavigationView.OnN
         toolbar = findViewById(R.id.toolbar);
         cart_iv = findViewById(R.id.cart);
         mTitle = findViewById(R.id.main_title);
+        floatingSearchView = findViewById(R.id.floating_search_view);
         cart_iv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -101,6 +103,7 @@ public class MainActivity extends FragmentActivity implements NavigationView.OnN
         setupNavigationDrawer();
         loadDB();
         loadStore();
+        setupSearchView();
 
         int currentapiVersion = android.os.Build.VERSION.SDK_INT;
 
@@ -112,6 +115,42 @@ public class MainActivity extends FragmentActivity implements NavigationView.OnN
                 requestPermission();
             }
         }
+    }
+
+    private void setupSearchView(){
+        floatingSearchView.setOnSearchFocusChangedListener(new com.mypopsy.widget.FloatingSearchView.OnSearchFocusChangedListener() {
+            @Override
+            public void onFocusChanged(boolean focus) {
+                AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(MainActivity.this);
+                LayoutInflater inflater = getLayoutInflater();
+                final View dialogView = inflater.inflate(R.layout.custom_search_view, null);
+                dialogBuilder.setView(dialogView);
+                Log.d("MainActivity","Hit setupSearchView");
+
+                //final EditText edt = (EditText) dialogView.findViewById(R.id.edit1);
+
+                dialogBuilder.setTitle("Custom dialog");
+                dialogBuilder.setMessage("Enter text below");
+                dialogBuilder.setPositiveButton("Done", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int whichButton) {
+                        //do something with edt.getText().toString();
+                    }
+                });
+                dialogBuilder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int whichButton) {
+                        //pass
+                    }
+                });
+                AlertDialog b = dialogBuilder.create();
+                b.show();
+            }
+        });
+        floatingSearchView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
     }
 
 
