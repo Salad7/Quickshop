@@ -152,13 +152,15 @@ public class MainActivity extends FragmentActivity implements NavigationView.OnN
                 dialogBuilder.setTitle("Search for an item");
                 Log.d("MainActivity","Hit setupSearchView");
                 searchListView = (ListView) dialogView.findViewById(R.id.search_items);
-
                 final FloatingSearchView floatingSearchView = (FloatingSearchView) dialogView.findViewById(R.id.floating_search_view_2);
+                customSearchAdapter = new CustomSearchAdapter(MainActivity.this,listOfAllItems,R.layout.custom_search_item);
+                searchListView.setAdapter(customSearchAdapter);
                 floatingSearchView.setOnQueryChangeListener(new FloatingSearchView.OnQueryChangeListener() {
                     @Override
                     public void onSearchTextChanged(String oldQuery, String newQuery) {
-                    customSearchAdapter = new CustomSearchAdapter(MainActivity.this,listOfAllItems,R.layout.custom_search_item);
-                    searchListView.setAdapter(customSearchAdapter);
+                    Log.d("MainActivity","New query "+newQuery);
+                    customSearchAdapter.runQuery(newQuery);
+                    customSearchAdapter.notifyDataSetChanged();
                     }
                 });
                 dialogBuilder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
@@ -439,17 +441,39 @@ public class MainActivity extends FragmentActivity implements NavigationView.OnN
     public class CustomSearchAdapter extends BaseAdapter {
 
         ArrayList<CartItem> cartItems;
+        ArrayList<CartItem> originalItems;
         Context context;
         int layout;
         CustomSearchAdapter(Context ctx, ArrayList<CartItem> cartItems, int layout){
             context = ctx;
             this.cartItems = cartItems;
+            setOriginalItems();
             this.layout = layout;
+        }
+
+        public void setOriginalItems(){
+            this.originalItems = this.cartItems;
+        }
+
+        public void runQuery(String que){
+            cartItems = new ArrayList<>();
+            for(int i = 0; i < originalItems.size(); i++){
+                Log.d("MainActivity","Does "+que+" exist in "+originalItems.get(i).getName());
+                if(originalItems.get(i).getName().toLowerCase().contains(que.toLowerCase()) || que.equals("")){
+                    cartItems.add(originalItems.get(i));
+                }
+            }
         }
 
         @Override
         public int getCount() {
-            return cartItems.size();
+            try {
+                return cartItems.size();
+            }
+            catch (NullPointerException excep){
+                excep.printStackTrace();
+            }
+            return 0;
         }
 
         @Override
