@@ -35,7 +35,7 @@
 
             <ImageView
                 android:id="@+id/item_img"
-                android:layout_width="0dp"
+                android:layout_width="72dp"
                 android:layout_height="72dp"
                 android:layout_marginBottom="20dp"
                 android:layout_marginEnd="9dp"
@@ -52,16 +52,15 @@
 
             <TextView
                 android:id="@+id/item_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="196dp"
+                android:layout_height="24dp"
                 android:layout_marginEnd="124dp"
-                android:layout_marginTop="8dp"
+                android:gravity="center"
                 android:text="Expensive Jacket"
                 android:textColor="#000000"
                 android:textSize="20dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/item_img"
-                app:layout_constraintTop_toTopOf="@+id/item_img" />
+                tools:layout_editor_absoluteX="100dp"
+                tools:layout_editor_absoluteY="29dp" />
 
             <TextView
                 android:id="@+id/item_price"
@@ -72,7 +71,7 @@
                 android:textColor="#2c2d3c"
                 android:textSize="20dp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintHorizontal_bias="0.327"
+                app:layout_constraintHorizontal_bias="0.446"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 tools:layout_constraintBottom_creator="1"
@@ -101,7 +100,7 @@
 
             <Button
                 android:id="@+id/button7"
-                android:layout_width="128dp"
+                android:layout_width="88dp"
                 android:layout_height="28dp"
                 android:layout_alignParentBottom="true"
                 android:layout_centerHorizontal="true"

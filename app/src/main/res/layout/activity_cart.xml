@@ -86,8 +86,8 @@
 
         <ImageView
             android:id="@+id/item_back"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
             android:layout_alignTop="@+id/textView4"
             android:layout_marginLeft="8dp"
             android:src="@drawable/left"
