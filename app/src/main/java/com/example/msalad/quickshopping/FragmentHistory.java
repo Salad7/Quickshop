@@ -47,7 +47,6 @@ public class FragmentHistory extends Fragment {
 
 
 
-
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -57,31 +56,31 @@ public class FragmentHistory extends Fragment {
         items = new ArrayList<>();
         final HistoryItem item = new HistoryItem();
         final InventoryItem inventoryItem = new InventoryItem(1.00,"Some Item","","","key");
-        item.getItems().add(inventoryItem);
+        item.addInventoryItem(inventoryItem);
+        items.add(item);
         customItemAdapter = new CustomItemAdapter(getContext(),R.layout.custom_history_item,items);
         listView.setAdapter(customItemAdapter);
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(getActivity());
-                LayoutInflater inflater = getLayoutInflater();
-                final View dialogView = inflater.inflate(R.layout.dialog_list, null);
-                dialogBuilder.setView(dialogView);
-                dialogBuilder.setTitle("Search for an item");
-                Log.d("MainActivity","Hit setupSearchView");
-                HistoryItem clickedItem = items.get(position);
-                dialogList = (ListView) dialogView.findViewById(R.id.search_items);
-                customDialogListAdapter = new CustomDialogListAdapter(getContext(),clickedItem.getItems(),R.layout.dialog_list);
-                dialogBuilder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int whichButton) {
-                        //pass
-                    }
-                });
-                AlertDialog b = dialogBuilder.create();
-                b.show();
+        return v;
+    }
+
+    public void inflateDialogList(int position){
+        AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(getActivity());
+        LayoutInflater inflater = getLayoutInflater();
+        final View dialogView = inflater.inflate(R.layout.dialog_list, null);
+        dialogBuilder.setView(dialogView);
+        dialogBuilder.setTitle("Search for an item");
+        ArrayList<InventoryItem> clickedItem = items.get(position).getItems();
+        dialogList = (ListView) dialogView.findViewById(R.id.list_dialog);
+        customDialogListAdapter = new CustomDialogListAdapter(getContext(),clickedItem,R.layout.custom_shopping_item);
+        dialogList.setAdapter(customDialogListAdapter);
+        Log.d("FragmentHistory","Size of InventoryItems: "+items.get(position).getItems().size());
+        dialogBuilder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int whichButton) {
+                //pass
             }
         });
-        return v;
+        AlertDialog b = dialogBuilder.create();
+        b.show();
     }
 
 
@@ -109,8 +108,8 @@ public class FragmentHistory extends Fragment {
             LayoutInflater inflater=ctx.getLayoutInflater();
             View view = inflater.inflate(res, parent, false);
             //this code gets references to objects in the listview_row.xml file
-            TextView price = view.findViewById(R.id.history_price);
-            TextView date = view.findViewById(R.id.history_date);
+            TextView price = view.findViewById(R.id.item_price);
+//            TextView date = view.findViewById(R.id.item);
             final HorizontalScrollView horizontalScrollView = view.findViewById(R.id.history_items);
 
             ImageView delete = view.findViewById(R.id.history_delete);
@@ -126,8 +125,13 @@ public class FragmentHistory extends Fragment {
 
             //Button share =  view.findViewById(R.id.history_share);
             //Share Cart with friends
-
-            Button viewCart =  view.findViewById(R.id.history_cart);
+            Button mViewCartBtn =  view.findViewById(R.id.history_cart);
+            mViewCartBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    inflateDialogList(position);
+                }
+            });
             //View Cart in dialog
             LinearLayout linearLayout = new LinearLayout(ctx);
             linearLayout.setOrientation(LinearLayout.HORIZONTAL);

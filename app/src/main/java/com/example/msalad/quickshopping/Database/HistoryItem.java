@@ -40,4 +40,8 @@ public class HistoryItem {
     public void setItems(ArrayList<InventoryItem> items) {
         this.items = items;
     }
+
+    public void addInventoryItem(InventoryItem inventoryItem){
+        items.add(inventoryItem);
+    }
 }
