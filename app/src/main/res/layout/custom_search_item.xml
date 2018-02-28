@@ -35,53 +35,38 @@
 
             <ImageView
                 android:id="@+id/item_img"
-                android:layout_width="72dp"
+                android:layout_width="75dp"
                 android:layout_height="72dp"
-                android:layout_marginBottom="20dp"
-                android:layout_marginEnd="9dp"
-                android:layout_marginStart="16dp"
                 android:padding="8dp"
                 android:src="@drawable/cart_img"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/item_title"
-                app:layout_constraintHorizontal_bias="0.051"
-                app:layout_constraintStart_toStartOf="parent"
-                tools:layout_constraintBottom_creator="1"
-                tools:layout_constraintLeft_creator="1"
-                tools:layout_constraintRight_creator="1" />
+                tools:layout_editor_absoluteX="16dp"
+                tools:layout_editor_absoluteY="16dp" />
 
             <TextView
                 android:id="@+id/item_title"
-                android:layout_width="196dp"
-                android:layout_height="24dp"
-                android:layout_marginEnd="124dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="Expensive Jacket"
                 android:textColor="#000000"
-                android:textSize="20dp"
-                tools:layout_editor_absoluteX="100dp"
-                tools:layout_editor_absoluteY="29dp" />
+                android:textSize="18dp"
+                tools:layout_editor_absoluteX="110dp"
+                tools:layout_editor_absoluteY="16dp" />
 
             <TextView
                 android:id="@+id/item_price"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="20dp"
                 android:text="$5,319.00"
                 android:textColor="#2c2d3c"
-                android:textSize="20dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintHorizontal_bias="0.446"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                tools:layout_constraintBottom_creator="1"
-                tools:layout_constraintLeft_creator="1"
-                tools:layout_constraintRight_creator="1" />
+                android:textSize="18dp"
+                tools:layout_editor_absoluteX="264dp"
+                tools:layout_editor_absoluteY="16dp" />
 
             <Button
                 android:id="@+id/grid_add_cart"
                 android:layout_width="100dp"
-                android:layout_height="28dp"
+                android:layout_height="0dp"
                 android:layout_alignParentBottom="true"
                 android:layout_centerHorizontal="true"
                 android:layout_marginBottom="8dp"
@@ -89,32 +74,19 @@
                 android:background="@color/colorPrimary"
                 android:text="Add to cart"
                 android:textColor="#ffffff"
-                android:visibility="gone"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintHorizontal_bias="0.739"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                tools:layout_constraintBottom_creator="1"
-                tools:layout_constraintLeft_creator="1"
-                tools:layout_constraintRight_creator="1" />
+                android:visibility="gone" />
 
             <Button
                 android:id="@+id/button7"
-                android:layout_width="88dp"
-                android:layout_height="28dp"
+                android:layout_width="241dp"
+                android:layout_height="29dp"
                 android:layout_alignParentBottom="true"
                 android:layout_centerHorizontal="true"
-                android:layout_marginBottom="20dp"
                 android:background="@color/colorPrimary"
                 android:text="View"
                 android:textColor="#ffffff"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintHorizontal_bias="0.935"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                tools:layout_constraintBottom_creator="1"
-                tools:layout_constraintLeft_creator="1"
-                tools:layout_constraintRight_creator="1" />
+                tools:layout_editor_absoluteX="110dp"
+                tools:layout_editor_absoluteY="59dp" />
 
 
         </android.support.constraint.ConstraintLayout>
