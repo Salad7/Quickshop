@@ -17,6 +17,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -64,12 +65,12 @@ public class FragmentHistory extends Fragment {
     }
 
     public void inflateDialogList(int position){
+        ArrayList<InventoryItem> clickedItem = items.get(position).getItems();
         AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(getActivity());
         LayoutInflater inflater = getLayoutInflater();
         final View dialogView = inflater.inflate(R.layout.dialog_list, null);
         dialogBuilder.setView(dialogView);
-        dialogBuilder.setTitle("Search for an item");
-        ArrayList<InventoryItem> clickedItem = items.get(position).getItems();
+        dialogBuilder.setTitle("History for cart on "+items.get(position).getDate());
         dialogList = (ListView) dialogView.findViewById(R.id.list_dialog);
         customDialogListAdapter = new CustomDialogListAdapter(getContext(),clickedItem,R.layout.custom_shopping_item);
         dialogList.setAdapter(customDialogListAdapter);
@@ -109,7 +110,7 @@ public class FragmentHistory extends Fragment {
             View view = inflater.inflate(res, parent, false);
             //this code gets references to objects in the listview_row.xml file
             TextView price = view.findViewById(R.id.item_price);
-//            TextView date = view.findViewById(R.id.item);
+//            TextView date = view.findViewById(R.id.item)
             final HorizontalScrollView horizontalScrollView = view.findViewById(R.id.history_items);
 
             ImageView delete = view.findViewById(R.id.history_delete);
@@ -186,8 +187,24 @@ public class FragmentHistory extends Fragment {
                 TextView price =  view.findViewById(R.id.item_price);
                 ImageView img =  view.findViewById(R.id.item_img);
                 price.setText(items.get(position).getPrice()+"");
+                final TextView quantity = view.findViewById(R.id.item_quantity);
+                int quantityVal = Integer.parseInt(quantity.getText().toString());
                 name.setText(items.get(position).getName());
-//            quantity.setText(cartItems.get(position).getQuantity()+"");
+                ImageView up = view.findViewById(R.id.up_btn);
+                ImageView down = view.findViewById(R.id.down_btn);
+                quantity.setText(quantityVal+"");
+                up.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Toast.makeText(getContext(),"Hit up!",Toast.LENGTH_SHORT).show();
+                    }
+                });
+                down.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Toast.makeText(getContext(),"Hit down!",Toast.LENGTH_SHORT).show();
+                    }
+                });
                 //Picasso.with(getContext()).load(items.get(position).getImage()).into(img);
                 return view;
             }

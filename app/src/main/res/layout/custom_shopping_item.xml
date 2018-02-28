@@ -5,109 +5,103 @@
     android:layout_width="match_parent"
     android:layout_height="256dp"
     android:orientation="vertical"
-    tools:layout_editor_absoluteY="2dp"
-    tools:layout_editor_absoluteX="0dp">
+    tools:layout_editor_absoluteX="0dp"
+    tools:layout_editor_absoluteY="2dp">
 
     <android.support.v7.widget.CardView
+        android:id="@+id/cardView6"
         android:layout_width="340dp"
         android:layout_height="0dp"
-        android:elevation="4dp"
-        app:layout_goneMarginTop="8dp"
-        tools:layout_constraintTop_creator="1"
-        tools:layout_constraintRight_creator="1"
-        tools:layout_constraintBottom_creator="1"
-        android:layout_marginStart="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginEnd="8dp"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginTop="2dp"
-        tools:layout_constraintLeft_creator="1"
         android:layout_marginBottom="2dp"
+        android:layout_marginTop="2dp"
+        android:elevation="4dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_goneMarginTop="8dp"
+        tools:layout_constraintBottom_creator="1"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintTop_creator="1">
 
-    <android.support.constraint.ConstraintLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:layout_editor_absoluteY="0dp"
-    tools:layout_editor_absoluteX="0dp">
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="0dp">
 
-        <RatingBar
+            <RatingBar
             android:id="@+id/ratingBar2"
             style="@android:style/Widget.Holo.RatingBar.Indicator"
             android:layout_width="wrap_content"
             android:layout_height="36dp"
+            android:layout_marginBottom="16dp"
             android:numStars="5"
-            tools:layout_editor_absoluteX="66dp"
-            tools:layout_editor_absoluteY="200dp" />
+            android:rating="4"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
-        <ImageView
-    android:id="@+id/item_img"
-    android:layout_width="108dp"
-    android:layout_height="108dp"
-    android:padding="8dp"
-    android:src="@drawable/cart_img"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintLeft_toLeftOf="parent"
-    app:layout_constraintRight_toRightOf="parent"
-    tools:layout_constraintBottom_creator="1"
-    tools:layout_constraintLeft_creator="1"
-    tools:layout_constraintRight_creator="1"
-    android:layout_centerVertical="true"
-    android:layout_centerHorizontal="true"
-        android:layout_marginBottom="128dp" />
+            <ImageView
+            android:id="@+id/item_img"
+            android:layout_width="108dp"
+            android:layout_height="108dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_marginBottom="128dp"
+            android:padding="8dp"
+            android:src="@drawable/cart_img"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            tools:layout_constraintBottom_creator="1"
+            tools:layout_constraintLeft_creator="1"
+            tools:layout_constraintRight_creator="1" />
 
-    <TextView
-    android:id="@+id/item_title"
-    android:layout_width="199dp"
-    android:layout_height="24dp"
-    android:text="Expensive Jacket"
-    android:gravity="center"
-    android:textColor="#000000"
-    android:textSize="20dp"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintLeft_toLeftOf="parent"
-    app:layout_constraintRight_toRightOf="parent"
-    tools:layout_constraintBottom_creator="1"
-    tools:layout_constraintLeft_creator="1"
-    tools:layout_constraintRight_creator="1"
-    app:layout_constraintHorizontal_bias="0.504"
-    android:layout_marginBottom="91dp" />
+            <TextView
+            android:id="@+id/item_title"
+            android:layout_width="199dp"
+            android:layout_height="24dp"
+            android:layout_marginBottom="91dp"
+            android:gravity="center"
+            android:text="Expensive Jacket"
+            android:textColor="#000000"
+            android:textSize="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.504"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            tools:layout_constraintBottom_creator="1"
+            tools:layout_constraintLeft_creator="1"
+            tools:layout_constraintRight_creator="1" />
 
-    <TextView
-    android:id="@+id/item_price"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:textSize="20dp"
-    android:text="$5,319.00"
-    android:textColor="#2c2d3c"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintLeft_toLeftOf="parent"
-    app:layout_constraintRight_toRightOf="parent"
-    tools:layout_constraintBottom_creator="1"
-    tools:layout_constraintLeft_creator="1"
-    tools:layout_constraintRight_creator="1"
-    android:layout_centerVertical="true"
-    android:layout_centerHorizontal="true"
-    android:layout_marginBottom="60dp"
-        app:layout_constraintHorizontal_bias="0.24" />
+            <TextView
+            android:id="@+id/item_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_marginBottom="56dp"
+            android:text="$5,319.00"
+            android:textColor="#2c2d3c"
+            android:textSize="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.24"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            tools:layout_constraintBottom_creator="1"
+            tools:layout_constraintLeft_creator="1"
+            tools:layout_constraintRight_creator="1" />
 
-    <!--<TextView-->
-    <!--android:id="@+id/item_remove"-->
-    <!--android:layout_width="wrap_content"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:text="More Info"-->
-    <!--android:textColor="#2c2d3c"-->
-    <!--tools:layout_editor_absoluteY="76dp"-->
-    <!--tools:layout_editor_absoluteX="199dp" />-->
 
-        <TextView
+            <TextView
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
-            android:layout_marginBottom="60dp"
+            android:layout_marginBottom="56dp"
             android:text="$5,319.00"
             android:textColor="#2c2d3c"
             android:textSize="20dp"
@@ -119,7 +113,7 @@
             tools:layout_constraintLeft_creator="1"
             tools:layout_constraintRight_creator="1" />
 
-        <ImageView
+            <ImageView
             android:id="@+id/item_delete"
             android:layout_width="24dp"
             android:layout_height="24dp"
@@ -133,7 +127,7 @@
             tools:layout_constraintLeft_creator="1"
             tools:layout_constraintRight_creator="1" />
 
-        <EditText
+            <EditText
             android:id="@+id/item_quantity"
             android:layout_width="40dp"
             android:layout_height="40dp"
@@ -143,7 +137,6 @@
             android:gravity="center"
             android:inputType="number"
             android:text="1"
-
             android:textColor="#000000"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintHorizontal_bias="0.803"
@@ -153,40 +146,41 @@
             tools:layout_constraintLeft_creator="1"
             tools:layout_constraintRight_creator="1" />
 
-    <ImageView
-    android:id="@+id/imageButton"
-    android:layout_width="40dp"
-    android:layout_height="18dp"
-    android:scaleY="3.5"
-    android:scaleX="4.0"
-    android:src="@drawable/up2"
-    android:padding="0dp"
-    android:adjustViewBounds="true"
-        tools:layout_editor_absoluteY="16dp"
-        tools:layout_editor_absoluteX="212dp" />
+            <ImageView
+                android:id="@+id/shopping_up"
+                android:layout_width="40dp"
+                android:layout_height="18dp"
+                android:layout_marginEnd="61dp"
+                android:layout_marginTop="16dp"
+                android:adjustViewBounds="true"
+                android:padding="0dp"
+                android:scaleX="4.0"
+                android:scaleY="3.5"
+                android:src="@drawable/up2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-    android:id="@+id/imageButton2"
-    android:layout_width="40dp"
-    android:layout_height="18dp"
-    android:scaleY="3.5"
-    android:scaleX="4.0"
-    android:rotation="180"
-    android:src="@drawable/up2"
-    android:padding="0dp"
-    android:adjustViewBounds="true"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintLeft_toLeftOf="parent"
-    app:layout_constraintRight_toRightOf="parent"
-    tools:layout_constraintBottom_creator="1"
-    tools:layout_constraintLeft_creator="1"
-    tools:layout_constraintRight_creator="1"
-    app:layout_constraintHorizontal_bias="0.803"
-    android:layout_marginBottom="160dp" />
+            <ImageView
+                android:id="@+id/shopping_down"
+                android:layout_width="40dp"
+                android:layout_height="18dp"
+                android:layout_marginBottom="160dp"
+                android:adjustViewBounds="true"
+                android:padding="0dp"
+                android:rotation="180"
+                android:scaleX="4.0"
+                android:scaleY="3.5"
+                android:src="@drawable/up2"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintHorizontal_bias="0.803"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                tools:layout_constraintBottom_creator="1"
+                tools:layout_constraintLeft_creator="1"
+                tools:layout_constraintRight_creator="1" />
 
-    </android.support.constraint.ConstraintLayout>
+        </android.support.constraint.ConstraintLayout>
     </android.support.v7.widget.CardView>
-
 
 
 </android.support.constraint.ConstraintLayout>
