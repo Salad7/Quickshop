@@ -30,10 +30,12 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.Transformation;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
+import android.widget.BaseAdapter;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -45,6 +47,7 @@ import com.arlib.floatingsearchview.FloatingSearchView;
 import com.example.msalad.quickshopping.Database.CartItem;
 import com.example.msalad.quickshopping.Database.CartListOfItems;
 import com.example.msalad.quickshopping.Database.InventoryItem;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -69,6 +72,9 @@ public class MainActivity extends FragmentActivity implements NavigationView.OnN
     //private HashMap<String, InventoryItem> storeB_Data; //Our hashmap with items in store B
     private HashMap<String, InventoryItem> sampleData; //Our hashmap with sample data on items
     private CartListOfItems cartListOfItems;
+    private ListView searchListView;
+    private CustomSearchAdapter customSearchAdapter;
+    private ArrayList<CartItem> listOfAllItems;
     private TextView cart_count;
     private TextView mTitle;
     private static final int REQUEST_CAMERA = 1;
@@ -88,6 +94,7 @@ public class MainActivity extends FragmentActivity implements NavigationView.OnN
         toolbar = findViewById(R.id.toolbar);
         cart_iv = findViewById(R.id.cart);
         mTitle = findViewById(R.id.main_title);
+        listOfAllItems = new ArrayList<>();
         floatingSearchView = findViewById(R.id.floating_search_view);
         cart_iv.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -125,18 +132,16 @@ public class MainActivity extends FragmentActivity implements NavigationView.OnN
                 LayoutInflater inflater = getLayoutInflater();
                 final View dialogView = inflater.inflate(R.layout.custom_search_view, null);
                 dialogBuilder.setView(dialogView);
+                dialogBuilder.setTitle("Search for an item");
                 Log.d("MainActivity","Hit setupSearchView");
+                searchListView = (ListView) dialogView.findViewById(R.id.search_items);
 
                 final FloatingSearchView floatingSearchView = (FloatingSearchView) dialogView.findViewById(R.id.floating_search_view_2);
                 floatingSearchView.setOnQueryChangeListener(new FloatingSearchView.OnQueryChangeListener() {
                     @Override
                     public void onSearchTextChanged(String oldQuery, String newQuery) {
-
-                    }
-                });
-                dialogBuilder.setPositiveButton("Done", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int whichButton) {
-                        //do something with edt.getText().toString();
+                    customSearchAdapter = new CustomSearchAdapter(MainActivity.this,listOfAllItems,R.layout.custom_search_item);
+                    searchListView.setAdapter(customSearchAdapter);
                     }
                 });
                 dialogBuilder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
@@ -212,7 +217,12 @@ public class MainActivity extends FragmentActivity implements NavigationView.OnN
         sampleData.put("026229212703", new InventoryItem(1.99, "Notebook", "http://www.ryman.co.uk/media/catalog/product/0/3/0399030007.jpg", "Others","026229212703"));
         sampleData.put("096619756803", new InventoryItem(2.99, "Water Bottle", "http://www.ryman.co.uk/media/catalog/product/0/3/0399030007.jpg", "Others","096619756803"));
         sampleData.put("030242940017", new InventoryItem(4.99, "Mints", "http://www.ryman.co.uk/media/catalog/product/0/3/0399030007.jpg", "Others","030242940017"));
-
+        listOfAllItems.add(new CartItem(3.99,"Toy","http://www.pngmart.com/files/4/Plush-Toy-PNG-Transparent-Image.png","Others","1",1));
+        listOfAllItems.add(new CartItem(3.99,"Toy","http://www.pngmart.com/files/4/Plush-Toy-PNG-Transparent-Image.png","Others","1",1));
+        listOfAllItems.add(new CartItem(3.99,"Toy","http://www.pngmart.com/files/4/Plush-Toy-PNG-Transparent-Image.png","Others","1",1));
+        listOfAllItems.add(new CartItem(3.99,"Toy","http://www.pngmart.com/files/4/Plush-Toy-PNG-Transparent-Image.png","Others","1",1));
+        listOfAllItems.add(new CartItem(3.99,"Toy","http://www.pngmart.com/files/4/Plush-Toy-PNG-Transparent-Image.png","Others","1",1));
+        listOfAllItems.add(new CartItem(3.99,"Toy","http://www.pngmart.com/files/4/Plush-Toy-PNG-Transparent-Image.png","Others","1",1));
 
         //This data will be populated into instance objects on each scan and "add to cart" /////////////////////////////
         //LAST INPUT (in this case, 1) IS THE QUANTITY. SHOULD BE SET TO WHATEVER IS ASSIGNED FROM THE DIALOGUE BOX
@@ -233,7 +243,6 @@ public class MainActivity extends FragmentActivity implements NavigationView.OnN
             LayoutInflater inflater = this.getLayoutInflater();
             final View dialogView = inflater.inflate(R.layout.dialog_item_single, null);
             dialogBuilder.setView(dialogView);
-
             final TextView name = (TextView) dialogView.findViewById(R.id.dialog_name);
             final TextView price = (TextView) dialogView.findViewById(R.id.dialog_price);
             final ImageView addBtn = dialogView.findViewById(R.id.dialog_add);
@@ -241,7 +250,6 @@ public class MainActivity extends FragmentActivity implements NavigationView.OnN
             final ImageView cancelBtn = dialogView.findViewById(R.id.dialog_cancel);
             name.setText(item.getName());
             price.setText("$"+item.getPrice()+"");
-
 
             dialogBuilder.setTitle("Custom dialog");
             dialogBuilder.setMessage("Enter text below");
@@ -360,6 +368,9 @@ public class MainActivity extends FragmentActivity implements NavigationView.OnN
             Intent i = new Intent(MainActivity.this,SelectStoreActivity.class);
             startActivity(i);
         }
+        else if(id == R.id.feedback){
+
+        }
         //DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         mDrawerLayout.closeDrawer(GravityCompat.START);
         return true;
@@ -406,6 +417,57 @@ public class MainActivity extends FragmentActivity implements NavigationView.OnN
 
     public CartListOfItems getCart(){
         return cartListOfItems;
+    }
+
+    public class CustomSearchAdapter extends BaseAdapter {
+
+        ArrayList<CartItem> cartItems;
+        Context context;
+        int layout;
+        CustomSearchAdapter(Context ctx, ArrayList<CartItem> cartItems, int layout){
+            context = ctx;
+            this.cartItems = cartItems;
+            this.layout = layout;
+        }
+
+        @Override
+        public int getCount() {
+            return cartItems.size();
+        }
+
+        @Override
+        public Object getItem(int position) {
+            return cartItems.get(position);
+        }
+
+        @Override
+        public long getItemId(int position) {
+            return position;
+        }
+
+        @Override
+        public View getView(final int position, View convertView, ViewGroup parent) {
+            LayoutInflater inflater=getLayoutInflater();
+            View view = inflater.inflate(layout, parent, false);
+            TextView name = view.findViewById(R.id.item_title);
+            TextView price =  view.findViewById(R.id.item_price);
+//            ImageView delete =  view.findViewById(R.id.item_delete);
+            ImageView img =  view.findViewById(R.id.item_img);
+//            TextView quantity = view.findViewById(R.id.item_quantity);
+            price.setText(cartItems.get(position).getPrice()+"");
+            name.setText(cartItems.get(position).getName());
+//            quantity.setText(cartItems.get(position).getQuantity()+"");
+            Picasso.with(MainActivity.this).load(cartItems.get(position).getImage()).into(img);
+//            delete.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View view) {
+//                    Toast.makeText(MainActivity.this,"Item deleted!",Toast.LENGTH_SHORT).show();
+//                    cartItems.remove(position);
+//                    notifyDataSetChanged();
+//                }
+//            });
+        return view;
+        }
     }
 
 
