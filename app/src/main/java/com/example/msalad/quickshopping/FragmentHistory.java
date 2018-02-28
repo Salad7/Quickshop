@@ -58,6 +58,8 @@ public class FragmentHistory extends Fragment {
         final HistoryItem item = new HistoryItem();
         final InventoryItem inventoryItem = new InventoryItem(1.00,"Some Item","","","key");
         item.addInventoryItem(inventoryItem);
+        item.addInventoryItem(inventoryItem);
+        item.addInventoryItem(inventoryItem);
         items.add(item);
         customItemAdapter = new CustomItemAdapter(getContext(),R.layout.custom_history_item,items);
         listView.setAdapter(customItemAdapter);
@@ -190,8 +192,8 @@ public class FragmentHistory extends Fragment {
                 final TextView quantity = view.findViewById(R.id.item_quantity);
                 int quantityVal = Integer.parseInt(quantity.getText().toString());
                 name.setText(items.get(position).getName());
-                ImageView up = view.findViewById(R.id.up_btn);
-                ImageView down = view.findViewById(R.id.down_btn);
+                ImageView up = view.findViewById(R.id.shopping_up);
+                ImageView down = view.findViewById(R.id.shopping_down);
                 quantity.setText(quantityVal+"");
                 up.setOnClickListener(new View.OnClickListener() {
                     @Override

@@ -2,6 +2,7 @@ package com.example.msalad.quickshopping;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -63,8 +64,14 @@ public class FragmentStores extends Fragment {
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String store = ((Store)gridAdapter.getItem(position)).getName();
                 Intent i = new Intent(getActivity(), MainActivity.class);
                 i.putExtra("store",((Store)gridAdapter.getItem(position)).getName());
+                Context context = getActivity();
+                SharedPreferences sharedPref = context.getSharedPreferences(
+                        getString(R.string.ref), Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPref.edit();
+                editor.putString("store",store).apply();
                 startActivity(i);
             }
         });

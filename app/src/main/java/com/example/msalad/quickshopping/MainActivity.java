@@ -4,6 +4,7 @@ import android.app.ActionBar;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
@@ -121,6 +122,22 @@ public class MainActivity extends FragmentActivity implements NavigationView.OnN
             } else {
                 requestPermission();
             }
+        }
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Context context = this;
+        SharedPreferences sharedPref = context.getSharedPreferences(
+                getString(R.string.ref), Context.MODE_PRIVATE);
+        if(sharedPref.contains("store")){
+            Toast.makeText(this,"Store found!",Toast.LENGTH_SHORT).show();
+        }
+        else{
+            Toast.makeText(this,"Store not found! Redirecting",Toast.LENGTH_SHORT).show();
+            Intent i = new Intent(MainActivity.this,SelectStoreActivity.class);
+            startActivity(i);
         }
     }
 
