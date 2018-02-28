@@ -197,13 +197,20 @@
             android:textColor="#2c2d3c"
             android:textSize="24dp" />
 
+                <android.support.constraint.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
             <ImageView
             android:id="@+id/imageView9"
             android:layout_width="72dp"
             android:layout_height="72dp"
                 android:src="@drawable/target"
                 android:layout_centerVertical="true"
-                android:layout_toStartOf="@+id/textView18" />
+                tools:layout_editor_absoluteY="50dp"
+                tools:layout_editor_absoluteX="16dp" />
+
+                </android.support.constraint.ConstraintLayout>
             </RelativeLayout>
         </android.support.v7.widget.CardView>
 
@@ -272,23 +279,6 @@
         </android.support.v7.widget.CardView>
 
 
-        <ListView
-            android:id="@+id/cart_items"
-            android:layout_width="0dp"
-            android:layout_height="300dp"
-            android:layout_below="@+id/toolbar2"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="15dp"
-            android:divider="@null"
-            android:dividerHeight="2dp"
-            android:visibility="visible"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/toolbar2"
-            tools:layout_constraintLeft_creator="1"
-            tools:layout_constraintRight_creator="1"
-            tools:layout_constraintTop_creator="1" />
-
         <android.support.v7.widget.CardView
             android:id="@+id/quickpay"
             android:layout_width="0dp"
@@ -315,6 +305,24 @@
             android:textColor="#000000"
             android:textSize="22dp"></TextView>
         </android.support.v7.widget.CardView>
+
+        <ListView
+            android:id="@+id/cart_items"
+            android:layout_width="0dp"
+            android:layout_height="300dp"
+            android:layout_below="@+id/toolbar2"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="13dp"
+            android:divider="@null"
+            android:dividerHeight="2dp"
+            android:visibility="visible"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar2"
+            tools:layout_constraintLeft_creator="1"
+            tools:layout_constraintRight_creator="1"
+            tools:layout_constraintTop_creator="1" />
 
 
     </android.support.constraint.ConstraintLayout>

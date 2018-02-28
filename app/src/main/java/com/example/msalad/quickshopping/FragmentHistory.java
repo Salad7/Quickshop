@@ -65,21 +65,13 @@ public class FragmentHistory extends Fragment {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(getActivity());
                 LayoutInflater inflater = getLayoutInflater();
-                final View dialogView = inflater.inflate(R.layout.custom_search_view, null);
+                final View dialogView = inflater.inflate(R.layout.dialog_list, null);
                 dialogBuilder.setView(dialogView);
                 dialogBuilder.setTitle("Search for an item");
                 Log.d("MainActivity","Hit setupSearchView");
+                HistoryItem clickedItem = items.get(position);
                 dialogList = (ListView) dialogView.findViewById(R.id.search_items);
-                customDialogListAdapter = new CustomDialogListAdapter(getContext(),items.get(position),R.layout.dialog_list);
-
-                final FloatingSearchView floatingSearchView = (FloatingSearchView) dialogView.findViewById(R.id.floating_search_view_2);
-                floatingSearchView.setOnQueryChangeListener(new FloatingSearchView.OnQueryChangeListener() {
-                    @Override
-                    public void onSearchTextChanged(String oldQuery, String newQuery) {
-                        customSearchAdapter = new MainActivity.CustomSearchAdapter(MainActivity.this,listOfAllItems,R.layout.custom_search_item);
-                        searchListView.setAdapter(customSearchAdapter);
-                    }
-                });
+                customDialogListAdapter = new CustomDialogListAdapter(getContext(),clickedItem.getItems(),R.layout.dialog_list);
                 dialogBuilder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int whichButton) {
                         //pass
@@ -158,10 +150,10 @@ public class FragmentHistory extends Fragment {
 
         public class CustomDialogListAdapter extends BaseAdapter {
 
-            ArrayList<Item> items;
+            ArrayList<InventoryItem> items;
             Context context;
             int layout;
-            CustomDialogListAdapter(Context ctx, ArrayList<Item> items, int layout){
+            CustomDialogListAdapter(Context ctx, ArrayList<InventoryItem> items, int layout){
                 context = ctx;
                 this.items = items;
                 this.layout = layout;
@@ -190,7 +182,7 @@ public class FragmentHistory extends Fragment {
                 TextView price =  view.findViewById(R.id.item_price);
                 ImageView img =  view.findViewById(R.id.item_img);
                 price.setText(items.get(position).getPrice()+"");
-                name.setText(items.get(position).getTitle());
+                name.setText(items.get(position).getName());
 //            quantity.setText(cartItems.get(position).getQuantity()+"");
                 //Picasso.with(getContext()).load(items.get(position).getImage()).into(img);
                 return view;
