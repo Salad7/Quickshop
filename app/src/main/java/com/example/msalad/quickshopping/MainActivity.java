@@ -149,7 +149,7 @@ public class MainActivity extends FragmentActivity implements NavigationView.OnN
                 LayoutInflater inflater = getLayoutInflater();
                 final View dialogView = inflater.inflate(R.layout.custom_search_view, null);
                 dialogBuilder.setView(dialogView);
-                dialogBuilder.setTitle("Search for an item");
+                dialogBuilder.setTitle("Tap to view an item");
                 Log.d("MainActivity","Hit setupSearchView");
                 searchListView = (ListView) dialogView.findViewById(R.id.search_items);
                 final FloatingSearchView floatingSearchView = (FloatingSearchView) dialogView.findViewById(R.id.floating_search_view_2);
