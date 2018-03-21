@@ -235,13 +235,13 @@ public class MainActivity extends FragmentActivity implements NavigationView.OnN
         //Add new item to HashMap of items
         sampleData.put("026229212703", new InventoryItem(1.99, "Notebook", "http://www.ryman.co.uk/media/catalog/product/0/3/0399030007.jpg", "Others","026229212703"));
         sampleData.put("096619756803", new InventoryItem(2.99, "Water Bottle", "http://www.ryman.co.uk/media/catalog/product/0/3/0399030007.jpg", "Others","096619756803"));
-        sampleData.put("030242940017", new InventoryItem(4.99, "Mints", "http://www.ryman.co.uk/media/catalog/product/0/3/0399030007.jpg", "Others","030242940017"));
+        sampleData.put("9781491962299", new InventoryItem(4.99, "Machine Learning", "http://www.ryman.co.uk/media/catalog/product/0/3/0399030007.jpg", "Others","9781491962299"));
         listOfAllItems.add(new CartItem(3.99,"Toy","http://www.pngmart.com/files/4/Plush-Toy-PNG-Transparent-Image.png","Others","1",1));
         listOfAllItems.add(new CartItem(3.99,"Toy","http://www.pngmart.com/files/4/Plush-Toy-PNG-Transparent-Image.png","Others","1",1));
         listOfAllItems.add(new CartItem(3.99,"Toy","http://www.pngmart.com/files/4/Plush-Toy-PNG-Transparent-Image.png","Others","1",1));
         listOfAllItems.add(new CartItem(3.99,"Toy","http://www.pngmart.com/files/4/Plush-Toy-PNG-Transparent-Image.png","Others","1",1));
         listOfAllItems.add(new CartItem(3.99,"Toy","http://www.pngmart.com/files/4/Plush-Toy-PNG-Transparent-Image.png","Others","1",1));
-        listOfAllItems.add(new CartItem(3.99,"Toy","http://www.pngmart.com/files/4/Plush-Toy-PNG-Transparent-Image.png","Others","1",1));
+        listOfAllItems.add(new CartItem(49.99,"Hands On Machine Learning","https://m.media-amazon.com/images/S/aplus-media/vc/11714e04-b1a6-439d-9482-87e757822f94.jpg","Others","1",1));
 
         //This data will be populated into instance objects on each scan and "add to cart" /////////////////////////////
         //LAST INPUT (in this case, 1) IS THE QUANTITY. SHOULD BE SET TO WHATEVER IS ASSIGNED FROM THE DIALOGUE BOX
@@ -256,6 +256,7 @@ public class MainActivity extends FragmentActivity implements NavigationView.OnN
     }
 
     public void findItem(String key, final ZXingScannerView scannerView, final ZXingScannerView.ResultHandler resultHandler){
+        Log.d("MainActivity","Key is: "+key);
         if(sampleData.containsKey(key)) {
             final InventoryItem item = sampleData.get(key);
             final AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
@@ -269,7 +270,6 @@ public class MainActivity extends FragmentActivity implements NavigationView.OnN
             final ImageView cancelBtn = dialogView.findViewById(R.id.dialog_cancel);
             name.setText(item.getName());
             price.setText("$"+item.getPrice()+"");
-
             dialogBuilder.setTitle("Custom dialog");
             dialogBuilder.setMessage("Enter text below");
             final AlertDialog b = dialogBuilder.create();
@@ -298,17 +298,69 @@ public class MainActivity extends FragmentActivity implements NavigationView.OnN
             b.show();
         }
         else {
-            AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            builder.setTitle("Scan Result");
-            builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                    scannerView.resumeCameraPreview(resultHandler);
+            try {
+                String uniqueItems[] = key.split("-"); //Holds the list of unique items from the QR code (with quantities)
+                String[][] itemsAndQuantities = new String[uniqueItems.length][2]; //Array of arrays. Each inner array will hold the UPC code in the 0 index and the quantity in the 1 index
+
+                for (int i = 0; i < uniqueItems.length; i++) {
+                    String itemUPC = uniqueItems[i].split("\\*")[0]; //First part of a string like "1235436256546*6"
+                    String itemQuantity = uniqueItems[i].split("\\*")[1]; //Second part of a string like "1235436256546*6"
+                    itemsAndQuantities[i][0] = itemUPC;
+                    itemsAndQuantities[i][1] = itemQuantity;
                 }
-            });
-            builder.setMessage("Could not find item");
-            AlertDialog alert1 = builder.create();
-            alert1.show();
+
+                for (int i = 0; i < itemsAndQuantities.length; i++) {
+                    if (!sampleData.containsKey(itemsAndQuantities[i][0])) {
+                        //Code for dialogue box saying "Item(s) not found"
+                        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                        builder.setTitle("Scan Result");
+                        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                scannerView.resumeCameraPreview(resultHandler);
+                            }
+                        });
+                        builder.setMessage("Could not find item");
+                        AlertDialog alert1 = builder.create();
+                        alert1.show();
+                        break;
+                    }
+                }
+                for(int i = 0; i < itemsAndQuantities.length; i++){
+
+
+                    //ADDS ITEMS FROM QR CODE TO CART IN LOOP
+                    final InventoryItem item = sampleData.get(itemsAndQuantities[i][0]);
+
+                    CartItem cartItem =
+                            new CartItem(item.getPrice(),
+                                    item.getName(),
+                                    item.getImage(),
+                                    item.getSalesTaxGroup(),
+                                    item.getItemKey(),
+                                    Integer.parseInt(itemsAndQuantities[i][1]));
+                    addItemToCart(cartItem);
+
+                }
+                Intent intent = new Intent(this, CartActivity.class);
+                startActivity(intent);
+
+            } catch(Exception e) {
+                //Code for dialogue box saying "Item(s) not found"
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                builder.setTitle("Scan Result");
+                builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        scannerView.resumeCameraPreview(resultHandler);
+                    }
+                });
+                builder.setMessage("Could not find item");
+                AlertDialog alert1 = builder.create();
+                alert1.show();
+            }
+
+
         }
 
     }
