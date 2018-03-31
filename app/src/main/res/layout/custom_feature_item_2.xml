@@ -7,7 +7,8 @@
 
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
-        android:layout_margin="8dp"
+        android:layout_margin="12dp"
+        android:elevation="8dp"
         android:layout_height="208dp">
 
         <android.support.constraint.ConstraintLayout
@@ -34,7 +35,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/rv_img"
                 android:layout_centerHorizontal="true"
-                android:layout_marginRight="32dp"
+                android:layout_marginRight="24dp"
                 android:layout_marginTop="14dp"
                 android:gravity="center"
                 android:text="Expensive Jacket"

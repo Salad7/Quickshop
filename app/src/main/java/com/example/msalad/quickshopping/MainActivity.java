@@ -5,6 +5,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.os.Build;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
@@ -371,7 +372,8 @@ public class MainActivity extends FragmentActivity implements NavigationView.OnN
         mNavView.setNavigationItemSelectedListener(MainActivity.this);
         toggle = new ActionBarDrawerToggle(
                 this, mDrawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        mDrawerLayout.setDrawerListener(toggle);
+        toggle.getDrawerArrowDrawable().setColor(Color.parseColor("#ffffff"));
+        mDrawerLayout.addDrawerListener(toggle);
         toggle.syncState();
     }
     public void setUpTablayout(){
