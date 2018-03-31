@@ -216,7 +216,7 @@ public class MainActivity extends FragmentActivity implements NavigationView.OnN
         View header = mNavView.getHeaderView(0);
         TextView tv =  header.findViewById(R.id.nav_store);
         Log.d("MainActivity","Hit load store");
-        tv.setText("Change");
+        tv.setText(mTitle.getText().toString());
         if(getIntent().hasExtra("store")){
            tv.setText(getIntent().getStringExtra("store"));
            mTitle.setText(getIntent().getStringExtra("store"));
@@ -232,7 +232,6 @@ public class MainActivity extends FragmentActivity implements NavigationView.OnN
     @Override
     protected void onResume() {
         super.onResume();
-
     }
 
     public void loadDB(){

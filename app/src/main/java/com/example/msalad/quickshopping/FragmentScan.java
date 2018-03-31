@@ -37,6 +37,17 @@ public class FragmentScan extends Fragment  implements ZXingScannerView.ResultHa
     }
 
     @Override
+    public void onResume() {
+        super.onResume();
+        //if(!mScannerView.isActivated()){
+            //mScannerView.setResultHandler(this); // Register ourselves as a handler for scan results.
+            //mScannerView.startCamera();
+        //}
+        mScannerView.resumeCameraPreview(this);
+
+    }
+
+    @Override
     public void handleResult(Result rawResult) {
         // Do something with the result here
         Log.v(TAG, rawResult.getText()); // Prints scan results

@@ -11,14 +11,26 @@ android:layout_height="match_parent">
     android:layout_height="match_parent"
     tools:context="com.example.msalad.quickshopping.MainActivity">
 
+    <ImageView
+        android:id="@+id/cart"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginEnd="16dp"
+        android:src="@drawable/cart_white"
+        android:elevation="10dp"
+        android:padding="1dp"
+        android:layout_alignTop="@+id/imageView4"
+        android:layout_alignParentEnd="true" />
+
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="64dp"
         android:layout_alignParentEnd="true"
-        android:background="#ffffff"
+        android:background="@color/colorPrimary"
         android:minHeight="?attr/actionBarSize"
-        android:theme="?attr/actionBarTheme" />
+        android:theme="?attr/actionBarTheme">
+    </android.support.v7.widget.Toolbar>
 
 
 
@@ -59,16 +71,6 @@ android:layout_height="match_parent">
         android:id="@+id/view" />
 
     <ImageView
-        android:id="@+id/cart"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:layout_marginEnd="16dp"
-        android:src="@drawable/cart"
-        android:tint="@color/colorPrimary"
-        android:layout_alignTop="@+id/imageView4"
-        android:layout_alignParentEnd="true" />
-
-    <ImageView
     android:id="@+id/imageView4"
     android:layout_width="32dp"
     android:layout_height="32dp"
@@ -88,8 +90,8 @@ android:layout_height="match_parent">
         android:layout_alignEnd="@+id/cart"
         android:layout_alignParentTop="true"
         android:layout_marginTop="4dp"
-        android:text="10"
-        android:textColor="#303F9F"
+        android:text="0"
+        android:textColor="#ffffff"
         android:textStyle="bold" />
 
     <TextView
@@ -130,7 +132,7 @@ android:layout_height="match_parent">
         android:layout_alignBottom="@+id/imageView4"
         android:layout_centerHorizontal="true"
         android:text="--"
-        android:textColor="#000000"
+        android:textColor="#ffffff"
         android:textSize="24dp" />
 
 
