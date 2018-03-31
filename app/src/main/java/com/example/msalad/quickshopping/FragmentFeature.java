@@ -59,7 +59,7 @@ public class FragmentFeature extends Fragment {
     public void loadGridItems(){
         item = new Item();
         customGridItems = new ArrayList<>();
-        for(int i = 0; i < 9; i++){
+        for(int i = 0; i < 2; i++){
             item.setTitle("Expensive Jacket");
             item.setPrice(122);
             customGridItems.add(item);

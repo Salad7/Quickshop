@@ -14,37 +14,13 @@ android:layout_height="match_parent">
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="128dp"
+        android:layout_height="64dp"
         android:layout_alignParentEnd="true"
         android:background="#ffffff"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme" />
 
-    <com.arlib.floatingsearchview.FloatingSearchView
-        android:id="@+id/floating_search_view"
-        android:layout_width="match_parent"
-        android:layout_height="64dp"
-        android:layout_alignBottom="@+id/view"
-        android:layout_centerHorizontal="true"
-        android:background="#90FFFFFF"
-        android:backgroundTint="#ffffff"
-        android:hint="Search for item"
-        android:theme="@style/AlertDialog.AppCompat.Light"
-        app:floatingSearch_dimBackground="false"
-        android:paddingLeft="8dp"
-        android:paddingRight="8dp"
-        app:floatingSearch_backgroundColor="#ffffff"
-        app:fsv_menu="@menu/menu"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        app:logo="@drawable/down"
-        tools:layout_constraintBottom_creator="1"
-        tools:layout_constraintLeft_creator="1"
-        tools:layout_constraintRight_creator="1"
-        tools:layout_constraintTop_creator="1" />
+
 
     <android.support.design.widget.TabLayout
         android:layout_width="match_parent"

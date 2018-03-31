@@ -79,14 +79,27 @@ public class MainActivity extends FragmentActivity implements NavigationView.OnN
     private TextView cart_count;
     private TextView mTitle;
     private static final int REQUEST_CAMERA = 1;
-    private FloatingSearchView floatingSearchView;
+    //private FloatingSearchView floatingSearchView;
 
 
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+    public void preCheck(){
+        Context context = this;
+        SharedPreferences sharedPref = context.getSharedPreferences(
+                getString(R.string.ref), Context.MODE_PRIVATE);
+        if(sharedPref.contains("store")){
+            Toast.makeText(this,"Store found!",Toast.LENGTH_SHORT).show();
+            mTitle = findViewById(R.id.main_title);
+            mTitle.setText(sharedPref.getString("store",""));
+        }
+        else{
+            Toast.makeText(this,"Store not found! Redirecting",Toast.LENGTH_SHORT).show();
+            Intent i = new Intent(MainActivity.this,SelectStoreActivity.class);
+            i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(i);
+            finish();
+        }
+    }
+    public void init(){
         cartListOfItems = new CartListOfItems();
         fragmentManager = getSupportFragmentManager();
         tabLayout = (TabLayout) findViewById(R.id.tablayout);
@@ -94,9 +107,8 @@ public class MainActivity extends FragmentActivity implements NavigationView.OnN
         mViewPager = (ViewPager) findViewById(R.id.viewpager);
         toolbar = findViewById(R.id.toolbar);
         cart_iv = findViewById(R.id.cart);
-        mTitle = findViewById(R.id.main_title);
         listOfAllItems = new ArrayList<>();
-        floatingSearchView = findViewById(R.id.floating_search_view);
+        //floatingSearchView = findViewById(R.id.floating_search_view);
         cart_iv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -105,16 +117,24 @@ public class MainActivity extends FragmentActivity implements NavigationView.OnN
                 startActivity(i);
             }
         });
-         cart_count = findViewById(R.id.cart_count);
-         cart_count.setText("0");
+        cart_count = findViewById(R.id.cart_count);
+        cart_count.setText("0");
         setUpTablayout();
         setupNavigationDrawer();
         loadDB();
         loadStore();
-        setupSearchView();
+        //setupSearchView();
+    }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        preCheck();
+        init();
+
 
         int currentapiVersion = android.os.Build.VERSION.SDK_INT;
-
         //requestPermission();
         if (currentapiVersion >= Build.VERSION_CODES.JELLY_BEAN) {
             if (checkPermission()) {
@@ -128,56 +148,46 @@ public class MainActivity extends FragmentActivity implements NavigationView.OnN
     @Override
     protected void onStart() {
         super.onStart();
-        Context context = this;
-        SharedPreferences sharedPref = context.getSharedPreferences(
-                getString(R.string.ref), Context.MODE_PRIVATE);
-        if(sharedPref.contains("store")){
-            Toast.makeText(this,"Store found!",Toast.LENGTH_SHORT).show();
-        }
-        else{
-            Toast.makeText(this,"Store not found! Redirecting",Toast.LENGTH_SHORT).show();
-            Intent i = new Intent(MainActivity.this,SelectStoreActivity.class);
-            startActivity(i);
-        }
+
     }
 
-    private void setupSearchView(){
-        floatingSearchView.setOnFocusChangeListener(new FloatingSearchView.OnFocusChangeListener() {
-            @Override
-            public void onFocus() {
-                AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(MainActivity.this);
-                LayoutInflater inflater = getLayoutInflater();
-                final View dialogView = inflater.inflate(R.layout.custom_search_view, null);
-                dialogBuilder.setView(dialogView);
-                dialogBuilder.setTitle("Tap to view an item");
-                Log.d("MainActivity","Hit setupSearchView");
-                searchListView = (ListView) dialogView.findViewById(R.id.search_items);
-                final FloatingSearchView floatingSearchView = (FloatingSearchView) dialogView.findViewById(R.id.floating_search_view_2);
-                customSearchAdapter = new CustomSearchAdapter(MainActivity.this,listOfAllItems,R.layout.custom_search_item);
-                searchListView.setAdapter(customSearchAdapter);
-                floatingSearchView.setOnQueryChangeListener(new FloatingSearchView.OnQueryChangeListener() {
-                    @Override
-                    public void onSearchTextChanged(String oldQuery, String newQuery) {
-                    Log.d("MainActivity","New query "+newQuery);
-                    customSearchAdapter.runQuery(newQuery);
-                    customSearchAdapter.notifyDataSetChanged();
-                    }
-                });
-                dialogBuilder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int whichButton) {
-                        //pass
-                    }
-                });
-                AlertDialog b = dialogBuilder.create();
-                b.show();
-            }
-
-            @Override
-            public void onFocusCleared() {
-
-            }
-        });
-    }
+//    private void setupSearchView(){
+//        floatingSearchView.setOnFocusChangeListener(new FloatingSearchView.OnFocusChangeListener() {
+//            @Override
+//            public void onFocus() {
+//                AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(MainActivity.this);
+//                LayoutInflater inflater = getLayoutInflater();
+//                final View dialogView = inflater.inflate(R.layout.custom_search_view, null);
+//                dialogBuilder.setView(dialogView);
+//                dialogBuilder.setTitle("Tap to view an item");
+//                Log.d("MainActivity","Hit setupSearchView");
+//                searchListView = (ListView) dialogView.findViewById(R.id.search_items);
+//                final FloatingSearchView floatingSearchView = (FloatingSearchView) dialogView.findViewById(R.id.floating_search_view_2);
+//                customSearchAdapter = new CustomSearchAdapter(MainActivity.this,listOfAllItems,R.layout.custom_search_item);
+//                searchListView.setAdapter(customSearchAdapter);
+//                floatingSearchView.setOnQueryChangeListener(new FloatingSearchView.OnQueryChangeListener() {
+//                    @Override
+//                    public void onSearchTextChanged(String oldQuery, String newQuery) {
+//                    Log.d("MainActivity","New query "+newQuery);
+//                    customSearchAdapter.runQuery(newQuery);
+//                    customSearchAdapter.notifyDataSetChanged();
+//                    }
+//                });
+//                dialogBuilder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+//                    public void onClick(DialogInterface dialog, int whichButton) {
+//                        //pass
+//                    }
+//                });
+//                AlertDialog b = dialogBuilder.create();
+//                b.show();
+//            }
+//
+//            @Override
+//            public void onFocusCleared() {
+//
+//            }
+//        });
+//    }
 
 
     private boolean checkPermission() {
@@ -342,8 +352,10 @@ public class MainActivity extends FragmentActivity implements NavigationView.OnN
                     addItemToCart(cartItem);
 
                 }
-                Intent intent = new Intent(this, CartActivity.class);
-                startActivity(intent);
+                Intent i = new Intent(this, CartActivity.class);
+                i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(i);
+                finish();
 
             } catch(Exception e) {
                 //Code for dialogue box saying "Item(s) not found"
@@ -437,7 +449,9 @@ public class MainActivity extends FragmentActivity implements NavigationView.OnN
         if (id == R.id.change_stores) {
             Toast.makeText(this,"Changing stores",Toast.LENGTH_SHORT).show();
             Intent i = new Intent(MainActivity.this,SelectStoreActivity.class);
+            i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(i);
+            finish();
         }
         else if(id == R.id.feedback){
 

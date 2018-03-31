@@ -2,6 +2,7 @@ package com.example.msalad.quickshopping;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
@@ -12,9 +13,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -57,6 +60,9 @@ public class CartActivity extends AppCompatActivity {
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent i = new Intent(CartActivity.this,MainActivity.class);
+                i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(i);
                 finish();
             }
         });
@@ -65,7 +71,7 @@ public class CartActivity extends AppCompatActivity {
 
     public void loadCart(){
         Log.d("CartActivity","Loading cart");
-        customCartItemAdapter = new CustomCartItemAdapter(this,R.layout.custom_shopping_item,cartListOfItems.getCart());
+        customCartItemAdapter = new CustomCartItemAdapter(this,R.layout.carty,cartListOfItems.getCart());
         listView.setAdapter(customCartItemAdapter);
     }
 
@@ -92,26 +98,28 @@ public class CartActivity extends AppCompatActivity {
             View view = inflater.inflate(res, parent, false);
 
 
-            //this code gets references to objects in the listview_row.xml file
-            TextView name = view.findViewById(R.id.item_title);
-            TextView price =  view.findViewById(R.id.item_price);
-//            TextView remove = view.findViewById(R.id.item_remove);
-            ImageView delete =  view.findViewById(R.id.item_delete);
-            ImageView img =  view.findViewById(R.id.item_img);
-            TextView quantity = view.findViewById(R.id.item_quantity);
-            //this code sets the values of the objects to values from the arrays
-            price.setText(items.get(position).getPrice()+"");
-            name.setText(items.get(position).getName());
-            quantity.setText(items.get(position).getQuantity()+"");
-            Picasso.with(ctx).load(items.get(position).getImage()).into(img);
-            delete.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Toast.makeText(getContext(),"Item deleted!",Toast.LENGTH_SHORT).show();
-                    items.remove(position);
-                    notifyDataSetChanged();
-                }
-            });
+//            //this code gets references to objects in the listview_row.xml file
+//            Spinner quality_spinner = view.findViewById(R.id.spinner2);
+//            TextView name = view.findViewById(R.id.textView5);
+//            TextView price =  view.findViewById(R.id.textView6);
+//            Button saveForLater = view.findViewById(R.id.button2);
+////            TextView remove = view.findViewById(R.id.item_remove);
+//            ImageView delete =  view.findViewById(R.id.imageView2);
+//            ImageView img =  view.findViewById(R.id.imageView);
+//            //TextView quantity = view.findViewById(R.id.item_quantity);
+//            //this code sets the values of the objects to values from the arrays
+//            price.setText(items.get(position).getPrice()+"");
+//            name.setText(items.get(position).getName());
+//            //quantity.setText(items.get(position).getQuantity()+"");
+//            //Picasso.with(ctx).load(items.get(position).getImage()).into(img);
+//            delete.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View view) {
+//                    Toast.makeText(getContext(),"Item deleted!",Toast.LENGTH_SHORT).show();
+//                    items.remove(position);
+//                    notifyDataSetChanged();
+//                }
+//            });
 
 
             return view;
