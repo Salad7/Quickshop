@@ -32,7 +32,7 @@
                 android:text="TextView" />
 
             <ImageView
-                android:id="@+id/grid_img"
+                android:id="@+id/rv_img"
                 android:layout_width="128dp"
                 android:layout_height="128dp"
                 android:layout_alignParentTop="true"

@@ -6,7 +6,7 @@ package com.example.msalad.quickshopping;
 
 public class Item {
     String title;
-    float price;
+    double price;
     String category;
     String img_src;
 
@@ -27,11 +27,11 @@ public class Item {
         this.title = title;
     }
 
-    public float getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(float price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 }

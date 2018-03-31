@@ -12,14 +12,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
-import android.widget.Button;
 import android.widget.GridView;
 import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.msalad.quickshopping.Database.Store;
-import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -107,7 +104,7 @@ public class FragmentStores extends Fragment {
             LayoutInflater layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = layoutInflater.inflate(R.layout.custom_store_item,viewGroup,false);
             //TextView name = convertView.findViewById(R.id.grid_title);
-            ImageView img =  convertView.findViewById(R.id.grid_img);
+            ImageView img =  convertView.findViewById(R.id.rv_img);
             img.setBackgroundResource(itemArrayAdapter.get(i).getDrawableID());
 //            Picasso.with(context)
 //                    .load(itemArrayAdapter.get(i).getUrl())

@@ -13,11 +13,9 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -25,11 +23,8 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.arlib.floatingsearchview.FloatingSearchView;
-import com.example.msalad.quickshopping.Database.CartItem;
 import com.example.msalad.quickshopping.Database.HistoryItem;
 import com.example.msalad.quickshopping.Database.InventoryItem;
-import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -111,7 +106,7 @@ public class FragmentHistory extends Fragment {
             LayoutInflater inflater=ctx.getLayoutInflater();
             View view = inflater.inflate(res, parent, false);
             //this code gets references to objects in the listview_row.xml file
-            TextView price = view.findViewById(R.id.item_price);
+            TextView price = view.findViewById(R.id.rv_price);
 //            TextView date = view.findViewById(R.id.item)
             final HorizontalScrollView horizontalScrollView = view.findViewById(R.id.history_items);
 
@@ -186,7 +181,7 @@ public class FragmentHistory extends Fragment {
                 LayoutInflater inflater=getLayoutInflater();
                 View view = inflater.inflate(layout, parent, false);
                 TextView name = view.findViewById(R.id.item_title);
-                TextView price =  view.findViewById(R.id.item_price);
+                TextView price =  view.findViewById(R.id.rv_price);
                 ImageView img =  view.findViewById(R.id.item_img);
                 price.setText(items.get(position).getPrice()+"");
                 final TextView quantity = view.findViewById(R.id.item_quantity);

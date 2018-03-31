@@ -16,7 +16,7 @@
             tools:layout_editor_absoluteX="0dp">
 
             <ImageView
-                android:id="@+id/grid_img"
+                android:id="@+id/rv_img"
                 android:layout_width="108dp"
                 android:layout_height="108dp"
                 android:layout_marginTop="8dp"
@@ -36,16 +36,16 @@
                 android:gravity="center"
                 tools:layout_editor_absoluteX="29dp"
                 tools:layout_editor_absoluteY="121dp"
-                android:layout_below="@+id/grid_img"
+                android:layout_below="@+id/rv_img"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="10dp" />
 
             <TextView
-                android:id="@+id/item_price"
+                android:id="@+id/rv_price"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_above="@+id/grid_add_cart"
-                android:layout_alignStart="@+id/grid_add_cart"
+                android:layout_above="@+id/rv_add"
+                android:layout_alignStart="@+id/rv_add"
                 android:layout_marginBottom="15dp"
                 android:text="5,193.00$ Men's wear"
                 android:textColor="#2c2d3c" />
@@ -62,7 +62,7 @@
                 <!--android:textColor="#2c2d3c" />-->
 
             <Button
-                android:id="@+id/grid_add_cart"
+                android:id="@+id/rv_add"
                 android:layout_width="127dp"
                 android:layout_height="24dp"
                 android:layout_alignParentBottom="true"

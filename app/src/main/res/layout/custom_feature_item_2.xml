@@ -17,7 +17,7 @@
             tools:layout_editor_absoluteY="0dp">
 
             <ImageView
-                android:id="@+id/grid_img"
+                android:id="@+id/rv_img"
                 android:layout_width="128dp"
                 android:layout_height="144dp"
                 android:layout_centerHorizontal="true"
@@ -29,41 +29,46 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/grid_title"
+                android:id="@+id/rv_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/grid_img"
+                android:layout_below="@+id/rv_img"
                 android:layout_centerHorizontal="true"
                 android:layout_marginRight="32dp"
+                android:layout_marginTop="14dp"
                 android:gravity="center"
                 android:text="Expensive Jacket"
                 android:textColor="#000000"
                 android:textSize="24dp"
                 app:layout_constraintRight_toRightOf="parent"
-                tools:layout_editor_absoluteY="30dp" />
+                app:layout_constraintTop_toTopOf="@+id/rv_img" />
 
             <TextView
-                android:id="@+id/item_price"
+                android:id="@+id/rv_desc"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_above="@+id/grid_add_cart"
-                android:layout_alignStart="@+id/grid_add_cart"
+                android:layout_above="@+id/rv_add"
+                android:layout_alignStart="@+id/rv_add"
+                android:layout_marginTop="7dp"
                 android:text="Men's apparel"
                 android:textColor="#2c2d3c"
                 android:textSize="22dp"
-                tools:layout_editor_absoluteX="152dp"
-                tools:layout_editor_absoluteY="69dp" />
+                app:layout_constraintEnd_toEndOf="@+id/rv_price"
+                app:layout_constraintStart_toEndOf="@+id/rv_price"
+                app:layout_constraintTop_toBottomOf="@+id/rv_title" />
 
             <TextView
-                android:id="@+id/item_price"
+                android:id="@+id/rv_price"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
                 android:text="$77.50"
                 android:textColor="#2c2d3c"
                 android:textSize="22dp"
                 android:textStyle="bold"
-                tools:layout_editor_absoluteX="152dp"
-                tools:layout_editor_absoluteY="107dp" />
+                app:layout_constraintStart_toEndOf="@+id/rv_img"
+                app:layout_constraintTop_toBottomOf="@+id/rv_desc" />
 
             <!--<TextView-->
             <!--android:id="@+id/grid_category"-->
@@ -77,48 +82,55 @@
             <!--android:textColor="#2c2d3c" />-->
 
             <Button
-                android:id="@+id/grid_add_cart"
+                android:id="@+id/rv_add"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
                 android:layout_centerHorizontal="true"
+                android:layout_marginBottom="9dp"
                 android:layout_marginRight="16dp"
                 android:background="@color/transparent"
                 android:text="Add to cart"
                 android:textColor="#000000"
                 android:textSize="16dp"
-                app:layout_constraintRight_toRightOf="parent"
-                tools:layout_editor_absoluteY="151dp" />
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintRight_toRightOf="parent" />
 
             <Button
-                android:id="@+id/button7"
+                android:id="@+id/rv_save"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="9dp"
+                android:layout_marginStart="8dp"
                 android:background="@color/transparent"
                 android:text="SAVE ITEM"
                 android:textSize="16dp"
-                tools:layout_editor_absoluteX="152dp"
-                tools:layout_editor_absoluteY="151dp" />
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/rv_img" />
 
             <!--<ImageView-->
-                <!--android:id="@+id/imageView6"-->
-                <!--android:layout_width="28dp"-->
-                <!--android:layout_height="24dp"-->
-                <!--android:layout_marginRight="16dp"-->
-                <!--android:layout_marginTop="20dp"-->
-                <!--android:src="@drawable/more"-->
-                <!--app:layout_constraintRight_toRightOf="parent"-->
-                <!--app:layout_constraintTop_toTopOf="parent" />-->
+            <!--android:id="@+id/imageView6"-->
+            <!--android:layout_width="28dp"-->
+            <!--android:layout_height="24dp"-->
+            <!--android:layout_marginRight="16dp"-->
+            <!--android:layout_marginTop="20dp"-->
+            <!--android:src="@drawable/more"-->
+            <!--app:layout_constraintRight_toRightOf="parent"-->
+            <!--app:layout_constraintTop_toTopOf="parent" />-->
 
             <android.support.v7.widget.AppCompatRatingBar
+                android:id="@+id/rv_rating"
                 style="@style/Base.Widget.AppCompat.RatingBar.Small"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
                 android:layout_marginLeft="44dp"
+                android:layout_marginTop="11dp"
                 android:progressTint="@color/colorPrimary"
                 android:rating="3"
+                app:layout_constraintBottom_toBottomOf="@+id/rv_save"
                 app:layout_constraintLeft_toLeftOf="parent"
-                tools:layout_editor_absoluteY="171dp" />
+                app:layout_constraintTop_toBottomOf="@+id/rv_img" />
 
         </android.support.constraint.ConstraintLayout>
     </android.support.v7.widget.CardView>
