@@ -34,109 +34,97 @@ import java.util.List;
 
 public class CartActivity extends AppCompatActivity {
 
-    ListView listView;
-    CustomCartItemAdapter customCartItemAdapter;
-    CartListOfItems cartListOfItems;
-    ImageView backBtn;
+    //ListView listView;
+    //CustomCartItemAdapter customCartItemAdapter;
+    //CartListOfItems cartListOfItems;
+    //ImageView backBtn;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_cart);
-        listView = (ListView) findViewById(R.id.cart_items);
-        if(getIntent().hasExtra("cart")){
-            try {
-                cartListOfItems = (CartListOfItems) getIntent().getSerializableExtra("cart");
-                loadCart();
-            }
-            catch (Exception e){
-                e.printStackTrace();
-            }
-        }
-        else{
-            cartListOfItems = new CartListOfItems();
-        }
-        backBtn = findViewById(R.id.item_back);
-        backBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(CartActivity.this,MainActivity.class);
-                i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(i);
-                finish();
-            }
-        });
+        setContentView(R.layout.activity_cart_2);
+//        listView = (ListView) findViewById(R.id.cart_items);
+//        if(getIntent().hasExtra("cart")){
+//            try {
+//                cartListOfItems = (CartListOfItems) getIntent().getSerializableExtra("cart");
+//                //loadCart();
+//            }
+//            catch (Exception e){
+//                e.printStackTrace();
+//            }
+//        }
+//        else{
+//            cartListOfItems = new CartListOfItems();
+//        }
+//        backBtn = findViewById(R.id.item_back);
+//        backBtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent i = new Intent(CartActivity.this,MainActivity.class);
+//                i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+//                startActivity(i);
+//                finish();
+//            }
+//        });
 
     }
+//
+//    public void loadCart(){
+//        Log.d("CartActivity","Loading cart");
+//        customCartItemAdapter = new CustomCartItemAdapter(this,R.layout.carty,cartListOfItems.getCart());
+//        listView.setAdapter(customCartItemAdapter);
+//    }
 
-    public void loadCart(){
-        Log.d("CartActivity","Loading cart");
-        customCartItemAdapter = new CustomCartItemAdapter(this,R.layout.carty,cartListOfItems.getCart());
-        listView.setAdapter(customCartItemAdapter);
-    }
+//    public class CustomCartItemAdapter extends ArrayAdapter<CartItem> {
+//        List<CartItem> items;
+//        Activity ctx;
+//        int res;
+//        public CustomCartItemAdapter(@NonNull Context context, @LayoutRes int resource, @NonNull List<CartItem> objects) {
+//            super(context, resource, objects);
+//            items = objects;
+//            ctx = (Activity) context;
+//            res = resource;
+//        }
+//
+//        @Override
+//        public int getCount() {
+//            return items.size();
+//        }
+//
+//        @NonNull
+//        @Override
+//        public View getView(final int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+//            LayoutInflater inflater=ctx.getLayoutInflater();
+//            View view = inflater.inflate(res, parent, false);
+//
+//
+////            //this code gets references to objects in the listview_row.xml file
+////            Spinner quality_spinner = view.findViewById(R.id.spinner2);
+////            TextView name = view.findViewById(R.id.textView5);
+////            TextView price =  view.findViewById(R.id.textView6);
+////            Button saveForLater = view.findViewById(R.id.button2);
+//////            TextView remove = view.findViewById(R.id.item_remove);
+////            ImageView delete =  view.findViewById(R.id.imageView2);
+////            ImageView img =  view.findViewById(R.id.imageView);
+////            //TextView quantity = view.findViewById(R.id.item_quantity);
+////            //this code sets the values of the objects to values from the arrays
+////            price.setText(items.get(position).getPrice()+"");
+////            name.setText(items.get(position).getName());
+////            //quantity.setText(items.get(position).getQuantity()+"");
+////            //Picasso.with(ctx).load(items.get(position).getImage()).into(img);
+////            delete.setOnClickListener(new View.OnClickListener() {
+////                @Override
+////                public void onClick(View view) {
+////                    Toast.makeText(getContext(),"Item deleted!",Toast.LENGTH_SHORT).show();
+////                    items.remove(position);
+////                    notifyDataSetChanged();
+////                }
+////            });
+//
+//
+//            return view;
+//        }
+//    }
 
-    public class CustomCartItemAdapter extends ArrayAdapter<CartItem> {
-        List<CartItem> items;
-        Activity ctx;
-        int res;
-        public CustomCartItemAdapter(@NonNull Context context, @LayoutRes int resource, @NonNull List<CartItem> objects) {
-            super(context, resource, objects);
-            items = objects;
-            ctx = (Activity) context;
-            res = resource;
-        }
 
-        @Override
-        public int getCount() {
-            return items.size();
-        }
-
-        @NonNull
-        @Override
-        public View getView(final int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-            LayoutInflater inflater=ctx.getLayoutInflater();
-            View view = inflater.inflate(res, parent, false);
-
-
-//            //this code gets references to objects in the listview_row.xml file
-//            Spinner quality_spinner = view.findViewById(R.id.spinner2);
-//            TextView name = view.findViewById(R.id.textView5);
-//            TextView price =  view.findViewById(R.id.textView6);
-//            Button saveForLater = view.findViewById(R.id.button2);
-////            TextView remove = view.findViewById(R.id.item_remove);
-//            ImageView delete =  view.findViewById(R.id.imageView2);
-//            ImageView img =  view.findViewById(R.id.imageView);
-//            //TextView quantity = view.findViewById(R.id.item_quantity);
-//            //this code sets the values of the objects to values from the arrays
-//            price.setText(items.get(position).getPrice()+"");
-//            name.setText(items.get(position).getName());
-//            //quantity.setText(items.get(position).getQuantity()+"");
-//            //Picasso.with(ctx).load(items.get(position).getImage()).into(img);
-//            delete.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View view) {
-//                    Toast.makeText(getContext(),"Item deleted!",Toast.LENGTH_SHORT).show();
-//                    items.remove(position);
-//                    notifyDataSetChanged();
-//                }
-//            });
-
-
-            return view;
-        }
-    }
-
-    public void setListViewHeightBasedOnChildren(ListView listView) {
-        ListAdapter mAdapter = listView.getAdapter();
-        int totalHeight = 0;
-        for (int i = 0; i < mAdapter.getCount(); i++) {
-            View mView = mAdapter.getView(i, null, listView);
-            mView.measure(View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED), View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED));
-            totalHeight += mView.getMeasuredHeight();
-        }
-        ViewGroup.LayoutParams params = listView.getLayoutParams();
-        params.height = totalHeight + (listView.getDividerHeight() * (mAdapter.getCount() - 1));
-        listView.setLayoutParams(params);
-        listView.requestLayout();
-    }
 }
