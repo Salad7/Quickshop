@@ -56,6 +56,13 @@ public class FragmentHistory extends Fragment {
         item.addInventoryItem(inventoryItem);
         item.addInventoryItem(inventoryItem);
         items.add(item);
+        items.add(item);
+        items.add(item);
+        items.add(item);
+        items.add(item);
+        items.add(item);
+        items.add(item);
+        items.add(item);
         customItemAdapter = new CustomItemAdapter(getContext(),R.layout.custom_history_item,items);
         listView.setAdapter(customItemAdapter);
         return v;

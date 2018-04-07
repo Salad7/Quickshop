@@ -1,6 +1,7 @@
 package com.example.msalad.quickshopping;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Rect;
 import android.media.Image;
 import android.os.Bundle;
@@ -235,6 +236,13 @@ public class FragmentFeature extends Fragment {
             // create a new view
             View v = LayoutInflater.from(parent.getContext())
                     .inflate(viewIn, parent, false);
+            v.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(getActivity(),ActivityViewItem.class);
+                    startActivity(intent);
+                }
+            });
 
             ViewHolder vh = new ViewHolder(v);
             return vh;
@@ -245,9 +253,9 @@ public class FragmentFeature extends Fragment {
         public void onBindViewHolder(ViewHolder holder, int position) {
             // - get element from your dataset at this position
             // - replace the contents of the view with that element
-            holder.mTitle.setText(mDataset.get(position).getTitle());
-            holder.mDesc.setText(mDataset.get(position).getCategory());
-            holder.mPrice.setText("$"+mDataset.get(position).getPrice());
+            //holder.mTitle.setText(mDataset.get(position).getTitle());
+            //holder.mDesc.setText(mDataset.get(position).getCategory());
+            //holder.mPrice.setText("$"+mDataset.get(position).getPrice());
             //Picasso.with(getContext()).load(mDataset.get(position).img_src).into(holder.mImage);
         }
 

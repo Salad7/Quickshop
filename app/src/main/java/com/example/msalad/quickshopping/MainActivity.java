@@ -29,6 +29,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -69,6 +70,7 @@ public class MainActivity extends FragmentActivity implements NavigationView.OnN
     private TextView cart_count;
     private TextView mTitle;
     private static final int REQUEST_CAMERA = 1;
+    private Button viewItem;
     //private FloatingSearchView floatingSearchView;
 
 
@@ -98,6 +100,14 @@ public class MainActivity extends FragmentActivity implements NavigationView.OnN
         toolbar = findViewById(R.id.toolbar);
         cart_iv = findViewById(R.id.cart);
         listOfAllItems = new ArrayList<>();
+//        viewItem = findViewById(R.id.button10);
+//        viewItem.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(MainActivity.this,ActivityViewItem.class);
+//                startActivity(intent);
+//            }
+//        });
         //floatingSearchView = findViewById(R.id.floating_search_view);
         cart_iv.setOnClickListener(new View.OnClickListener() {
             @Override

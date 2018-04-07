@@ -17,97 +17,95 @@
             tools:layout_editor_absoluteX="0dp"
             tools:layout_editor_absoluteY="0dp">
 
-            <ImageView
-                android:id="@+id/rv_img"
-                android:layout_width="128dp"
-                android:layout_height="144dp"
-                android:layout_centerHorizontal="true"
-                android:layout_marginLeft="16dp"
-                android:layout_marginTop="16dp"
-                android:padding="4dp"
-                android:src="@drawable/cart_img"
+            <LinearLayout
+                android:id="@+id/linearLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:orientation="vertical"
+                app:layout_constraintHorizontal_bias="0.986"
                 app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/rv_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/rv_img"
-                android:layout_centerHorizontal="true"
-                android:layout_marginRight="24dp"
-                android:layout_marginTop="14dp"
-                android:gravity="center"
-                android:text="Expensive Jacket"
-                android:textColor="#000000"
-                android:textSize="24dp"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/rv_img" />
+                app:layout_constraintTop_toTopOf="parent">
 
-            <TextView
-                android:id="@+id/rv_desc"
+                <TextView
+                    android:id="@+id/rv_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/rv_img"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginRight="24dp"
+                    android:layout_marginTop="14dp"
+                    android:gravity="center"
+                    android:text="Expensive Jacket"
+                    android:textColor="#000000"
+                    android:textSize="24dp"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/rv_img" />
+
+                <TextView
+                    android:id="@+id/rv_desc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="72dp"
+                    android:layout_marginTop="6dp"
+                    android:text="Men's apparel"
+                    android:textColor="#2c2d3c"
+                    android:textSize="22dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/rv_img"
+                    app:layout_constraintTop_toBottomOf="@+id/rv_title" />
+
+                <TextView
+                    android:id="@+id/rv_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="$77.50"
+                    android:textColor="#2c2d3c"
+                    android:textSize="22dp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toEndOf="@+id/rv_img"
+                    app:layout_constraintTop_toBottomOf="@+id/rv_desc" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/linearLayout2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_above="@+id/rv_add"
-                android:layout_alignStart="@+id/rv_add"
-                android:layout_marginTop="7dp"
-                android:text="Men's apparel"
-                android:textColor="#2c2d3c"
-                android:textSize="22dp"
-                app:layout_constraintEnd_toEndOf="@+id/rv_price"
-                app:layout_constraintStart_toEndOf="@+id/rv_price"
-                app:layout_constraintTop_toBottomOf="@+id/rv_title" />
-
-            <TextView
-                android:id="@+id/rv_price"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:text="$77.50"
-                android:textColor="#2c2d3c"
-                android:textSize="22dp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toEndOf="@+id/rv_img"
-                app:layout_constraintTop_toBottomOf="@+id/rv_desc" />
-
-            <!--<TextView-->
-            <!--android:id="@+id/grid_category"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_alignBaseline="@+id/item_price"-->
-            <!--android:layout_alignBottom="@+id/item_price"-->
-            <!--android:layout_marginStart="8dp"-->
-            <!--android:layout_toEndOf="@+id/item_price"-->
-            <!--android:text="Men's wear"-->
-            <!--android:textColor="#2c2d3c" />-->
-
-            <Button
-                android:id="@+id/rv_add"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:layout_centerHorizontal="true"
-                android:layout_marginBottom="9dp"
-                android:layout_marginRight="16dp"
-                android:background="@color/transparent"
-                android:text="Add to cart"
-                android:textColor="#000000"
-                android:textSize="16dp"
+                android:layout_marginBottom="2dp"
+                android:layout_marginEnd="16dp"
+                android:orientation="horizontal"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintRight_toRightOf="parent" />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/linearLayout3">
 
-            <Button
-                android:id="@+id/rv_save"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="9dp"
-                android:layout_marginStart="8dp"
-                android:background="@color/transparent"
-                android:text="SAVE ITEM"
-                android:textSize="16dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/rv_img" />
+                <Button
+                    android:id="@+id/rv_add"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginRight="16dp"
+                    android:background="@color/transparent"
+                    android:text="Add to cart"
+                    android:textColor="#000000"
+                    android:textSize="16dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintRight_toRightOf="parent" />
+
+                <Button
+                    android:id="@+id/rv_save"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/transparent"
+                    android:text="View ITEM"
+                    android:textSize="16dp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    tools:layout_editor_absoluteY="160dp" />
+            </LinearLayout>
 
             <!--<ImageView-->
             <!--android:id="@+id/imageView6"-->
@@ -118,20 +116,38 @@
             <!--android:src="@drawable/more"-->
             <!--app:layout_constraintRight_toRightOf="parent"-->
             <!--app:layout_constraintTop_toTopOf="parent" />-->
-
-            <android.support.v7.widget.AppCompatRatingBar
-                android:id="@+id/rv_rating"
-                style="@style/Base.Widget.AppCompat.RatingBar.Small"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:id="@+id/linearLayout3"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="12dp"
-                android:layout_marginLeft="44dp"
-                android:layout_marginTop="11dp"
-                android:progressTint="@color/colorPrimary"
-                android:rating="3"
-                app:layout_constraintBottom_toBottomOf="@+id/rv_save"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/rv_img" />
+                android:layout_marginEnd="30dp"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toStartOf="@+id/linearLayout2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/rv_img"
+                    android:layout_width="96dp"
+                    android:layout_height="144dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="16dp"
+                    android:padding="4dp"
+                    android:src="@drawable/cart_img"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <android.support.v7.widget.AppCompatRatingBar
+                    android:id="@+id/rv_rating"
+                    style="@style/Base.Widget.AppCompat.RatingBar.Small"
+                    android:layout_width="82dp"
+                    android:layout_height="15dp"
+                    android:layout_marginLeft="23dp"
+                    android:progressTint="@color/colorPrimary"
+                    android:rating="5"
+                    tools:layout_editor_absoluteY="160dp" />
+            </LinearLayout>
 
         </android.support.constraint.ConstraintLayout>
     </android.support.v7.widget.CardView>
