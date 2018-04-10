@@ -124,7 +124,25 @@ public class MainActivity extends FragmentActivity implements NavigationView.OnN
         loadDB();
         loadStore();
         //setupSearchView();
+        try {
+            if (getIntent().hasExtra("cart")) {
+                cartListOfItems = (CartListOfItems) getIntent().getSerializableExtra("cart");
+                cart_count.setText(cartListOfItems.getCart().size()+"");
+                Log.d("onResume","Found cart items "+cartListOfItems.getCart().size());
+            }
+            else{
+                Log.d("onResume","Data not passed back");
+
+            }
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+
     }
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -132,6 +150,7 @@ public class MainActivity extends FragmentActivity implements NavigationView.OnN
         setContentView(R.layout.activity_main);
         preCheck();
         init();
+
 
 
         int currentapiVersion = android.os.Build.VERSION.SDK_INT;
@@ -229,10 +248,6 @@ public class MainActivity extends FragmentActivity implements NavigationView.OnN
     }
 
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-    }
 
     public void loadDB(){
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -242,7 +257,7 @@ public class MainActivity extends FragmentActivity implements NavigationView.OnN
         //storeB_Data = new HashMap<>(); //Hashmap that has items of store B
 
         //Add new item to HashMap of items
-        sampleData.put("02622921170", new InventoryItem(1.99, "Notebook", "http://www.ryman.co.uk/media/catalog/product/0/3/0399030007.jpg", "Others","02622921170"));
+        sampleData.put("026229211706", new InventoryItem(1.99, "Notebook", "http://www.ryman.co.uk/media/catalog/product/0/3/0399030007.jpg", "Others","026229211706"));
         sampleData.put("096619756803", new InventoryItem(2.99, "Water Bottle", "http://www.ryman.co.uk/media/catalog/product/0/3/0399030007.jpg", "Others","096619756803"));
         sampleData.put("9781491962299", new InventoryItem(4.99, "Machine Learning", "http://www.ryman.co.uk/media/catalog/product/0/3/0399030007.jpg", "Others","9781491962299"));
         sampleData.put("1297432524354", new InventoryItem(4.99, "Item", "http://www.ryman.co.uk/media/catalog/product/0/3/0399030007.jpg", "Others","1297432524354"));
@@ -499,8 +514,7 @@ public class MainActivity extends FragmentActivity implements NavigationView.OnN
     public void addItemToCart(CartItem cartItem){
         cartListOfItems.addToCart(cartItem);
         int cartCount = Integer.parseInt(cart_count.getText().toString());
-        cartCount+=1;
-        cart_count.setText(cartCount+"");
+        cart_count.setText(cartListOfItems.getCart().size()+"");
     }
 
     public CartListOfItems getCart(){

@@ -37,7 +37,7 @@
 
     <Spinner
     android:id="@+id/spinner2"
-    android:layout_width="80dp"
+    android:layout_width="120dp"
     android:layout_height="30dp"
     android:layout_marginBottom="28dp"
     android:layout_marginStart="32dp"
@@ -61,7 +61,7 @@
     android:layout_width="205dp"
     android:layout_height="wrap_content"
     android:layout_marginBottom="20dp"
-    android:layout_marginEnd="61dp"
+    android:layout_marginEnd="20dp"
     android:text="Save for later"
         android:textColor="#ffffff"
     android:background="@color/colorPrimary"

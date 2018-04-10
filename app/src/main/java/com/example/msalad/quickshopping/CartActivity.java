@@ -76,9 +76,9 @@ public class CartActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(CartActivity.this,MainActivity.class);
-                i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                i.putExtra("cart",cartListOfItems);
                 startActivity(i);
-                finish();
+                //finish();
             }
         });
 
@@ -171,32 +171,45 @@ public class CartActivity extends AppCompatActivity {
             View view = inflater.inflate(res, parent, false);
 
 
-//            //this code gets references to objects in the listview_row.xml file
-//            Spinner quality_spinner = view.findViewById(R.id.spinner2);
-//            TextView name = view.findViewById(R.id.textView5);
-//            TextView price =  view.findViewById(R.id.textView6);
-//            Button saveForLater = view.findViewById(R.id.button2);
-////            TextView remove = view.findViewById(R.id.item_remove);
-//            ImageView delete =  view.findViewById(R.id.imageView2);
-//            ImageView img =  view.findViewById(R.id.imageView);
-//            //TextView quantity = view.findViewById(R.id.item_quantity);
-//            //this code sets the values of the objects to values from the arrays
-//            price.setText(items.get(position).getPrice()+"");
-//            name.setText(items.get(position).getName());
-//            //quantity.setText(items.get(position).getQuantity()+"");
-//            //Picasso.with(ctx).load(items.get(position).getImage()).into(img);
-//            delete.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View view) {
-//                    Toast.makeText(getContext(),"Item deleted!",Toast.LENGTH_SHORT).show();
-//                    items.remove(position);
-//                    notifyDataSetChanged();
-//                }
-//            });
+            //this code gets references to objects in the listview_row.xml file
+            Spinner quality_spinner = view.findViewById(R.id.spinner2);
+            TextView name = view.findViewById(R.id.textView5);
+            TextView price =  view.findViewById(R.id.textView6);
+            Button saveForLater = view.findViewById(R.id.button2);
+//            TextView remove = view.findViewById(R.id.item_remove);
+            ImageView delete =  view.findViewById(R.id.imageView2);
+            ImageView img =  view.findViewById(R.id.imageView);
+            Spinner quantity = view.findViewById(R.id.spinner2);
+            //this code sets the values of the objects to values from the arrays
+            price.setText(items.get(position).getPrice()+"");
+            name.setText(items.get(position).getName());
+
+            quantity.setSelection(getIndex(quantity, items.get(position).getQuantity()+""));
+            //sp.setText(items.get(position).getQuantity()+"");
+            //Picasso.with(ctx).load(items.get(position).getImage()).into(img);
+            delete.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Toast.makeText(getContext(),"Item deleted!",Toast.LENGTH_SHORT).show();
+                    items.remove(position);
+                    notifyDataSetChanged();
+                }
+            });
 
 
             return view;
         }
+    }
+
+    //private method of your class
+    private int getIndex(Spinner spinner, String myString){
+        for (int i=0;i<spinner.getCount();i++){
+            if (spinner.getItemAtPosition(i).toString().equalsIgnoreCase(myString)){
+                return i;
+            }
+        }
+
+        return 0;
     }
 
     Bitmap TextToImageEncode(String Value) throws WriterException {
