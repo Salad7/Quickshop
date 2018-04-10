@@ -242,9 +242,11 @@ public class MainActivity extends FragmentActivity implements NavigationView.OnN
         //storeB_Data = new HashMap<>(); //Hashmap that has items of store B
 
         //Add new item to HashMap of items
-        sampleData.put("026229212703", new InventoryItem(1.99, "Notebook", "http://www.ryman.co.uk/media/catalog/product/0/3/0399030007.jpg", "Others","026229212703"));
+        sampleData.put("02622921170", new InventoryItem(1.99, "Notebook", "http://www.ryman.co.uk/media/catalog/product/0/3/0399030007.jpg", "Others","02622921170"));
         sampleData.put("096619756803", new InventoryItem(2.99, "Water Bottle", "http://www.ryman.co.uk/media/catalog/product/0/3/0399030007.jpg", "Others","096619756803"));
         sampleData.put("9781491962299", new InventoryItem(4.99, "Machine Learning", "http://www.ryman.co.uk/media/catalog/product/0/3/0399030007.jpg", "Others","9781491962299"));
+        sampleData.put("1297432524354", new InventoryItem(4.99, "Item", "http://www.ryman.co.uk/media/catalog/product/0/3/0399030007.jpg", "Others","1297432524354"));
+
         listOfAllItems.add(new CartItem(3.99,"Toy","http://www.pngmart.com/files/4/Plush-Toy-PNG-Transparent-Image.png","Others","1",1));
         listOfAllItems.add(new CartItem(3.99,"Toy","http://www.pngmart.com/files/4/Plush-Toy-PNG-Transparent-Image.png","Others","1",1));
         listOfAllItems.add(new CartItem(3.99,"Toy","http://www.pngmart.com/files/4/Plush-Toy-PNG-Transparent-Image.png","Others","1",1));
@@ -336,8 +338,6 @@ public class MainActivity extends FragmentActivity implements NavigationView.OnN
                     }
                 }
                 for(int i = 0; i < itemsAndQuantities.length; i++){
-
-
                     //ADDS ITEMS FROM QR CODE TO CART IN LOOP
                     final InventoryItem item = sampleData.get(itemsAndQuantities[i][0]);
 
@@ -349,12 +349,15 @@ public class MainActivity extends FragmentActivity implements NavigationView.OnN
                                     item.getItemKey(),
                                     Integer.parseInt(itemsAndQuantities[i][1]));
                     addItemToCart(cartItem);
-
+                    if(i == itemsAndQuantities.length-1){
+                        Intent intent = new Intent(this, CartActivity.class);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        intent.putExtra("cart",cartListOfItems);
+                        startActivity(intent);
+                        finish();
+                    }
                 }
-                Intent i = new Intent(this, CartActivity.class);
-                i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(i);
-                finish();
+
 
             } catch(Exception e) {
                 //Code for dialogue box saying "Item(s) not found"

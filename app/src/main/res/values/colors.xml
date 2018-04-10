@@ -4,5 +4,7 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
     <color name="colorBKG">#FAFAFA</color>
+    <color name="qrColor">#000000</color>
+    <color name="qrColor_white">#ffffff</color>
 
 </resources>
