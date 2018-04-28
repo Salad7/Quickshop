@@ -53,7 +53,7 @@ public class FragmentFeature extends Fragment {
         item = new Item();
         customGridItems = new ArrayList<>();
         for(int i = 0; i < 1; i++){
-            item.setTitle("Expensive Jacket");
+            item.setTitle("Trendy Jacket");
             item.setPrice(89.95);
             customGridItems.add(item);
         }
@@ -112,8 +112,8 @@ public class FragmentFeature extends Fragment {
     public void loadTrendyMens(){
         ArrayList<Item> customTrendy = new ArrayList<>();
 
-        for(int i = 0; i < 10; i++){
-            item.setTitle("Expensive Jacket");
+        for(int i = 0; i < 1; i++){
+            item.setTitle("Trendy Jacket");
             item.setPrice(89.95);
             customTrendy.add(item);
         }

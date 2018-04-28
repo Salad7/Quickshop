@@ -14,6 +14,8 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -46,19 +48,22 @@ import java.util.List;
 
 public class CartActivity extends AppCompatActivity {
 
-    ListView listView;
-    CustomCartItemAdapter customCartItemAdapter;
+    //ListView listView;
+    //CustomCartItemAdapter customCartItemAdapter;
     CartListOfItems cartListOfItems;
+    CustomCartItemAdapter2 customCartItemAdapter2;
+    RecyclerView cartRecycler;
     ImageView backBtn;
-    CardView scanAndGo;
+    Button scanAndGo;
     String EditTextValue;
     Bitmap bitmap;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_cart);
-        listView = (ListView) findViewById(R.id.cart_items);
+        setContentView(R.layout.activity_cart_2);
+        //listView = (ListView) findViewById(R.id.cart_items);
+        cartRecycler = (RecyclerView) findViewById(R.id.cart_items_rv);
         if(getIntent().hasExtra("cart")){
             try {
                 cartListOfItems = (CartListOfItems) getIntent().getSerializableExtra("cart");
@@ -71,7 +76,7 @@ public class CartActivity extends AppCompatActivity {
         else{
             cartListOfItems = new CartListOfItems();
         }
-        backBtn = findViewById(R.id.item_back);
+        backBtn = findViewById(R.id.cartBack);
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -82,7 +87,7 @@ public class CartActivity extends AppCompatActivity {
             }
         });
 
-        scanAndGo = findViewById(R.id.scanandgo);
+        scanAndGo = findViewById(R.id.cart_qr);
         scanAndGo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -144,9 +149,73 @@ public class CartActivity extends AppCompatActivity {
 //
     public void loadCart(){
         Log.d("CartActivity","Loading cart");
-        customCartItemAdapter = new CustomCartItemAdapter(this,R.layout.carty,cartListOfItems.getCart());
-        listView.setAdapter(customCartItemAdapter);
+        //customCartItemAdapter = new CustomCartItemAdapter(this,R.layout.carty,cartListOfItems.getCart());
+        customCartItemAdapter2 = new CustomCartItemAdapter2(this,R.layout.carty,cartListOfItems.getCart());
+        // use this setting to improve performance if you know that changes
+        // in content do not change the layout size of the RecyclerView
+        cartRecycler.setHasFixedSize(true);
+
+        // use a linear layout manager
+        LinearLayoutManager mLayoutManager = new LinearLayoutManager(this);
+        cartRecycler.setLayoutManager(mLayoutManager);
+        cartRecycler.setAdapter(customCartItemAdapter2);
     }
+
+    public class CustomCartItemAdapter2 extends RecyclerView.Adapter<CustomCartItemAdapter2.CartItemViewHolder>{
+        ArrayList<CartItem> cartListOfItems2;
+        int res;
+        Context context;
+        public CustomCartItemAdapter2(@NonNull Context context, @LayoutRes int resource, @NonNull ArrayList<CartItem> objects){
+            this.cartListOfItems2 = objects;
+            this.context = context;
+            this.res = resource;
+        }
+
+        @Override
+        public CartItemViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+            View v = LayoutInflater.from(parent.getContext())
+                    .inflate(res, parent, false);
+            CartItemViewHolder vh = new CartItemViewHolder(v);
+            return vh;
+
+        }
+
+        @Override
+        public void onBindViewHolder(CartItemViewHolder holder, int position) {
+                holder.name.setText(cartListOfItems2.get(position).getName());
+                holder.price.setText(cartListOfItems2.get(position).getPrice()+"");
+
+        }
+
+        @Override
+        public int getItemCount() {
+            return cartListOfItems2.size();
+        }
+
+        public class CartItemViewHolder extends RecyclerView.ViewHolder {
+        public Spinner quality_spinner;
+        public TextView name;
+        public TextView price;
+        public Button saveForLater;
+        public ImageView delete;
+        public ImageView img;
+        public Spinner quantity;
+
+        public CartItemViewHolder(View v){
+            super(v);
+            quality_spinner = v.findViewById(R.id.spinner2);
+            name = v.findViewById(R.id.textView5);
+            price =  v.findViewById(R.id.textView6);
+            saveForLater = v.findViewById(R.id.button2);
+            delete =  v.findViewById(R.id.imageView2);
+            img =  v.findViewById(R.id.imageView);
+            quantity = v.findViewById(R.id.spinner2);
+        }
+    }
+
+    }
+
+
 
     public class CustomCartItemAdapter extends ArrayAdapter<CartItem> {
         List<CartItem> items;
@@ -211,6 +280,8 @@ public class CartActivity extends AppCompatActivity {
 
         return 0;
     }
+
+
 
     Bitmap TextToImageEncode(String Value) throws WriterException {
         BitMatrix bitMatrix;

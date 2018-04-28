@@ -56,13 +56,6 @@ public class FragmentHistory extends Fragment {
         item.addInventoryItem(inventoryItem);
         item.addInventoryItem(inventoryItem);
         items.add(item);
-        items.add(item);
-        items.add(item);
-        items.add(item);
-        items.add(item);
-        items.add(item);
-        items.add(item);
-        items.add(item);
         customItemAdapter = new CustomItemAdapter(getContext(),R.layout.custom_history_item,items);
         listView.setAdapter(customItemAdapter);
         return v;
@@ -141,7 +134,7 @@ public class FragmentHistory extends Fragment {
             LinearLayout linearLayout = new LinearLayout(ctx);
             linearLayout.setOrientation(LinearLayout.HORIZONTAL);
 
-            for(int i = 0; i < 6; i++){
+            for(int i = 0; i < 2; i++){
                 ImageView image = new ImageView(ctx);
                 LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(324, 324);
                 layoutParams.setMarginStart(48);

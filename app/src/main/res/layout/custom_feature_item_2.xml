@@ -37,7 +37,7 @@
                     android:layout_marginRight="24dp"
                     android:layout_marginTop="14dp"
                     android:gravity="center"
-                    android:text="Expensive Jacket"
+                    android:text="Trendy Jacket"
                     android:textColor="#000000"
                     android:textSize="24dp"
                     app:layout_constraintRight_toRightOf="parent"

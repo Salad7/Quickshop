@@ -8,13 +8,13 @@
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar4"
             android:layout_width="match_parent"
             android:layout_height="64dp"
             android:layout_marginBottom="8dp"
-            android:background="@color/colorPrimary"
+            android:background="@color/colorPrimaryDark"
             android:minHeight="?attr/actionBarSize"
             android:theme="?attr/actionBarTheme" />
 
@@ -30,14 +30,14 @@
         app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
-        android:id="@+id/imageView6"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="24dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/back" />
+            android:id="@+id/cartBack"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="24dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/back" />
 
         <TextView
         android:id="@+id/textView10"
@@ -55,15 +55,15 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:orientation="vertical"
+            android:id="@+id/linlay"
             android:elevation="10dp"
-            android:layout_height="640dp">
+            android:layout_height="wrap_content">
 
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/cart_items_rv"
                 android:layout_marginTop="64dp"
                 android:layout_width="match_parent"
                 android:layout_height="340dp">
-
             </android.support.v7.widget.RecyclerView>
 
         <android.support.v7.widget.CardView
@@ -71,6 +71,7 @@
         android:layout_width="match_parent"
         android:layout_height="224dp"
         android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
         android:elevation="4dp"
         android:layout_marginRight="16dp"
         android:layout_marginLeft="16dp"
@@ -80,10 +81,11 @@
 
             <android.support.constraint.ConstraintLayout
                 android:layout_width="match_parent"
+                android:id="@+id/card"
                 android:layout_height="match_parent">
 
                 <Button
-                    android:id="@+id/button10"
+                    android:id="@+id/cart_card"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="216dp"
@@ -187,7 +189,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/textView21" />
 
                 <Button
-                    android:id="@+id/button7"
+                    android:id="@+id/card_android"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="18dp"
@@ -195,10 +197,10 @@
                     android:text="Android Pay"
                     android:textColor="#000000"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@+id/button9" />
+                    app:layout_constraintEnd_toStartOf="@+id/cart_qr" />
 
                 <Button
-                    android:id="@+id/button9"
+                    android:id="@+id/cart_qr"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@color/transparent"
@@ -210,12 +212,13 @@
         </android.support.v7.widget.CardView>
         </LinearLayout>
 
-        <android.support.constraint.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="120dp"
-            android:background="@color/colorPrimaryDark"
-            app:layout_constraintLeft_toLeftOf="parent"
-            tools:layout_editor_absoluteY="472dp" />
+        <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="120dp"-->
+            <!--android:layout_marginTop="64dp"-->
+            <!--android:background="@color/colorPrimaryDark"-->
+            <!--app:layout_constraintBottom_toBottomOf="@+id/linlay"-->
+            <!--app:layout_constraintLeft_toLeftOf="parent" />-->
 
     </android.support.constraint.ConstraintLayout>
 </ScrollView>

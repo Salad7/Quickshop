@@ -82,6 +82,7 @@ public class MainActivity extends FragmentActivity implements NavigationView.OnN
             Toast.makeText(this,"Store found!",Toast.LENGTH_SHORT).show();
             mTitle = findViewById(R.id.main_title);
             mTitle.setText(sharedPref.getString("store",""));
+            init();
         }
         else{
             Toast.makeText(this,"Store not found! Redirecting",Toast.LENGTH_SHORT).show();
@@ -149,7 +150,7 @@ public class MainActivity extends FragmentActivity implements NavigationView.OnN
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         preCheck();
-        init();
+
 
 
 
@@ -261,6 +262,7 @@ public class MainActivity extends FragmentActivity implements NavigationView.OnN
         sampleData.put("096619756803", new InventoryItem(2.99, "Water Bottle", "http://www.ryman.co.uk/media/catalog/product/0/3/0399030007.jpg", "Others","096619756803"));
         sampleData.put("9781491962299", new InventoryItem(4.99, "Machine Learning", "http://www.ryman.co.uk/media/catalog/product/0/3/0399030007.jpg", "Others","9781491962299"));
         sampleData.put("1297432524354", new InventoryItem(4.99, "Item", "http://www.ryman.co.uk/media/catalog/product/0/3/0399030007.jpg", "Others","1297432524354"));
+        sampleData.put("857263004111", new InventoryItem(79.99, "Trendy Jacket", "http://www.ryman.co.uk/media/catalog/product/0/3/0399030007.jpg", "Others","857263004111"));
 
         listOfAllItems.add(new CartItem(3.99,"Toy","http://www.pngmart.com/files/4/Plush-Toy-PNG-Transparent-Image.png","Others","1",1));
         listOfAllItems.add(new CartItem(3.99,"Toy","http://www.pngmart.com/files/4/Plush-Toy-PNG-Transparent-Image.png","Others","1",1));

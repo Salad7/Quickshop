@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="me.dm7.barcodescanner:zxing-1.9.8">
+    <CLASSES>
+      <root url="file://$USER_HOME$/.android/build-cache/9d8cd7edddce8a2711fd2c337e696705b0164a44/output/res" />
+      <root url="jar://$USER_HOME$/.android/build-cache/9d8cd7edddce8a2711fd2c337e696705b0164a44/output/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
